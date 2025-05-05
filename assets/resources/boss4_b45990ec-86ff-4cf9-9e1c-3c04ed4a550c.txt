@@ -1,0 +1,111 @@
+
+boss4_b45990ec-86ff-4cf9-9e1c-3c04ed4a550c.png
+size: 348,94
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 2, 7
+  size: 85, 114
+  orig: 85, 114
+  offset: 0, 0
+  index: -1
+hand1a
+  rotate: true
+  xy: 231, 47
+  size: 45, 37
+  orig: 45, 37
+  offset: 0, 0
+  index: -1
+hand1c
+  rotate: false
+  xy: 311, 3
+  size: 21, 30
+  orig: 21, 30
+  offset: 0, 0
+  index: -1
+hand2a
+  rotate: true
+  xy: 248, 2
+  size: 43, 32
+  orig: 43, 32
+  offset: 0, 0
+  index: -1
+hand2b
+  rotate: false
+  xy: 299, 35
+  size: 30, 27
+  orig: 30, 27
+  offset: 0, 0
+  index: -1
+hand2c
+  rotate: false
+  xy: 186, 40
+  size: 43, 52
+  orig: 43, 52
+  offset: 0, 0
+  index: -1
+handab
+  rotate: true
+  xy: 282, 3
+  size: 30, 27
+  orig: 30, 27
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 118, 21
+  size: 66, 71
+  orig: 66, 71
+  offset: 0, 0
+  index: -1
+leg1a
+  rotate: false
+  xy: 299, 64
+  size: 39, 28
+  orig: 39, 28
+  offset: 0, 0
+  index: -1
+leg1b
+  rotate: true
+  xy: 157, 5
+  size: 14, 37
+  orig: 14, 37
+  offset: 0, 0
+  index: -1
+leg1c
+  rotate: true
+  xy: 331, 35
+  size: 27, 12
+  orig: 27, 12
+  offset: 0, 0
+  index: -1
+leg2a
+  rotate: true
+  xy: 270, 52
+  size: 40, 27
+  orig: 40, 27
+  offset: 0, 0
+  index: -1
+leg2b
+  rotate: true
+  xy: 118, 3
+  size: 16, 37
+  orig: 16, 37
+  offset: 0, 0
+  index: -1
+leg2c
+  rotate: true
+  xy: 334, 5
+  size: 28, 12
+  orig: 28, 12
+  offset: 0, 0
+  index: -1
+money
+  rotate: true
+  xy: 196, 4
+  size: 34, 50
+  orig: 34, 50
+  offset: 0, 0
+  index: -1

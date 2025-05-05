@@ -1,0 +1,24 @@
+info face="face" size=94
+common lineHeight=94 scaleW=0 scaleH=0 pages=1
+page id=0 file="moyu_0.png"
+chars count=20
+char id=19985 x=279 y=278 width=94 height=86 xoffset=-3 yoffset=0 xadvance=88 page=0 chnl=15
+char id=20180 x=97 y=0 width=95 height=93 xoffset=-4 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=20185 x=382 y=0 width=92 height=93 xoffset=-4 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=21688 x=186 y=94 width=94 height=92 xoffset=-3 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=23567 x=94 y=188 width=91 height=91 xoffset=-2 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=27604 x=93 y=281 width=88 height=90 xoffset=2 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=27700 x=281 y=94 width=94 height=92 xoffset=-3 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=27827 x=186 y=187 width=95 height=90 xoffset=-4 yoffset=-2 xadvance=88 page=0 chnl=15
+char id=28023 x=193 y=0 width=94 height=93 xoffset=-3 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=30423 x=282 y=187 width=94 height=90 xoffset=-3 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=30446 x=374 y=278 width=76 height=86 xoffset=6 yoffset=0 xadvance=88 page=0 chnl=15
+char id=31070 x=0 y=94 width=92 height=93 xoffset=-4 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=32441 x=376 y=94 width=94 height=92 xoffset=-3 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=33756 x=93 y=94 width=92 height=93 xoffset=-2 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=34382 x=288 y=0 width=93 height=93 xoffset=-3 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=34394 x=0 y=188 width=93 height=92 xoffset=-3 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=35930 x=182 y=280 width=96 height=89 xoffset=-4 yoffset=0 xadvance=88 page=0 chnl=15
+char id=40060 x=0 y=281 width=92 height=90 xoffset=-2 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=40104 x=377 y=187 width=93 height=90 xoffset=-2 yoffset=-4 xadvance=88 page=0 chnl=15
+char id=40114 x=0 y=0 width=96 height=93 xoffset=-4 yoffset=-5 xadvance=88 page=0 chnl=15

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="left-down" width="5" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="map01" tilewidth="120" tileheight="120" tilecount="256" columns="16">
+  <image source="../Map_img/map01.png" width="2000" height="2000"/>
+ </tileset>
+ <layer id="1" name="Ground" width="5" height="9">
+  <data encoding="csv">
+1,1,1,1,1,
+1,1,1,1,1,
+1,1,1,1,1,
+1,1,1,1,1,
+1,1,1,1,1,
+1,1,1,1,1,
+2,2,2,2,2,
+2,2,2,2,2,
+41,41,2,41,41
+</data>
+ </layer>
+</map>

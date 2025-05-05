@@ -1,0 +1,48 @@
+
+UI_helpdevelopment_88dfec0d-b263-4a53-a577-7bb246558f45.png
+size: 822,438
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01
+  rotate: false
+  xy: 605, 10
+  size: 28, 97
+  orig: 28, 97
+  offset: 0, 0
+  index: -1
+02
+  rotate: false
+  xy: 774, 173
+  size: 21, 22
+  orig: 21, 22
+  offset: 0, 0
+  index: -1
+03
+  rotate: false
+  xy: 605, 109
+  size: 167, 86
+  orig: 173, 93
+  offset: 3, 5
+  index: -1
+04
+  rotate: false
+  xy: 635, 52
+  size: 54, 55
+  orig: 54, 56
+  offset: 0, 1
+  index: -1
+bg
+  rotate: false
+  xy: 2, 2
+  size: 601, 434
+  orig: 601, 434
+  offset: 0, 0
+  index: -1
+tipsbg
+  rotate: false
+  xy: 605, 197
+  size: 215, 239
+  orig: 216, 239
+  offset: 1, 0
+  index: -1

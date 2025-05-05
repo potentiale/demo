@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="left-down" width="11" height="21" tilewidth="100" tileheight="100" infinite="0" nextlayerid="9" nextobjectid="71">
+ <tileset firstgid="1" name="map01" tilewidth="100" tileheight="100" tilecount="400" columns="20">
+  <image source="../Map_img/map01.png" width="2000" height="2000"/>
+ </tileset>
+ <tileset firstgid="401" name="computer" tilewidth="104" tileheight="121" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="104" height="121" source="../Map_img/computer/pc1.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="402" name="door" tilewidth="100" tileheight="100" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="100" height="100" source="../Map_img/door/door01.png"/>
+  </tile>
+ </tileset>
+ <layer id="2" name="ground_road" width="11" height="21" visible="0">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2,2,2,2,2,0,0,0,
+0,0,0,2,2,2,2,2,0,0,0,
+0,0,0,2,2,2,2,2,0,0,0,
+0,0,0,2,2,2,2,2,0,0,0,
+0,0,0,2,2,2,2,2,0,0,0,
+0,0,0,0,2,0,1,0,0,0,0,
+0,0,0,0,2,0,1,0,0,0,0,
+0,0,0,0,2,0,1,0,0,0,0,
+0,0,0,0,2,0,1,0,0,0,0,
+0,0,0,0,2,0,1,0,0,0,0,
+0,0,0,0,2,0,1,0,0,0,0,
+0,0,0,0,2,0,1,0,0,0,0,
+0,0,0,1,1,1,1,1,0,0,0,
+0,0,0,1,1,1,1,1,0,0,0,
+0,0,0,1,1,1,1,1,0,0,0,
+0,0,0,1,1,1,1,1,0,0,0,
+0,0,0,1,1,1,1,1,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="1" name="Ground" width="11" height="21">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,
+1,1,2,3,3,3,3,3,7,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,13,26,1,30,1,27,10,1,1,
+1,1,1,16,1,18,1,18,1,1,1,
+1,1,1,16,1,18,1,18,1,1,1,
+1,1,1,16,1,18,1,18,1,1,1,
+1,1,1,16,1,18,1,18,1,1,1,
+1,1,1,16,1,18,1,18,1,1,1,
+1,1,2,24,1,29,1,25,7,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,16,1,1,1,1,1,18,1,1,
+1,1,13,9,9,9,9,9,10,1,1,
+1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <objectgroup id="3" name="specialtower">
+  <object id="1" name="st_1_291" gid="1" x="200" y="1300" width="100" height="100"/>
+  <object id="2" name="st_1_292" gid="1" x="800" y="1300" width="100" height="100"/>
+  <object id="3" name="st_2_292" gid="1" x="200" y="900" width="100" height="100"/>
+  <object id="4" name="st_2_291" gid="1" x="800" y="900" width="100" height="100"/>
+ </objectgroup>
+ <objectgroup id="4" name="computer">
+  <object id="5" name="PC_1" gid="401" x="500" y="1900" width="104" height="121"/>
+  <object id="6" name="PC_2" gid="401" x="500" y="300" width="104" height="121"/>
+ </objectgroup>
+ <objectgroup id="8" name="point">
+  <object id="57" name="1" gid="32" x="600" y="1400" width="100" height="100"/>
+  <object id="58" name="1" gid="32" x="600" y="1300" width="100" height="100"/>
+  <object id="59" name="1" gid="32" x="600" y="1200" width="100" height="100"/>
+  <object id="60" name="1" gid="32" x="600" y="1100" width="100" height="100"/>
+  <object id="61" name="1" gid="32" x="600" y="1000" width="100" height="100"/>
+  <object id="62" name="1" gid="32" x="600" y="900" width="100" height="100"/>
+  <object id="64" name="2" gid="33" x="400" y="800" width="100" height="100"/>
+  <object id="65" name="2" gid="33" x="400" y="900" width="100" height="100"/>
+  <object id="66" name="2" gid="33" x="400" y="1000" width="100" height="100"/>
+  <object id="67" name="2" gid="33" x="400" y="1100" width="100" height="100"/>
+  <object id="68" name="2" gid="33" x="400" y="1200" width="100" height="100"/>
+  <object id="69" name="2" gid="33" x="400" y="1300" width="100" height="100"/>
+ </objectgroup>
+ <objectgroup id="5" name="door_1">
+  <object id="7" name="door_2" gid="402" x="600" y="800" width="100" height="100"/>
+  <object id="8" name="door_1" gid="402" x="400" y="1400" width="100" height="100"/>
+ </objectgroup>
+ <objectgroup id="7" name="PC_2">
+  <object id="33" name="1" gid="31" x="700" y="700" width="100" height="100"/>
+  <object id="34" name="1" gid="31" x="600" y="700" width="100" height="100"/>
+  <object id="35" name="1" gid="31" x="500" y="700" width="100" height="100"/>
+  <object id="36" name="2" gid="31" x="400" y="700" width="100" height="100"/>
+  <object id="37" gid="31" x="300" y="700" width="100" height="100"/>
+  <object id="38" name="2" gid="31" x="700" y="600" width="100" height="100"/>
+  <object id="39" name="2" gid="31" x="600" y="600" width="100" height="100"/>
+  <object id="40" name="2" gid="31" x="500" y="600" width="100" height="100"/>
+  <object id="41" name="2" gid="31" x="400" y="600" width="100" height="100"/>
+  <object id="42" gid="31" x="300" y="600" width="100" height="100"/>
+  <object id="43" gid="31" x="700" y="500" width="100" height="100"/>
+  <object id="44" gid="31" x="600" y="500" width="100" height="100"/>
+  <object id="45" gid="31" x="500" y="500" width="100" height="100"/>
+  <object id="46" gid="31" x="400" y="500" width="100" height="100"/>
+  <object id="47" gid="31" x="300" y="500" width="100" height="100"/>
+  <object id="48" gid="31" x="700" y="400" width="100" height="100"/>
+  <object id="49" gid="31" x="600" y="400" width="100" height="100"/>
+  <object id="50" gid="31" x="500" y="400" width="100" height="100"/>
+  <object id="51" gid="31" x="400" y="400" width="100" height="100"/>
+  <object id="52" gid="31" x="300" y="400" width="100" height="100"/>
+  <object id="53" gid="31" x="700" y="300" width="100" height="100"/>
+  <object id="54" gid="31" x="600" y="300" width="100" height="100"/>
+  <object id="55" gid="31" x="400" y="300" width="100" height="100"/>
+  <object id="56" gid="31" x="300" y="300" width="100" height="100"/>
+ </objectgroup>
+ <objectgroup id="6" name="PC_1">
+  <object id="9" gid="31" x="300" y="1500" width="100" height="100"/>
+  <object id="10" gid="31" x="400" y="1500" width="100" height="100"/>
+  <object id="11" gid="31" x="500" y="1500" width="100" height="100"/>
+  <object id="12" gid="31" x="600" y="1500" width="100" height="100"/>
+  <object id="13" gid="31" x="700" y="1500" width="100" height="100"/>
+  <object id="14" gid="31" x="300" y="1600" width="100" height="100"/>
+  <object id="15" gid="31" x="400" y="1600" width="100" height="100"/>
+  <object id="16" gid="31" x="500" y="1600" width="100" height="100"/>
+  <object id="17" gid="31" x="600" y="1600" width="100" height="100"/>
+  <object id="18" gid="31" x="700" y="1600" width="100" height="100"/>
+  <object id="19" gid="31" x="300" y="1700" width="100" height="100"/>
+  <object id="20" gid="31" x="400" y="1700" width="100" height="100"/>
+  <object id="21" gid="31" x="500" y="1700" width="100" height="100"/>
+  <object id="22" gid="31" x="600" y="1700" width="100" height="100"/>
+  <object id="23" gid="31" x="700" y="1700" width="100" height="100"/>
+  <object id="24" gid="31" x="300" y="1800" width="100" height="100"/>
+  <object id="25" gid="31" x="400" y="1800" width="100" height="100"/>
+  <object id="26" gid="31" x="500" y="1800" width="100" height="100"/>
+  <object id="27" gid="31" x="600" y="1800" width="100" height="100"/>
+  <object id="28" gid="31" x="700" y="1800" width="100" height="100"/>
+  <object id="29" gid="31" x="300" y="1900" width="100" height="100"/>
+  <object id="30" gid="31" x="400" y="1900" width="100" height="100"/>
+  <object id="31" gid="31" x="600" y="1900" width="100" height="100"/>
+  <object id="32" gid="31" x="700" y="1900" width="100" height="100"/>
+ </objectgroup>
+</map>

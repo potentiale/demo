@@ -1,0 +1,20 @@
+
+effect2_f3185bd7-8d39-4707-b2a0-cc4005aa33a8.png
+size: 126,73
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 77, 17
+  size: 47, 54
+  orig: 47, 54
+  offset: 0, 0
+  index: -1
+2
+  rotate: true
+  xy: 2, 2
+  size: 69, 73
+  orig: 73, 76
+  offset: 2, 2
+  index: -1

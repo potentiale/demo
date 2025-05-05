@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="left-down" width="11" height="17" tilewidth="100" tileheight="100" infinite="0" nextlayerid="11" nextobjectid="112">
+ <tileset firstgid="1" name="computer" tilewidth="298" tileheight="121" tilecount="5" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="104" height="121" source="../Map_img/computer/pc1.png"/>
+  </tile>
+  <tile id="1">
+   <image width="57" height="40" source="../Map_img/decorate/bangonshi.png"/>
+  </tile>
+  <tile id="2">
+   <image width="298" height="62" source="../Map_img/decorate/hengfu01.png"/>
+  </tile>
+  <tile id="3">
+   <image width="298" height="62" source="../Map_img/decorate/hengfu02.png"/>
+  </tile>
+  <tile id="4">
+   <image width="57" height="40" source="../Map_img/decorate/wc.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="7" name="door" tilewidth="100" tileheight="100" tilecount="1" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image width="100" height="100" source="../Map_img/door/door01.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="8" name="map01" tilewidth="100" tileheight="100" tilecount="400" columns="20">
+  <image source="../Map_img/map01.png" width="2000" height="2000"/>
+ </tileset>
+ <layer id="10" name="ground_road" width="11" height="17">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,8,0,0,0,0,0,
+378,378,378,378,378,8,378,378,378,378,378,
+378,0,0,0,378,8,378,0,0,0,378,
+378,0,0,0,378,8,378,0,0,0,378,
+378,0,0,0,378,8,378,0,0,0,378,
+378,0,0,0,378,8,378,0,0,0,378,
+378,0,0,0,378,8,378,0,0,0,378,
+378,0,0,0,378,8,378,0,0,0,378,
+378,0,0,0,378,8,378,0,0,0,378,
+378,0,0,0,378,8,378,0,0,0,378,
+378,0,0,0,0,8,0,0,0,0,378,
+378,0,0,0,0,8,0,0,0,0,378,
+378,0,0,0,0,8,0,0,0,0,378,
+378,0,0,0,0,8,0,0,0,0,378,
+378,0,0,0,0,8,0,0,0,0,378,
+378,378,378,378,378,378,378,378,378,378,378
+</data>
+ </layer>
+ <layer id="1" name="Ground" width="11" height="17">
+  <data encoding="csv">
+49,49,49,49,49,49,49,49,49,49,49,
+49,49,49,49,49,49,49,49,49,49,49,
+50,51,51,51,55,49,50,54,54,54,55,
+62,48,48,48,64,49,62,48,48,48,64,
+62,48,48,48,64,49,62,48,48,48,64,
+62,48,48,48,64,49,62,48,48,48,64,
+62,48,48,48,64,49,62,48,48,48,64,
+62,48,48,48,64,49,62,48,48,48,64,
+62,48,48,48,64,49,62,48,48,48,64,
+62,48,48,48,64,49,62,48,48,48,64,
+62,48,48,48,72,49,65,48,48,48,64,
+62,48,48,48,48,48,48,48,48,48,64,
+62,48,48,48,48,48,48,48,48,48,64,
+62,48,48,48,48,48,48,48,48,48,64,
+62,48,48,48,48,48,48,48,48,48,64,
+62,48,48,48,48,48,48,48,48,48,64,
+59,60,60,60,60,60,60,60,60,60,58
+</data>
+ </layer>
+ <objectgroup id="6" name="Collision">
+  <object id="108" name="wall_1" x="500" y="1100">
+   <polygon points="0,0 0,-900 -500,-900 -500,600 600,600 600,-900 100,-900 100,0 200,0 200,-800 500,-800 500,500 -400,500 -400,-800 -100,-800 -100,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="decorate">
+  <object id="110" gid="5" x="622.901" y="1079.98" width="57" height="40"/>
+ </objectgroup>
+ <objectgroup id="7" name="Born">
+  <object id="109" name="boss" x="500" y="100">
+   <polygon points="0,0 0,100 100,100 100,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="door_1">
+  <properties>
+   <property name="doorlv" type="int" value="1"/>
+  </properties>
+  <object id="107" name="lv_4" gid="7" x="500" y="1100" width="100" height="100"/>
+  <object id="104" name="lv_3" gid="7" x="500" y="900" width="100" height="100"/>
+  <object id="105" name="lv_2" gid="7" x="500" y="700" width="100" height="100"/>
+  <object id="106" name="lv_1" gid="7" x="500" y="500" width="100" height="100"/>
+ </objectgroup>
+ <objectgroup id="2" name="point"/>
+ <objectgroup id="3" name="computer">
+  <object id="111" name="PC_1" gid="1" x="500" y="1600" width="104" height="121"/>
+ </objectgroup>
+ <objectgroup id="4" name="PC_1">
+  <properties>
+   <property name="bedtype" type="int" value="1"/>
+  </properties>
+ </objectgroup>
+</map>
