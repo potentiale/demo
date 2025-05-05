@@ -1,0 +1,130 @@
+"use strict";
+cc._RF.push(module, '7342cPX2OJJF6XNl9vLtoKP', 'WC_Battery');
+// scripts/WC_Battery.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    c = e("CCTool"),
+    l = e("ListenID"),
+    p = e("Cfg"),
+    d = e("WarChessManage"),
+    u = e("ElementBase"),
+    f = e("WarChessBase"),
+    h = e("WarChessTouch"),
+    m = cc._decorator,
+    t = m.ccclass,
+    e = m.menu,
+    e = (m.property, r = f.WarChessBase, i(y, r), y.prototype.onInit = function () {
+  var e = this;
+  this.node.addComponent(h["default"]).ower = this, s["default"].MapClr.myMap.node.on(l.ListenID.WC_BULLET, function () {
+    e._isActive && e.pointType == d.POINT_TYPE.BATTLEFIELD && e.setHurt();
+  }, this);
+}, y.prototype.initAttribute = function (e) {
+  this.imgList[0] = this.node.children[0].getComponent(cc.Sprite), this.imgList[1] = this.node.children[1].getComponent(cc.Sprite), this.imgList[2] = this.node.children[2].getComponent(cc.Sprite), this.lvText = this.imgList[1].node.children[0].children[0].getComponent(cc.Label), this.setAttribute(e), this.mySkeleton = this.node.children[0].getComponent(sp.Skeleton), this.getZIndex(), this.onInit();
+}, y.prototype.setAttribute = function (e) {
+  var t = this;
+  "string" == typeof e.parameter && (e.parameter = JSON.parse(e.parameter)), this.attribute = {
+    name: e.name,
+    buildingType: e.buildingType,
+    buildingID: e.buildID,
+    lv: e.level,
+    data: e
+  }, this.attribute.isMax = !p.Cfg.Building999.get(e.id + 1), this._life = e.hp || 1, this.lvText.string = e.atk + "", this.setConstructImg(this.imgList[1], e.parameter[1], function () {
+    t.imgList[0].node.setContentSize(t.imgList[1].node.width, 1.04 * t.imgList[1].node.width);
+  }), this.getZIndex();
+}, y.prototype.setConstructImg = function (o, e, n) {
+  var i = this;
+  void 0 === o && (o = this.imgList[0]), this.isUpdataIme && o && (cc.resources.load("img/model_4/" + e, cc.SpriteFrame, function (e, t) {
+    o.spriteFrame = t, n && n();
+  }), this.imgList[2].node.active && cc.resources.load(this.attribute.data.seed, cc.SpriteFrame, function (e, t) {
+    i.imgList[2].spriteFrame = t;
+  }));
+}, y.prototype.upAttribute = function (e) {
+  (e = e || p.Cfg.Building999.get(this.attribute.data.id + 1)) && (this.setAttribute(e), cc.tween(this.node).to(.1, {
+    scale: 1.1
+  }).to(.2, {
+    scale: 1
+  }).start());
+}, y.prototype.setFreshBox = function (e) {
+  var o = this;
+  this.imgList[0].node.active = this.imgList[1].node.active = !e, this.imgList[2].node.active = e, cc.resources.load(this.attribute.data.seed, cc.SpriteFrame, function (e, t) {
+    o.imgList[2].spriteFrame = t;
+  });
+}, y.prototype.setHurt = function () {
+  var e = this,
+      t = this.getBulletData();
+  s["default"].CONFIG_INFO.AITag && s["default"].MapClr.newLabelTips("-" + t.attack, this.node.position, cc.Color.BLUE, "energy");
+
+  for (var o = 0; o < t.num; o++) {
+    this.scheduleOnce(function () {
+      e.setAnimation("f_" + e.attribute.lv), s["default"].MapClr.newBullet2(e.node.position, {
+        tag: null,
+        img: e.attribute.data.parameter[0],
+        speed: 1200,
+        owerID: e._owerID,
+        hurtData: new u.HurtData(-t.attack, 1, u.Element_Type.Role),
+        call: function call() {
+          c.CCTool.Audio.Player("m4_shot");
+        }
+      });
+    }, t.ratio * o);
+  }
+}, y.prototype.getBulletData = function () {
+  var e = 1,
+      t = .5,
+      o = 1,
+      n = this.attribute.data.level,
+      t = n <= 2 ? (e = n, .1) : (e = n <= 5 ? n + 1 : 6, .05);
+  return 1 == n || 2 == n || 3 == n ? o = 1 : 4 == n ? o = Math.ceil(1.6) : 5 == n ? o = Math.ceil(16 / 6 * 1e4 / 1e4) : 5 < n && (o = Math.ceil(Math.pow(2, n - 1) / 6 * 1e4 / 1e4)), {
+    num: e,
+    attack: o,
+    ratio: t
+  };
+}, a([t, e("gameElement/WC_Battery")], y));
+
+function y() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e.type = u.Element_Type.WC_Battery, e.attribute = null, e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

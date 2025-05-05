@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dizzy03",
+    "texture": "6328609e-3424-4418-bd38-221384bbca52",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      110,
+      91
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      110,
+      91
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

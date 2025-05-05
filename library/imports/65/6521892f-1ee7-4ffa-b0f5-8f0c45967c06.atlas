@@ -1,0 +1,132 @@
+
+kuaidiyuan.png
+size: 142,78
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm1_r
+  rotate: false
+  xy: 118, 4
+  size: 8, 24
+  orig: 8, 24
+  offset: 0, 0
+  index: -1
+arm1l
+  rotate: true
+  xy: 68, 15
+  size: 8, 21
+  orig: 8, 24
+  offset: 0, 0
+  index: -1
+arm2_l
+  rotate: false
+  xy: 83, 3
+  size: 6, 10
+  orig: 6, 10
+  offset: 0, 0
+  index: -1
+arm2_r
+  rotate: false
+  xy: 68, 2
+  size: 6, 11
+  orig: 6, 11
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 27, 8
+  size: 15, 39
+  orig: 15, 39
+  offset: 0, 0
+  index: -1
+book
+  rotate: true
+  xy: 91, 2
+  size: 26, 25
+  orig: 26, 25
+  offset: 0, 0
+  index: -1
+foot_l
+  rotate: false
+  xy: 27, 2
+  size: 9, 4
+  orig: 9, 4
+  offset: 0, 0
+  index: -1
+foot_r
+  rotate: false
+  xy: 38, 2
+  size: 9, 4
+  orig: 9, 4
+  offset: 0, 0
+  index: -1
+hand_l
+  rotate: true
+  xy: 128, 13
+  size: 6, 12
+  orig: 6, 12
+  offset: 0, 0
+  index: -1
+hand_r
+  rotate: true
+  xy: 128, 21
+  size: 7, 12
+  orig: 7, 12
+  offset: 0, 0
+  index: -1
+leg1_l
+  rotate: false
+  xy: 128, 2
+  size: 5, 9
+  orig: 5, 9
+  offset: 0, 0
+  index: -1
+leg1_r
+  rotate: false
+  xy: 76, 2
+  size: 5, 11
+  orig: 5, 11
+  offset: 0, 0
+  index: -1
+leg2_l
+  rotate: true
+  xy: 49, 2
+  size: 4, 8
+  orig: 4, 8
+  offset: 0, 0
+  index: -1
+leg2_r
+  rotate: false
+  xy: 135, 2
+  size: 5, 9
+  orig: 5, 9
+  offset: 0, 0
+  index: -1
+luant1
+  rotate: false
+  xy: 2, 2
+  size: 23, 21
+  orig: 23, 21
+  offset: 0, 0
+  index: -1
+luant2
+  rotate: false
+  xy: 2, 2
+  size: 23, 21
+  orig: 23, 21
+  offset: 0, 0
+  index: -1
+s
+  rotate: false
+  xy: 2, 25
+  size: 87, 51
+  orig: 87, 51
+  offset: 0, 0
+  index: -1
+tou
+  rotate: false
+  xy: 91, 30
+  size: 49, 46
+  orig: 49, 46
+  offset: 0, 0
+  index: -1

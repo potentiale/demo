@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "jiaoshoujia",
+    "texture": "b34b37ee-1c2d-4404-abcb-6016a6d2b0b3",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      401,
+      142
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      401,
+      142
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

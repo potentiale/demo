@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "elec01_01",
+    "texture": "5bdb71d5-095a-4901-9604-4ad0885d3c75",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      71,
+      89
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      71,
+      89
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

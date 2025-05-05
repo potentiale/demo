@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Cyan_ bt",
+    "texture": "02cac2a7-c2a6-41db-bfe6-024e0532941b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      270,
+      93
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      270,
+      93
+    ],
+    "capInsets": [
+      52,
+      36,
+      73,
+      25
+    ]
+  }
+}

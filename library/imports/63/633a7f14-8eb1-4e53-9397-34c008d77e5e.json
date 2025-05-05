@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "ghosthand01",
+    "texture": "580c9774-5383-4a35-93f3-c34148677b40",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      123,
+      116
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      123,
+      116
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "glod_small",
+    "texture": "2b78086b-4082-45c1-a014-1e7472fc7b81",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      135,
+      114
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      135,
+      114
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

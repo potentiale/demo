@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "nmb_d",
+    "texture": "1522f4ec-0cb1-4c95-b694-697045d0ef4b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      80,
+      39
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      80,
+      39
+    ],
+    "capInsets": [
+      22,
+      0,
+      23,
+      0
+    ]
+  }
+}

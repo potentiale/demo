@@ -1,0 +1,26 @@
+{
+  "__type__": "cc.TiledMapAsset",
+  "_name": "Map_fishmodel",
+  "_objFlags": 0,
+  "_native": "",
+  "tmxXmlStr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<map version=\"1.5\" tiledversion=\"1.7.2\" orientation=\"orthogonal\" renderorder=\"left-down\" width=\"5\" height=\"9\" tilewidth=\"120\" tileheight=\"120\" infinite=\"0\" nextlayerid=\"2\" nextobjectid=\"1\">\r\n <tileset firstgid=\"1\" name=\"map01\" tilewidth=\"120\" tileheight=\"120\" tilecount=\"256\" columns=\"16\">\r\n  <image source=\"../Map_img/map01.png\" width=\"2000\" height=\"2000\"/>\r\n </tileset>\r\n <layer id=\"1\" name=\"Ground\" width=\"5\" height=\"9\">\r\n  <data encoding=\"csv\">\r\n1,1,1,1,1,\r\n1,1,1,1,1,\r\n1,1,1,1,1,\r\n1,1,1,1,1,\r\n1,1,1,1,1,\r\n1,1,1,1,1,\r\n2,2,2,2,2,\r\n2,2,2,2,2,\r\n41,41,2,41,41\r\n</data>\r\n </layer>\r\n</map>\r\n",
+  "textures": [
+    {
+      "__uuid__": "fb63de9f-8424-48b8-907e-56998bdcd84a"
+    }
+  ],
+  "textureNames": [
+    "../Map_img/map01.png"
+  ],
+  "textureSizes": [
+    {
+      "__type__": "cc.Size",
+      "width": 2000,
+      "height": 2000
+    }
+  ],
+  "imageLayerTextures": [],
+  "imageLayerTextureNames": [],
+  "tsxFiles": [],
+  "tsxFileNames": []
+}

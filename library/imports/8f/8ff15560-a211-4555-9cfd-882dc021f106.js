@@ -1,0 +1,51 @@
+"use strict";
+cc._RF.push(module, '8ff15VgohFFVZz9iC3AIfEG', 'GridViewFreshWork');
+// scripts/GridViewFreshWork.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.GridViewFreshWork = o.GridViewFreshWorkItem = void 0;
+
+function n() {}
+
+o.GridViewFreshWorkItem = n;
+i.prototype.removeWork = function (e) {
+  for (var t = 0, o = this.getWorkItems(e); t < o.length; t++) {
+    var n = o[t];
+    this.dic.splice(n, 1);
+  }
+}, i.prototype.clear = function () {
+  this.dic.length = 0;
+}, i.prototype.addWork = function (e, t) {
+  var o = new n();
+  o.index = e, o["function"] = t, this.dic.push(o), this.run();
+}, i.prototype.run = function () {
+  var e = this;
+  null === this._timeWatcher && (this._timeWatcher = setInterval(function () {
+    e.excute();
+  }, 1e3 * this.gapTime), this.excute());
+}, i.prototype.excute = function () {
+  if (0 === this.dic.length) return "number" == typeof this._timeWatcher && clearInterval(this._timeWatcher), void (this._timeWatcher = null);
+  this.dic[0]["function"](), this.dic.shift();
+}, i.prototype.getWorkItems = function (e) {
+  for (var t = [], o = 0; o < this.dic.length; o++) {
+    this.dic[o].index === e && t.push(o);
+  }
+
+  return t;
+}, t = i;
+
+function i() {
+  this.gapTime = .02, this._timeWatcher = null, this.dic = [];
+}
+
+o.GridViewFreshWork = t;
+
+cc._RF.pop();

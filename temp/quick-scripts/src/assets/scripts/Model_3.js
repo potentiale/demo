@@ -1,0 +1,133 @@
+"use strict";
+cc._RF.push(module, '71a6cDFtqFGRJ+ME29fiDWs', 'Model_3');
+// scripts/Model_3.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+});
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.Model_3 = void 0;
+var a,
+    r = e("AppCommon"),
+    s = e("CCTool"),
+    c = e("ListenID"),
+    l = e("GameScene"),
+    p = e("AIBuild"),
+    d = e("AIRole"),
+    u = e("AIState"),
+    f = e("BigBossState"),
+    t = e("ModeBase"),
+    h = e("ModelManage"),
+    m = null,
+    y = null,
+    i = (a = t.ModelBase, i(g, a), g.prototype.Matching = function () {
+  s.CCTool.UI.OpenPop("prefab/pop/pop_Matching_M" + r["default"].GScene._GameModel), r["default"].MapClr.node.active = !0, r["default"].GScene.player = null;
+}, g.prototype.LoadMap = function () {
+  m = r["default"].GScene, (y = r["default"].MapClr).newWallColl(y.myMap.getObjectGroup("Collision").getObjects()), y.newBed("computer"), y.getPathfindingMap(), y.newDoor("door_1"), y.newDoor("door_2"), this.LoadRole(), m.setPhysics(!0);
+}, g.prototype.LoadRole = function () {
+  for (var t = this, e = [], o = y.myMap.getObjectGroup("Born").getObjects(), n = 0; n < o.length; n++) {
+    var i = o[n];
+    i._pos = y.getTMapPosition(i.offset, y.myMap.node).addSelf(cc.v2(y.tileSize.width / 2, -y.tileSize.width / 2)), "boss" == i.name ? y.newMonster(i, "BigMonster", function (e) {
+      e.setPlayerCamp(y.MatchRoleData[0]), e.myFSM = e.node.addComponent(f["default"]), e.myFSM.DialogueList = t.MonsterDialogueList, e.myFSM.initState(e), t.LoadMapEnd();
+    }) : e.push(i);
+  }
+
+  var a = 0;
+
+  for (n in y.MatchRoleData) {
+    !function (t) {
+      if (0 == Number(t)) return;
+      y.newPlayer(e[a++], function (e) {
+        e.setPlayerCamp(y.MatchRoleData[t]), e.myFSM = e.node.addComponent(d["default"]), e.myFSM.initState(e), e.myAIBuild = e.node.addComponent(p["default"]);
+      });
+    }(n);
+  }
+}, g.prototype.LoadMapEnd = function () {
+  this.loadEndCall && this.loadEndCall(), m.setGameStart(l.GAME_STATE.ReadyAm), s.CCTool.Audio.Player("Start"), cc.Tween.stopAllByTarget(m.GameCamera.node), m.GameCamera.zoomRatio = 1.3, m.GameCamera.node.position = cc.v2(0, 200), m.GameCamera.node.active = !0, y.scheduleOnce(function () {
+    m._GameState == l.GAME_STATE.ReadyAm && (cc.tween(m.GameCamera).to(.5, {
+      zoomRatio: 1
+    }).start(), cc.tween(m.GameCamera.node).to(.5, {
+      position: r["default"].MapClr.monsterList[0].node.position
+    }).call(function () {
+      m._GameState == l.GAME_STATE.ReadyAm && (m.setGameStart(l.GAME_STATE.CountDown), m.setPause(-999));
+    }).start());
+  }, 6), s.CCTool.UI.OpenPop("prefab/game/ui/GameUI_1", {}, r["default"].MainView.GamePage), this.Settlement();
+}, g.prototype.CountDown = function () {
+  var e,
+      t = [];
+
+  for (e in r["default"].MapClr.bedList) {
+    var o = r["default"].MapClr.bedList[e];
+    o.isHaveMan || t.push(o);
+  }
+
+  var n,
+      i = r["default"].getRandomArrayElements(t, 6),
+      a = 0;
+
+  for (n in r["default"].MapClr.roleList) {
+    r["default"].MapClr.roleList[n].myFSM.setTargetByForce(i[a++]);
+  }
+
+  y.monsterList[0].toCountDown(), m.setCountDown(15), r["default"].MapClr.setTouchMoveCamera(!0);
+}, g.prototype.Settlement = function () {
+  var i = this;
+  y.myMap.node.on(c.ListenID.Monster_State, function (e, t) {
+    (t = void 0 === t ? !1 : t) || i.GameEnd();
+  }, y.myMap), y.myMap.node.on(c.ListenID.Role_State, function (e, t) {
+    if (!(t = void 0 === t ? !1 : t)) {
+      var o,
+          n = !0;
+
+      for (o in y.roleList) {
+        0 < y.roleList[o]._life && (n = !1);
+      }
+
+      y.roleList[e], n && i.GameWin();
+    }
+  }, y.myMap);
+}, g.prototype.GameStart = function () {
+  r["default"].MainView.gameMsg("抓住摸鱼的员工！"), m.setPlayerStart(l.PLAYER_STATE.Move), r["default"].MapClr.setTouchMoveCamera(!1);
+}, g.prototype.GameWin = function () {
+  r["default"].data.getCoin = Math.min(Math.floor((r["default"].gettimestamp() - r["default"].MapClr.monsterList[0]._initTime) / 9 + 10), 150), r["default"].GScene.setGameStart(l.GAME_STATE.Win);
+}, g.prototype.GameEnd = function () {
+  r["default"].data.getCoin = Math.min(Math.floor((r["default"].gettimestamp() - r["default"].MapClr.monsterList[0]._initTime) / 9 + 10), 150), m.setGameStart(l.GAME_STATE.End), m.scheduleOnce(function () {
+    s.CCTool.UI.OpenPop("prefab/pop/pop_GameDie_M3");
+  }, 1);
+}, g.prototype.OnUpdate = function (e) {
+  this.CDManage.OnUpdate(e);
+}, g);
+
+function g() {
+  var e,
+      t = null !== a && a.apply(this, arguments) || this;
+  return t.type = h.GAME_MODEL.BOSS_MODEL, t.mapPath = "Map_boss", t.CDManage = new s.CCTool.CDManage({}), t.MonsterDialogueList = ((e = {})[u.StateType.Idle] = ["本月的投票准备结束，结果已经出来了", "最受玩家欢迎的是“办公室惊魂”", "请大家好好期待，我们换个地方玩玩，嘿嘿嘿", "接下来是玩家反馈环节", "满级卡死？已经修复了，就怕你玩不到满级", "我太弱了？不存在的，我又变强了哈害嗨", "想穿新衣服？等我给大家购置新的工服！", "想要联机？没问题，请大家要多多支持呀", "本期反馈报告到此为止，欢迎大家点击右上角三个点反馈", "感谢各位员工的努力，我们要更加努力呀！", "咦？人呢？"], e[u.StateType.Attack] = ["快开门！你是不是在摸鱼！", "禁止在办公室摆放私人物品！", "请了你们，我真是个大怨种！", "整天搞这些花里胡哨的东西！", "赶紧起来码代码！", "我就不信我治不了你们！", "你知不知道这个游戏每个版本都有bug！", "联机模式到底什么时候出！", "开朗网友都打过来了！快拿出你们的咸鱼炮！", "是谁拿了我的私房钱！", "你们不努力我怎么买房买车！", "饮料不要摆在门口！", "混日子的就不是我的兄弟！"], e[u.StateType.Escape] = ["火力这么猛，你等着", "累死我了，回去歇一会", "敲得我手都疼了", "中场休息！", "我一定会回来的！", "撤退撤退！"], e[u.StateType.Treat] = ["等我休息一会再来收拾你们", "呼呼呼~歇一会", "马上回来小宝贝们", "小腿一抖，精神抖擞！", "让我看看下个倒霉蛋是谁", "再面试几个岗位吧，我们要成为宇宙第一游戏公司", "洗手间装好了，下个房间装个什么好呢？", "得再请个总监回来好好管管你们", "哟，确认入职了，期待一下这位高管的能力", "每天这么蹦跶，我的微聊步数都10万步了"], e.kill = ["你因左脚踏入公司被开除了", "这两天有点累了，你先回家休息两天吧", "这位同学恭喜你毕业了", "该醒醒了！", "变身魔法！菜狗变变变！", "炒鱿鱼！"], e), t;
+}
+
+o.Model_3 = i;
+
+cc._RF.pop();

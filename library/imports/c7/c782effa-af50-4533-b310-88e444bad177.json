@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "jzhu_db",
+    "texture": "9f8a674b-d212-4783-bc3c-39699801d5a2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      108,
+      63
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      108,
+      63
+    ],
+    "capInsets": [
+      11,
+      45,
+      59,
+      10
+    ]
+  }
+}

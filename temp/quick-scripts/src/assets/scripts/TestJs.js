@@ -1,0 +1,162 @@
+"use strict";
+cc._RF.push(module, '645e9pz+vhPO52sCZa4iCsM', 'TestJs');
+// scripts/TestJs.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    c = e("CCTool"),
+    l = e("PlatformFun"),
+    p = e("UserVo"),
+    t = cc._decorator,
+    e = t.ccclass,
+    t = t.property,
+    e = (r = cc.Component, i(d, r), d.prototype.start = function () {
+  s["default"].data.isTest = !0, this.node.setPosition(-cc.winSize.width / 2, cc.winSize.height / 2), this.onButton(null, "OpenTest"), console.log(JSON.stringify(p.UserVo.data));
+}, d.prototype.onButton = function (e, t) {
+  switch (t) {
+    case "InitTest":
+      1 == s["default"].CONFIG_INFO.GM && (this.data.num++, 10 < this.data.num && (this.node.active = !0, c.CCTool.UI.ShowToast("设置成功")));
+      break;
+
+    case "OpenTest":
+      for (var o = 1; o < this.node.childrenCount; o++) {
+        this.node.children[o].active = !this.node.children[o].active;
+      }
+
+      break;
+
+    case "AITAG":
+      s["default"].CONFIG_INFO.AITag = !s["default"].CONFIG_INFO.AITag, c.CCTool.UI.ShowToast(s["default"].CONFIG_INFO.AITag ? "开启" : "关闭");
+      break;
+
+    case "AddCoin":
+      s["default"].GScene.player ? s["default"].GScene.player.setCoin(999999) : p.UserVo.SetFish(1e4), c.CCTool.UI.ShowToast("设置成功");
+      break;
+
+    case "AddPower":
+      s["default"].GScene.player.setPower(999), c.CCTool.UI.ShowToast("设置成功");
+      break;
+
+    case "isInvisible":
+    case "isAtkMe":
+      s["default"].data[t] = !s["default"].data[t], c.CCTool.UI.ShowToast(s["default"].data[t] ? "开启" : "关闭");
+      break;
+
+    case "ToBed":
+      if (s["default"].GScene.player.myBed) return;
+
+      for (var o in s["default"].MapClr.bedList) {
+        var n = s["default"].MapClr.bedList[o];
+        if (!n.isHaveMan) return n.mountRole(s["default"].GScene.player), cc.tween(s["default"].GScene.GameCamera.node).to(.2, {
+          position: n.node.position
+        }).start(), void c.CCTool.UI.ShowToast("设置成功");
+      }
+
+      break;
+
+    case "Doorwudi":
+      s["default"].GScene.player.myDoor._isInvincible = !s["default"].GScene.player.myDoor._isInvincible, c.CCTool.UI.ShowToast(s["default"].GScene.player.myDoor._isInvincible ? "开启" : "关闭");
+      break;
+
+    case "SetAI":
+      s["default"].data.SetAI = this.EditBoxArr[0].string, c.CCTool.UI.ShowToast("下局设置成功:" + s["default"].data.SetAI);
+      break;
+
+    case "AIAddCoin":
+      for (var o in s["default"].MapClr.roleList) {
+        s["default"].MapClr.roleList[o].setCoin(999999), s["default"].MapClr.roleList[o].setPower(999999);
+      }
+
+      c.CCTool.UI.ShowToast("设置成功");
+      break;
+
+    case "AddBoss":
+      s["default"].MapClr.monsterList[0].setExp(999);
+      break;
+
+    case "AddBossEn":
+      s["default"].MapClr.monsterList[0].setEnergy(100), c.CCTool.UI.ShowToast("设置成功");
+      break;
+
+    case "ADVideo":
+      l.PlatformFun.loadRewardedVideoAd({
+        onVideoSuccess: function onVideoSuccess() {
+          c.CCTool.UI.ShowToast("获得奖励");
+        }
+      });
+      break;
+
+    case "ADIns":
+      l.PlatformFun.showInterstitialAd();
+      break;
+
+    case "ADBanner":
+      l.PlatformFun.showBannerAd();
+      break;
+
+    case "ADClose":
+      s["default"].PFSET.isAdOpen = !s["default"].PFSET.isAdOpen, c.CCTool.UI.ShowToast(s["default"].PFSET.isAdOpen ? "开启" : "关闭");
+      break;
+
+    case "CleanUp":
+      localStorage.clear(), c.CCTool.UI.ShowToast("清除成功，请重新打开"), cc.director.loadScene("FormalScene");
+      break;
+
+    case "CheckMap":
+      s["default"].data.isTestCheckMap = !s["default"].data.isTestCheckMap, cc.log("设置成功:" + (s["default"].data.isTestCheckMap ? "开启" : "关闭"));
+  }
+}, d.prototype.saveForBrowser = function (e, t) {
+  var o;
+  cc.sys.isBrowser && (console.log("浏览器"), o = new Blob([e], {
+    type: "application/json"
+  }), (e = document.createElement("a")).download = t, e.innerHTML = "Download File", null != window.webkitURL ? e.href = window.webkitURL.createObjectURL(o) : (e.href = window.URL.createObjectURL(o), e.style.display = "none", document.body.appendChild(e)), e.click());
+}, a([t([cc.EditBox])], d.prototype, "EditBoxArr", void 0), a([e], d));
+
+function d() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e.EditBoxArr = [], e.data = {
+    num: 0
+  }, e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

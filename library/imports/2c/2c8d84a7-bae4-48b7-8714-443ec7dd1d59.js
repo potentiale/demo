@@ -1,0 +1,96 @@
+"use strict";
+cc._RF.push(module, '2c8d8SnuuRIt4cURD7H3R1Z', 'GConfig');
+// scripts/GConfig.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.cf = void 0;
+
+var n = "https://game.zuiqiangyingyu.net",
+    t = function t() {
+  this.PF = "TT", this.LANGUAGE = "zh", this.APPED = "", this.RESOURCESED = "", this.GAMESET = {
+    ROCKER_FORCE: 700
+  }, this.PFSET = {
+    appEd: this.APPED,
+    appEdStr: this.PF + "-" + this.APPED,
+    resourcesEd: this.PF + "-" + this.RESOURCESED,
+    PFName: "",
+    name: "",
+    banner: !0,
+    video: !0,
+    isAdOpen: !1,
+    share: !1,
+    minPGame: !1
+  }, this.API = {
+    domainURL: "https://static.zuiqiangyingyu.cn/wb_webview/colouring3d/zqccc/",
+    lh: "",
+    map: "",
+    res: "",
+    img: "",
+    GAME_V2_ADS: n + "/common/game/v2/ads",
+    COMMON_IS_IS: n + "/common/is/is",
+    CONFIG_INFO: n + "/common/config/info",
+    GAME_SHARE_LIST: n + "/common/game/share_list",
+    BMS_IP_IS_ENABLE: n + "/common/ip/is_enable",
+    WX_AUTH: "https://api.zuiqiangyingyu.net/index.php/api/pink-mate/Wx_auth",
+    SAVE_COINS: "https://api.zuiqiangyingyu.net/index.php/api/pink-mate/Save_coins"
+  }, this.wxAdID = {
+    minVideo: "adunit-309004e6b8551c8f",
+    longVideo: "adunit-309004e6b8551c8f",
+    InterstitialAd: "adunit-88dff53c8d857629",
+    banner: ["adunit-eb0787f884ee9b2a"],
+    InterstitialAdList: ["adunit-5b48379019085f17"],
+    NativeAdList: ["adunit-60edff6690304d3d"],
+    Native25Ad: "adunit-93f77995773125a1",
+    Native35Ad: "adunit-60edff6690304d3d",
+    Native45Ad: "adunit-c110ec7111b271af",
+    Native55Ad: "adunit-6f14e9e65c003f86"
+  }, this.ttAdId = {
+    minVideo: "1d024i7480e6g17mq0",
+    longVideo: "1d024i7480e6g17mq0",
+    InterstitialAd: "521mfj6ai36g4fqdkq",
+    banner: "bb09ii6knm4f93so5j"
+  }, this.qqAdId = {
+    minVideo: "df2aa32efacccf40b346129b159fae12",
+    longVideo: "df2aa32efacccf40b346129b159fae12",
+    InterstitialAd: "1a31f3af5aa8b166e2b62e5faa7d3fa3",
+    banner: "4271d36184c5ba28dddaa85e3468dfa1",
+    boxAd: "12a43224d5ab832a9602223ba910f047",
+    jimuAd: "3fe23a5ead63a3a6885f4ed68cdd5b43",
+    loadingAd: "6fe1fc23550153abc1de5911bd8db581"
+  }, this.minOppoAdId = {
+    minVideo: "419256",
+    longVideo: "419256",
+    InterstitialAd: "419254",
+    banner: ["419252"],
+    Native55Ad: "419257"
+  }, this.minVivoAdId = {
+    minVideo: "9b03580f09024e00b5227f51855a3da4",
+    longVideo: "9b03580f09024e00b5227f51855a3da4",
+    InterstitialAd: "039a1380181e43f69cad19e92ee289ac",
+    banner: ["9e7e8e971d204c2192d408d61cde90bd"],
+    Native55Ad: "419257"
+  }, this.minKsAdId = {
+    minVideo: "2300002093_01",
+    longVideo: "2300002093_01",
+    InterstitialAd: "2300002093_02",
+    banner: [""],
+    Native55Ad: ""
+  }, this.minOppoHwAdId = {
+    minVideo: "1002690",
+    longVideo: "1002690",
+    InterstitialAd: "",
+    banner: "1002689"
+  };
+};
+
+o["default"] = t, o.cf = new t();
+
+cc._RF.pop();

@@ -1,0 +1,302 @@
+"use strict";
+cc._RF.push(module, 'bd729AlDzZJa7L5hR/F6CQA', 'PlatformFun');
+// scripts/PlatformFun.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.PlatformFun = o.PFTARGET_FUN = void 0;
+var a,
+    i = e("ListenID"),
+    r = e("GConfig"),
+    s = e("AppCommon"),
+    c = e("CCTool"),
+    l = e("BaseSdk"),
+    p = e("wxTs"),
+    t = e("Xiaomi_AdrSdk"),
+    d = e("TTGame"),
+    u = window.wx || null,
+    n = null;
+o.PFTARGET_FUN = ((e = {})[l.GAMEPF.ADR_XM] = t["default"], e);
+f.platformSeting = function () {
+  var t = this,
+      o = l.GAMEPF_DATA.PF_SET[s["default"].PF];
+  s["default"].PFSET.appEd = o.v, s["default"].PFSET.PFName = o.t, s["default"].LANGUAGE = o.l, cc.log("[platformSeting]初始化", s["default"].PF, o), this.sdkManage = l.GAMEPF_DATA.GetClass();
+  var e = cc.winSize.height / cc.winSize.width;
+
+  switch (console.log("[proportion]", e), 2 <= e && (s["default"].data.isIphoneX = !0), u && u.getSystemInfoSync(), this.lastInterstitialAdTime = 0, this.lastBannerAdTime = 0, s["default"].PFSET.share = !1, s["default"].PFSET.isAdOpen = o.ad, s["default"].PF) {
+    case l.GAMEPF.TT:
+      s["default"].ADID = r.cf.ttAdId, u = window.tt, s["default"].PFSET.share = !0, d["default"].init();
+      break;
+
+    case l.GAMEPF.WX:
+      s["default"].ADID = r.cf.wxAdID, s["default"].PFSET.share = !0, p["default"].Instance.init(s["default"].PFSET.PFName, s["default"].PFSET.appEd);
+      break;
+
+    case l.GAMEPF.QQ:
+      s["default"].ADID = r.cf.qqAdId, u = window.qq, s["default"].PFSET.share = !0, s["default"].PFSET.PFName += s["default"].PF, s["default"].data.PrivacyAgreementOK = s["default"].getlocal("PrivacyAgreementOK", 0), s["default"].data.PrivacyAgreementPage = !s["default"].data.PrivacyAgreementOK, s["default"].data.PrivacyAgreementOK || s["default"].MainView.onButton(null, "pop_SYSPrivacyAgreement_Select");
+      break;
+
+    case l.GAMEPF.MIN_OPPO:
+      u = window.qg, s["default"].ADID = r.cf.minOppoAdId, s["default"].PFSET.PFName = "Sandbox3_OPPOxyx", s["default"].data.PrivacyAgreementOK = s["default"].getlocal("PrivacyAgreementOK", 0), s["default"].data.PrivacyAgreementOK || s["default"].MainView.onButton(null, "pop_SYSPrivacyAgreement_Select"), s["default"].data.PrivacyAgreementPage = !s["default"].data.PrivacyAgreementOK, f.SendEvent("load_res_begin");
+      break;
+
+    case l.GAMEPF.KS:
+      s["default"].ADID = r.cf.minKsAdId, u = window.ks, s["default"].PFSET.share = !0, s["default"].PFSET.PFName += s["default"].PF, d["default"].init();
+      break;
+
+    case l.GAMEPF.MIN_VIVO:
+      u = window.qg, s["default"].ADID = r.cf.minVivoAdId;
+      break;
+
+    case l.GAMEPF.ADR_OWN:
+    case l.GAMEPF.ADR_TapTap:
+      break;
+
+    case l.GAMEPF.ADR_MMY:
+      this.INTERSTITIAL_AD_CD = 180, this.lastInterstitialAdTime = s["default"].gettimestamp();
+      break;
+
+    case l.GAMEPF.ADR_HAIWAI:
+      r.cf.LANGUAGE = "en";
+      break;
+
+    case l.GAMEPF.ADR_HYKB:
+      break;
+
+    case l.GAMEPF.ADR_233:
+      this.INTERSTITIAL_AD_CD = 180, this.lastInterstitialAdTime = s["default"].gettimestamp();
+      break;
+
+    case l.GAMEPF.ADR_XM:
+    case l.GAMEPF.ADR_OPPO:
+      break;
+
+    case l.GAMEPF.MIN_OPPO_HAIWAI:
+      u = window.qg, s["default"].ADID = r.cf.minOppoHwAdId, r.cf.LANGUAGE = "en", f.SendEvent("load_res_begin");
+      break;
+
+    case l.GAMEPF.IOS:
+      s["default"].PFSET.PFName += s["default"].PF;
+      var n = l.GAMEPF.sendJsbCall("gainIOSBMSVersion");
+      console.log("[bmsVersion]" + n), n && (s["default"].PFSET.appEd = n);
+      break;
+
+    case l.GAMEPF.NOT:
+      s["default"].PFSET.share = !1, s["default"].PFSET.isAdOpen = !1;
+  }
+
+  a = {}, window.PF = s["default"].PF, window.PFSET = s["default"].PFSET, window.popTask = [], console.log(s["default"].PF, window.PFSET), cc.game.on(cc.game.EVENT_SHOW, function () {
+    var e = this;
+    s["default"].MainView.scheduleOnce(function () {
+      e.onShow();
+    }, .1);
+  }.bind(this), this), cc.game.on(cc.game.EVENT_HIDE, function () {
+    this.onHide(), s["default"].data.isHideGame = !0;
+  }.bind(this), this), s["default"].appRequest({
+    urls: r.cf.API.CONFIG_INFO,
+    data: {
+      app_name: o.t,
+      version: o.v
+    },
+    success: function success(e) {
+      0 == e.code && (s["default"].CONFIG_INFO = e.data, console.log("[CONFIG_INFO]" + JSON.stringify(s["default"].CONFIG_INFO)), console.log("[CONFIG_INFO version]" + o.v), console.log("[CONFIG_INFO app_name]" + o.t), s["default"].PF == l.GAMEPF.ADR_MMY && (t.INTERSTITIAL_AD_CD = s["default"].CONFIG_INFO.InterstitialCD || 180, t.BANNER_AD_CD = s["default"].CONFIG_INFO.BannerCD || 180), s["default"].CONFIG_INFO.isNetwork = !0, s["default"].MainView.node.emit(i.ListenID.CONFIG_INFO));
+    },
+    fail: function fail() {
+      s["default"].MainView.node.emit(i.ListenID.CONFIG_INFO);
+    }
+  }), c.CCTool.Language.init(function () {
+    console.log("[languageFun][init]语言包初始化完成", s["default"].LANGUAGE);
+  });
+}, f.onShow = function () {
+  var e,
+      t = this;
+  s["default"].data.isHideGame = !1, this.shareFun.onShareSuccess && this.shareFun.isHaveReward && (this.shareFun.isHaveReward = !1, e = s["default"].gettimestamp() - this.shareFun.startSharetime, console.log("[shareTime]" + e), !s["default"].CONFIG_INFO.ShareTime || e >= (s["default"].CONFIG_INFO.ShareTime || 3) ? this.shareFun.onShareSuccess() : this.shareFun.onShareFail && this.shareFun.onShareFail(), setTimeout(function () {
+    t.shareFun.onShareSuccess = null;
+  }, 1e3));
+}, f.onHide = function () {
+  s["default"].data.isHideGame = !0;
+}, f.shareAppMessage = function (e) {
+  e = e || {}, this.shareFun.startSharetime = s["default"].gettimestamp();
+  var t = s["default"].weightGetValue(s["default"].data.GAME_SHARE_LIST.list, "weight") || {},
+      o = {
+    channel: e.channel || "",
+    title: t.title || "",
+    imageUrl: t.image || "",
+    extra: e.extra || {}
+  };
+  u ? (this.shareFun.onShareSuccess = e.onShareSuccess, this.shareFun.isHaveReward = !!e.onShareSuccess, this.shareFun.onShareFail = e.onShareFail, l.GAMEPF.isMINGAME() && (t = u.uma && u.uma.trackShare(o) || o, u.shareAppMessage && u.shareAppMessage(t), u.updateShareMenu && u.updateShareMenu(o))) : e.onShareSuccess && e.onShareSuccess();
+}, f.showWxModel = function (e, t, o, n, i, a) {
+  void 0 === o && (o = "确定"), void 0 === n && (n = "取消"), u && s["default"].PF == l.GAMEPF.WX ? u.showModal({
+    title: e,
+    content: t,
+    confirmText: o,
+    cancelText: n,
+    success: function success(e) {
+      e.confirm ? i && i() : e.cancel && a && a();
+    }
+  }) : i && i();
+}, f.loadBannerAd = function () {
+  console.log("加载banner广告");
+  var e = s["default"].ADID.banner;
+  "object" == typeof s["default"].ADID.banner && (s["default"].ADID.banner[f.bannerIndex] || (f.bannerIndex = 0), e = s["default"].ADID.banner[f.bannerIndex]), console.log("生成banner广告 adUnitId - ", e), l.GAMEPF.isMINGAME();
+}, f.hideBannerAd = function (e) {
+  if (void 0 === e && (e = !1), this.sdkManage) return this.sdkManage.hideBannerAd();
+  l.GAMEPF.isADR() ? l.GAMEPF.sendJsbCall("hideBanner", "()V") : s["default"].PF == l.GAMEPF.IOS ? l.GAMEPF.sendJsbCall("hiddenBanner") : l.GAMEPF.isMINGAME() && f.bannerAd && (f.bannerAd.tt_isShow = !1, f.bannerAd.tt_showNum >= s["default"].CONFIG_INFO.bannerNum ? f.destroyBannerAd() : f.bannerAd.hide());
+}, f.showBannerAd = function (e) {
+  if (void 0 === e && (e = null), console.log("[showBannerAd]"), this.sdkManage) return this.sdkManage.showAd[l.AD_TYPE.Banner]();
+
+  if (s["default"].PF == l.GAMEPF.ADR_MMY) {
+    if (s["default"].gettimestamp() - this.lastBannerAdTime < this.BANNER_AD_CD) return console.log("banner[隔需要" + this.BANNER_AD_CD + "s");
+    this.lastBannerAdTime = s["default"].gettimestamp();
+  } else s["default"].PF == l.GAMEPF.ADR_OPPO ? l.GAMEPF.sendJsbCall("addBanner") : l.GAMEPF.isADR() ? l.GAMEPF.sendJsbCall("addBanner", "()V") : s["default"].PF == l.GAMEPF.IOS ? l.GAMEPF.sendJsbCall("showBanner") : l.GAMEPF.isMINGAME();
+}, f.destroyBannerAd = function () {
+  console.log("[destroyBannerAd]"), f.bannerAd && (f.bannerAd.hide(), f.bannerAd.destroy()), f.bannerAd = null;
+}, f.wxlogin = function () {
+  u && u.login({
+    success: function success(e) {
+      e.code ? s["default"].appRequest({
+        urls: r.cf.API.WX_AUTH,
+        sign: !0,
+        data: {
+          code: e.code
+        },
+        success: function success(e) {
+          0 == +e.c && (e = e.d, console.log("登录成功" + JSON.stringify(e)), s["default"].data.myUserData = s["default"].setlocal("myUserData", e), s["default"].data.openid = e.openid, s["default"].data.token = e.token);
+        }
+      }) : console.log("登录失败！" + e.errMsg);
+    }
+  });
+}, f.requestSubscribeMessage = function (t) {
+  s["default"].PF == l.GAMEPF.WX && (console.log("[requestSubscribeMessage]调起客户端小游戏订阅消息界面"), u.requestSubscribeMessage({
+    tmplIds: ["q9GVApfbHBtpkBDUYkDf2opD5jodYJ13JxUe4MSeUWE"],
+    success: function success(e) {
+      t(e);
+    },
+    fail: function fail(e) {
+      console.log("[requestSubscribeMessage][fail]" + JSON.stringify(e));
+    }
+  }));
+}, f.showInterstitialAd = function (e) {
+  if (void 0 === e && (e = null), s["default"].PFSET.isAdOpen && s["default"].PF != l.GAMEPF.ADR_7723) {
+    if (s["default"].gettimestamp() - this.lastInterstitialAdTime < this.INTERSTITIAL_AD_CD) return console.log("插屏间[隔需要" + this.INTERSTITIAL_AD_CD + "s");
+    if (this.lastInterstitialAdTime = s["default"].gettimestamp(), this.sdkManage) return this.sdkManage.showAd[l.AD_TYPE.FullScreenVideo]();
+    if (console.log("准备播放插屏广告"), 0 <= [l.GAMEPF.ADR_OPPO].indexOf(s["default"].PF)) l.GAMEPF.sendJsbCall("showFullVideo", "()V");else if (l.GAMEPF.isADR()) l.GAMEPF.sendJsbCall("showInsertBanner", "()V");else if (s["default"].PF == l.GAMEPF.IOS) l.GAMEPF.sendJsbCall("fullscreenAds");else if (0 <= [l.GAMEPF.MIN_OPPO, l.GAMEPF.MIN_OPPO_HAIWAI].indexOf(s["default"].PF)) {
+      if (!u || !u.createCustomAd) return console.log("缺少方法[createCustomAd]");
+      n && n.destroy(), (n = u.createCustomAd({
+        adUnitId: s["default"].ADID.InterstitialAd,
+        style: {
+          top: 570
+        }
+      })).onLoad(function () {
+        console.log("customAd广告加载成功");
+      }), n.onError(function (e) {
+        console.log("show fail with:" + JSON.stringify(e));
+      }), n.show().then(function () {
+        console.log("show success");
+      })["catch"](function (e) {
+        console.log("show fail with:" + e.errCode + "," + e.errMsg);
+      });
+    } else l.GAMEPF.isMINGAME() && console.log("show插屏广告");
+  }
+}, f.destroyInterstitialAd = function () {
+  s["default"].PFSET.isAdOpen && this.sdkManage && this.sdkManage.hideInsertAd && this.sdkManage.hideInsertAd();
+}, f.showSplashAd = function () {
+  console.log("开屏广告方法"), l.GAMEPF.isADR() && l.GAMEPF.sendJsbCall("showSplashAd", "(0)V");
+}, f.loadRewardedVideoAd = function (e) {
+  console.log("拉取视频广告"), this._needShowVideo = !0, c.CCTool.Audio.StopBgm(), c.CCTool.UI.SetUILoad(!0);
+
+  function t() {
+    console.log("获得奖励"), c.CCTool.UI.SetUILoad(!1), setTimeout(function () {
+      e.onVideoSuccess && e.onVideoSuccess(!0);
+    }, 100), c.CCTool.Audio.PlayBgm(), s["default"].GScene.setPause(-999);
+  }
+
+  function o() {
+    c.CCTool.UI.SetUILoad(!1), c.CCTool.UI.ShowToast("看完视频才有奖励哦"), e.onShowClose && e.onShowClose(!0), c.CCTool.Audio.PlayBgm(), s["default"].GScene.setPause(-999);
+  }
+
+  function n() {
+    c.CCTool.UI.SetUILoad(!1), c.CCTool.UI.ShowToast("视频尚未准备好"), c.CCTool.Audio.PlayBgm(), s["default"].GScene.setPause(-999);
+  }
+
+  var i;
+  return s["default"].PFSET.isAdOpen && 101 != cc.sys.platform ? (window.onVideoSuccess = t, window.onShowClose = o, window.onLoadError = n, s["default"].GScene.setPause(), this.sdkManage ? this.sdkManage.showAd[l.AD_TYPE.RewardVideo]({
+    Success: function Success() {
+      t();
+    },
+    Close: function Close() {
+      o();
+    },
+    Error: function Error() {
+      n();
+    },
+    LoadSuccess: function LoadSuccess() {
+      e.loadSuccess && e.loadSuccess();
+    }
+  }) : void (l.GAMEPF.isADR() && (console.log("环境-", s["default"].PF), i = !1, a.videoFinish = function () {
+    s["default"].MainView.scheduleOnce(function () {
+      t();
+    }, .3);
+  }, a.videoGetReward = function () {
+    i = !0;
+  }, a.videoClose = function () {
+    return (i ? t : o)();
+  }, a.videoError = function () {
+    console.error("[showVideoAD] error"), n();
+  }, a.onRewardVideoComplete = a.videoGetReward, a.onRewardVideoClose = a.videoClose, a.onRewardVideoFail = a.videoError, cc.nativeAndroid = a, cc.nativeAndroid.sdkcall = a, window.iOSSendMsg = function (e) {
+    switch (e) {
+      case "adRewardAfterClose":
+        a.videoFinish();
+        break;
+
+      case "adsVideoFail":
+      case "videoError":
+        a.videoError();
+        break;
+
+      case "adSkipped":
+        a.videoClose();
+        break;
+
+      case "adCompleted":
+        t();
+    }
+  }, l.GAMEPF.sendJsbCall("showVideo", "()V")))) : (console.log("广告没有开启"), e.loadSuccess && e.loadSuccess(), void t());
+}, f.SendEvent = function (e, t) {
+  if (void 0 === t && (t = {}), s["default"].CONFIG_INFO.GM && console.log("[SendEvent]", e, t), this.sdkManage) return this.sdkManage.sendEvent(e, t);
+  l.GAMEPF.MIN_OPPO == s["default"].PF && u && u.reportMonitor ? u.reportMonitor(e) : l.GAMEPF.isADR() && l.GAMEPF.sendJsbCall("sendMsg", "(Ljava/lang/String;)V", e);
+}, f.vibrate = function (e) {
+  if (void 0 === e && (e = 0), s["default"].data.is_ShockOpen) return this.sdkManage ? this.sdkManage.vibrate(e) : void (l.GAMEPF.isADR() ? l.GAMEPF.sendJsbCall("vibrate", "(I)V", 0 == e ? 10 : 300) : s["default"].PF == l.GAMEPF.IOS && l.GAMEPF.jsbCall(l.GAMEPF.defaultClass[l.GAMEPF.IOS][0], 0 == e ? "ddd2" : "ddd3"));
+}, f.navigateToMiniProgram = function () {
+  console.log("跳转小程序");
+}, f.gameStatistical = function () {
+  console.log("数据统计");
+}, f.showAppBox = function () {
+  this.sdkManage && this.sdkManage.showAd[l.AD_TYPE.QQbox] && this.sdkManage.showAd[l.AD_TYPE.QQbox]();
+}, f.showNativeAd = function (e, t, o, n) {
+  void 0 === t && (t = s["default"].ADID.Native15Ad), this.sdkManage && this.sdkManage.showAd[l.AD_TYPE.NativeBox] && this.sdkManage.showAd[l.AD_TYPE.NativeBox](e, t, o, n);
+}, f.hideNativeAd = function () {
+  this.sdkManage && this.sdkManage.hideNativeAd && this.sdkManage.hideNativeAd();
+}, f.showNativeAd55 = function (e, t, o, n) {
+  void 0 === t && (t = s["default"].ADID.Native55Ad), this.sdkManage && this.sdkManage.showAd[l.AD_TYPE.NativeBox_55] && this.sdkManage.showAd[l.AD_TYPE.NativeBox_55](e, t, o, n);
+}, f.exitMiniProgram = function () {
+  l.GAMEPF.isMINGAME() && u.exitMiniProgram();
+}, f.bannerAdShowNum = 0, f.interstitialAdShowNum = 0, f.nativeAdShowNum = 0, f.bannerShowing = !1, f.bannerNeedReshow = !1, f.nativeAdShowing = !1, f.shareFun = {
+  onShareSuccess: function onShareSuccess() {},
+  onShareFail: function onShareFail() {},
+  startSharetime: 0,
+  isHaveReward: !1
+}, f.bannerShowCount = 0, f.bannerIndex = 0, f.lastInterstitialAdTime = 0, f.lastBannerAdTime = 0, f.show_interstitial_num = 0, f.INTERSTITIAL_AD_CD = .1, f.BANNER_AD_CD = 1, f._needShowVideo = !1, e = f;
+
+function f() {}
+
+o.PlatformFun = e;
+
+cc._RF.pop();

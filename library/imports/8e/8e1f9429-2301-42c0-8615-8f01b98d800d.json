@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "weiwanch_ bt",
+    "texture": "f4bc527e-b1f0-41fc-95f6-c331c775f67e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      150,
+      60
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      150,
+      60
+    ],
+    "capInsets": [
+      38,
+      0,
+      37,
+      0
+    ]
+  }
+}

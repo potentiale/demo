@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tisheng",
+    "texture": "3bde3e75-8b52-49e7-b78d-c7efcba89091",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      164,
+      114
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      164,
+      114
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

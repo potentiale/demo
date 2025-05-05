@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "howl04",
+    "texture": "ff0dadec-a005-494a-959b-c21eabdb3f4d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      343,
+      346
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      343,
+      346
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

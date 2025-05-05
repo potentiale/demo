@@ -1,0 +1,100 @@
+"use strict";
+cc._RF.push(module, '50b56SOCcRCnKLahcqDRPFp', 'Special_Fist');
+// scripts/Special_Fist.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    c = e("CCTool"),
+    l = e("ListenID"),
+    p = e("ConstructBase"),
+    d = e("ElementBase"),
+    u = cc._decorator,
+    t = u.ccclass,
+    e = u.menu,
+    e = (u.property, r = p["default"], i(f, r), f.prototype.onInit = function () {
+  this.startPos = {
+    x: this.imgList[1].node.x,
+    y: this.imgList[1].node.y
+  }, this.imgList[1].node.angle = 1 == this._roomID ? -90 : 90;
+}, f.prototype.effectTrigger = function () {
+  this.searchRole();
+  var e = s["default"].weightGetValue(this.searchRecentMoster());
+  e && (this.setHurt(s["default"].MapClr.monsterList[e.i]), this._time = 0);
+}, f.prototype.searchRole = function () {
+  if (!this.targetX) for (var e in s["default"].MapClr.roleList) {
+    e = s["default"].MapClr.roleList[e];
+    if (e.roleID != this.ower.roleID) return void ((this._enemy = e).myDoor && (this.targetX = e.myDoor.node.x));
+  }
+}, f.prototype.setHurt = function (e) {
+  var t = this,
+      o = this.attribute.data.parameter,
+      n = s["default"].getAngle(e.node.position, this.node.position) - 90,
+      i = e.node.position.sub(this.node.position);
+  this.imgList[1].node.angle = n, cc.tween(this.imgList[1].node).to(.1, {
+    position: i
+  }).call(function () {
+    c.CCTool.Audio.CameraPlayer(t.node.position, "Tower_Attack"), t.checkTagIsActive(e) && (s["default"].MapClr.newEffects(e.node.position, "bomb"), e.node.emit(l.ListenID.Send_Hurt, new d.HurtData(-e._life * o[1], t.ower.roleID, t.ower.type)), s["default"].GetProbability(o[2]) && t.instigateMonster(e));
+  }).to(.2, {
+    position: cc.v2(this.startPos.x, this.startPos.y)
+  }).start();
+}, f.prototype.instigateMonster = function (e) {
+  e._isActive = !1;
+  var t = s["default"].MapClr.getMapPos(cc.v2(this.targetX, e.node.y)),
+      o = s["default"].MapClr.getMapPos(this._enemy.myDoor.node.position),
+      n = this.ower.roomID,
+      n = s["default"].MapClr.getPath(t, o, n);
+  e.myFSM.path = n, e.myFSM.target = this._enemy, e.setOwer(this.ower), cc.tween(e.node).to(.1, {
+    position: cc.v2(this.targetX, e.node.y)
+  }).call(function () {
+    e._isActive = !0;
+  }).start();
+}, f.prototype.update = function (e) {
+  s["default"].GScene.isPause || this._isHaveUpDate && (this._time += e, this._time > this.attribute.data.frequency && this.effectTrigger());
+}, a([t, e("gameElement/Special_Fist")], f));
+
+function f() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e._time = 0, e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

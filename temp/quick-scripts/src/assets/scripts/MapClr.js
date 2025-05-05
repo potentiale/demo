@@ -1,0 +1,330 @@
+"use strict";
+cc._RF.push(module, '607c7egZ4ROD5CyyNh/cWdv', 'MapClr');
+// scripts/MapClr.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+
+var r,
+    c = e("AppCommon"),
+    s = e("CCTool"),
+    l = e("AStar"),
+    p = e("ListenID"),
+    d = e("Notifier"),
+    u = e("Cfg"),
+    f = e("Dialogue"),
+    h = e("TrackItem"),
+    m = e("TaskCtrl"),
+    y = e("TouchMoveCamera"),
+    g = e("Bed"),
+    _ = e("Bullet"),
+    v = e("ConstructBase"),
+    C = e("Door"),
+    S = e("EggBase"),
+    b = e("LivingThingBase"),
+    T = e("Npc"),
+    A = e("Role"),
+    M = e("ModelManage"),
+    t = cc._decorator,
+    e = t.ccclass,
+    t = t.property,
+    e = (r = cc.Component, i(w, r), w.prototype.onLoad = function () {
+  window.MapClr = this, (c["default"].MapClr = this).modelManage = new M.ModelManage();
+}, w.prototype.start = function () {
+  var e,
+      o = this,
+      t = c["default"].classificationArray(u.Cfg.Building1.getAll(), "buildID");
+
+  for (e in this.shopItemIdList = c["default"].classificationArray(u.Cfg.Shop.getAll(), "itemID"), this.arcIDList = {}, t) {
+    this.arcIDList[e] = t[e][0], this.arcIDList[e]._maxLevel = t[e].length;
+  }
+
+  this.arcTypeList = c["default"].classificationArray(this.arcIDList, "buildingType"), cc.resources.load("prefab/game/Element/Bullet", cc.Prefab, function (e, t) {
+    o.BulletPool = new s.CCTool.GamePool("Bullet", t, 1, o);
+  }), cc.resources.load("prefab/game/Element/Bullet_2", cc.Prefab, function (e, t) {
+    o.Bullet_2Pool = new s.CCTool.GamePool("Bullet_2", t, 1, o);
+  }), cc.resources.load("prefab/game/ui/Dialogue", cc.Prefab, function (e, t) {
+    o.DialoguePool = new s.CCTool.GamePool("Dialogue", t, 1, o);
+  }), cc.resources.load("prefab/game/ui/MoneyLabe", cc.Prefab, function (e, t) {
+    o.LabelPool = new s.CCTool.GamePool("MoneyLabe", t, 1, o);
+  }), this.touchMoveCamera = this.node.getComponent(y["default"]), this.setTouchMoveCamera(!1);
+}, w.prototype.clearObj = function () {
+  this.monsterList = [], this.roleList = [], this.bedList = [], this.doorList = [], this.buildingList = [], this.myegg = [], this.myMap = null, this.setTouchMoveCamera(!1), this.ObjBox && this.ObjBox.active && (this.unscheduleAllCallbacks(), this.ObjBox.active = !1, c["default"].GScene.GamePopBox.active = !1, this.clearMap());
+}, w.prototype.clearMap = function () {
+  this.unscheduleAllCallbacks(), this.node.destroyAllChildren(), this.monsterList.length = 0, c["default"].GScene.player = null, c["default"].GScene.setPhysics(!1), c["default"].GScene.setCollision(!1);
+}, w.prototype.initMap = function (e, t) {
+  cc.log("加载地图"), this.clearMap(), this.ObjBox = new cc.Node("ObjBox"), this.ObjBox.setParent(this.node), this.ObjBox.setPosition(cc.Vec2.ZERO), this.modelManage.load(e, t);
+}, w.prototype.newPlayer = function (o, n) {
+  var i = this;
+  cc.resources.load("prefab/game/Element/Player", cc.Prefab, function (e, t) {
+    i.myMap && ((t = cc.instantiate(t)).setParent(i.ObjBox), t.setPosition(o._pos.x, o._pos.y), (t = t.getComponent(A["default"])).roleID = +o.id, t.init(), n(t));
+  });
+}, w.prototype.newMonster = function (o, e, n) {
+  var i = this;
+  cc.resources.load("prefab/game/Element/" + e, cc.Prefab, function (e, t) {
+    i.myMap && ((t = cc.instantiate(t)).setParent(i.ObjBox), t.setPosition(o._pos.x, o._pos.y), (t = t.getComponent(b["default"])).init(), n(t));
+  });
+}, w.prototype.newNPC = function (o, n) {
+  var i = this;
+  cc.resources.load("prefab/game/Element/NPC", cc.Prefab, function (e, t) {
+    i.myMap && ((t = cc.instantiate(t)).setParent(i.ObjBox), t.setPosition(o._pos.x, o._pos.y), (t = t.getComponent(T["default"])).init({
+      name: o.type
+    }), n(t));
+  });
+}, w.prototype.newDoor = function (a, r) {
+  var s = this,
+      c = this.myMap.getObjectGroup(a).getObjects();
+  this.myMap.node.getChildByName(a).destroy(), cc.resources.load("prefab/game/Element/Door", cc.Prefab, function (e, t) {
+    for (var o = 0; o < c.length; o++) {
+      if (!s.myMap) return;
+      var n = c[o],
+          i = cc.instantiate(t);
+      i.name = a, i.setParent(s.ObjBox), i.setPosition(s.getPoint(n).addSelf(cc.v2(n.width / 2, n.height / 2))), i.getComponent(C["default"]).init(n);
+    }
+
+    r && r();
+  });
+}, w.prototype.newBed = function (a, r) {
+  var s = this,
+      c = this.myMap.getObjectGroup(a).getObjects();
+  this.myMap.node.getChildByName(a).destroy(), cc.resources.load("prefab/game/Element/Bed", cc.Prefab, function (e, t) {
+    if (s.myMap) {
+      for (var o = 0; o < c.length; o++) {
+        var n = c[o],
+            i = cc.instantiate(t);
+        i.name = a, i.setParent(s.ObjBox), i.setPosition(s.getPoint(n).addSelf(cc.v2(n.width / 2, n.height / 2))), i.getComponent(g["default"]).init(n);
+      }
+
+      r && r();
+    }
+  });
+}, w.prototype.newSpecialtower = function (e) {
+  var i = this,
+      a = this.myMap.getObjectGroup(e).getObjects();
+  this.myMap.node.getChildByName(e).destroy();
+  var t,
+      r = this;
+
+  for (t in a) {
+    !function (e) {
+      var e = a[e],
+          t = e.name.split("_"),
+          o = u.Cfg.Building1.get(t[2]),
+          n = r.getTMapPosition(e.offset, r.myMap.node).addSelf(cc.v2(r.tileSize.width / 2, r.tileSize.width / 2));
+      r.newBuildBase(o, {
+        x: 0,
+        y: 0
+      }, function (e) {
+        e.node.setPosition(n), e._roomID = t[1], e.initAttribute(o), e.setState(!1), i.bedList[t[1]].SConstruct.push(e);
+      });
+    }(t);
+  }
+}, w.prototype.newEgg = function (e) {
+  var a = this,
+      e = this.myMap.getObjectGroup(e);
+  if (e) for (var t = e.getObjects(), o = 0; o < t.length; o++) {
+    !function (e) {
+      var o = t[e],
+          e = o.name.split("_");
+      if (e.length <= 1) return;
+      var n = u.Cfg.Building1.get(e[1]),
+          i = Number(e[1]);
+      cc.resources.load("prefab/game/Element/" + e[0], cc.Prefab, function (e, t) {
+        a.myMap && ((t = cc.instantiate(t)).setParent(a.ObjBox), t.setPosition(a.getPoint(o).addSelf(cc.v2(o.width / 2, -o.height / 2))), t = t.getComponent(S["default"]), n ? t.initAttribute(n, null) : t.baseId = i, a.myegg.push(t));
+      });
+    }(o);
+  }
+}, w.prototype.newBuildBase = function (e, o, n) {
+  var i = this,
+      e = "Building_" + e.buildingType;
+  cc.resources.load("prefab/game/Element/" + e, cc.Prefab, function (e, t) {
+    i.myMap && ((t = cc.instantiate(t)).setParent(i.ObjBox), t.setPosition(i.getV2Pos(o)), t = t.getComponent(v["default"]), n && n(t));
+  });
+}, w.prototype.newBuild = function (t, o, n) {
+  this.newBuildBase(t, o, function (e) {
+    n.myBed.setTerritoryMapItem(o, e), e.initAttribute(t, n), n.isPlayer && d.Notifier.send(p.ListenID.Task_UpdateTask, m.TaskType.GetBuilding, {
+      buildId: e.attribute.data.id
+    }), e.setState(!0);
+  });
+}, w.prototype.newBullet = function (e, t) {
+  var o;
+  this.myMap && ((o = this.BulletPool.GetFormPool(this.ObjBox)).setPosition(e), o.getComponent(_["default"]).setBullet(t), s.CCTool.System.InCamera(e) && (o.opacity = 0, cc.tween(o).to(.1, {
+    opacity: 255
+  }).start()));
+}, w.prototype.newBullet2 = function (e, t) {
+  var o;
+  this.myMap && ((o = this.Bullet_2Pool.GetFormPool(this.ObjBox)).setPosition(e), o.getComponent(_["default"]).setBullet_2(t));
+}, w.prototype.newDialogue = function (e, t, o, n) {
+  void 0 === n && (n = 3), c["default"].CONFIG_INFO.Ischeckdialog && this.myMap && ((e = this.DialoguePool.GetFormPool(e)).setPosition(t), e.getComponent(f["default"]).set(o, n));
+}, w.prototype.newEffects = function (o, e, n) {
+  var i = this;
+  (n || s.CCTool.System.InCamera(o)) && cc.resources.load("effects/" + e, cc.Prefab, function (e, t) {
+    i.myMap && ((t = cc.instantiate(t)).setParent(i.ObjBox), t.setPosition(o), t.zIndex = 99, n && n(t));
+  });
+}, w.prototype.newTrack = function (o, n) {
+  var i = this;
+  cc.resources.load("prefab/game/ui/TrackItem", cc.Prefab, function (e, t) {
+    i.myMap && ((t = cc.instantiate(t)).getComponent(h["default"]).setNode(o), t.setParent(c["default"].GScene.GamePopBox), n && n(o));
+  });
+}, w.prototype.newMonitor = function (t, e, o, n) {
+  var i = this;
+  void 0 === e && (e = {}), void 0 === o && (o = .3), void 0 === n && (n = 10);
+
+  function a() {
+    r.stop();
+  }
+
+  var r,
+      s = 0;
+  return r = cc.tween(e).sequence(cc.tween().delay(o), cc.tween().call(function () {
+    return i.myMap ? void (c["default"].GScene.isPause || (e = t(), ((s += o) >= n || e) && a())) : a();
+    var e;
+  })).repeatForever().start();
+}, w.prototype.update = function (e) {
+  c["default"].GScene.isPause || this.myMap && this.modelManage.onUpdate(e);
+}, w.prototype.newLabelTips = function (e, t, o, n) {
+  var i,
+      a = this;
+  void 0 === o && (o = cc.Color.GREEN), void 0 === n && (n = "Fish coin"), s.CCTool.System.InCamera(t) && ((i = this.LabelPool.GetFormPool(c["default"].GScene.GameLabelBox)).setPosition(t), i.opacity = 0, i.scale = 1, i.children[1]._components[0].string = e, cc.resources.load("img/gameResources/" + n, cc.SpriteFrame, function (e, t) {
+    i.children[0]._components[0].spriteFrame = t;
+  }), cc.tween(i).to(.1, {
+    opacity: 255
+  }).parallel(cc.tween().by(1, {
+    y: 130
+  }), cc.tween().delay(.7).to(.3, {
+    scale: 0
+  }), cc.tween().delay(.5).to(1, {
+    opacity: 0
+  })).call(function () {
+    a.LabelPool.ReturnPool(i);
+  }).start());
+}, w.prototype.newWallColl = function (e) {
+  this.MapCollisionBox.destroyAllChildren();
+
+  for (var t = 0; t < e.length; t++) {
+    var o = e[t],
+        n = new cc.Node("coll_" + t);
+    this.MapCollisionBox.addChild(n), n.setPosition(this.getTMapPosition(o.offset, this.myMap.node)), n.setAnchorPoint(0, 1), n.group = "Solid", n.addComponent(cc.RigidBody).type = cc.RigidBodyType.Static;
+    var i = void 0;
+
+    if (o.points) {
+      for (var i = n.addComponent(cc.PhysicsPolygonCollider), a = [], r = 0; r < o.points.length; r++) {
+        a.push(cc.v2(o.points[r].x, o.points[r].y));
+      }
+
+      i.points = a;
+    } else (i = n.addComponent(cc.PhysicsBoxCollider)).size = cc.size(o.width, o.height), i.offset = cc.v2(o.width / 2, -o.height / 2);
+
+    i && i.apply();
+  }
+}, w.prototype.getPathfindingMap = function () {
+  var e = (e = this.myMap.getLayer("ground_road").getTiles()).toString().split(",");
+  this.pathfindingMap = null, this.pathfindingMap = [];
+
+  for (var t = this.mapSize.height - 1; 0 <= t; t--) {
+    this.pathfindingMap[t] = e.splice(0, this.mapSize.width), this.pathfindingMap[t] = this.pathfindingMap[t].map(Number);
+  }
+
+  this.myMap.node.getChildByName("ground_road").destroy();
+}, w.prototype.setTouchMoveCamera = function (e) {
+  this.touchMoveCamera.enabled = e;
+}, w.prototype.shakeMax = function (e, t) {
+  var o = (e = void 0 === e ? c["default"].GScene.GameCamera.node : e).x,
+      n = e.y,
+      i = t = void 0 === t ? 1 : t;
+  this.shakeTween && this.shakeTween.stop(), this.shakeTween = cc.tween(e), e.setPosition(e.t_x || o, e.t_y || n), 1 <= t ? this.shakeTween.repeat(t, cc.tween().sequence(cc.moveTo(.03, cc.v2(o + (5 + i), n + (i + 7))), cc.moveTo(.03, cc.v2(o - (6 + i), n + (i + 7))), cc.moveTo(.03, cc.v2(o - (13 + i), n + (i + 3))), cc.moveTo(.03, cc.v2(o + (3 + i), n - (6 + i))), cc.moveTo(.03, cc.v2(o - (5 + i), n + (i + 5))), cc.moveTo(.03, cc.v2(o + (2 + i), n - (8 + i))))) : this.shakeTween.to(.03, {
+    position: cc.v2(o + 5 * i, n + 7 * i)
+  }).to(.03, {
+    position: cc.v2(o - 6 * i, n + 7 * i)
+  }).to(.03, {
+    position: cc.v2(o - 13 * i, n + 3 * i)
+  }).to(.03, {
+    position: cc.v2(o + 3 * i, n - 6 * i)
+  }).to(.03, {
+    position: cc.v2(o - 5 * i, n + 5 * i)
+  }).to(.03, {
+    position: cc.v2(o + 2 * i, n - 8 * i)
+  }), this.shakeTween.to(.03, {
+    position: cc.v2(o - (3 + i), n - (5 + i))
+  }).to(.03, {
+    position: cc.v2(o + (3 + i), n + (i + 5))
+  }).to(.03, {
+    position: cc.v2(o + (0 + i), n + (i + 0))
+  }).call(function () {
+    e.setPosition(e.t_x || o, e.t_y || n);
+  }).start();
+}, w.prototype.getPoint = function (e) {
+  return cc.v2(e.offset.x - this.myMap.node.width / 2, -(e.offset.y - this.myMap.node.height / 2));
+}, w.prototype.getWorldPos = function (e) {
+  return e.convertToWorldSpaceAR(cc.v2(-cc.winSize.width / 2, -cc.winSize.height / 2)).sub(c["default"].GScene.GameCamera.node.position);
+}, w.prototype.getTMapPosition = function (e, t) {
+  return cc.v2(e.x - t.width / 2, -e.y + t.height / 2);
+}, w.prototype.getPath = function (e, t, o) {
+  var n = l.aStar.find_path([e.y, e.x], [t.y, t.x], this.pathfindingMap, o = void 0 === o ? 1 : o);
+  if (0 == n.length) return console.log("没有合适的路径!~~~"), [];
+  var i,
+      a = [];
+
+  for (i in n) {
+    a.push(this.getV2Pos({
+      x: n[i][1],
+      y: n[i][0]
+    }));
+  }
+
+  return a;
+}, w.prototype.getMapPos = function (e) {
+  return {
+    x: Math.floor((e.x + this.myMap.node.width / 2) / this.tileSize.width),
+    y: Math.floor((e.y + this.myMap.node.height / 2) / this.tileSize.height)
+  };
+}, w.prototype.getV2Pos = function (e) {
+  return cc.v2((e.x + 0) * this.tileSize.width - this.myMap.node.width / 2 + this.tileSize.width / 2, (e.y + 0) * this.tileSize.height - this.myMap.node.height / 2 + this.tileSize.width / 2);
+}, w.prototype.deleteNode = function (e) {
+  e && (e._pool ? e._pool.ReturnPool(e) : (e.destroy(), e.removeFromParent(!1)));
+}, a([t(cc.Node)], w.prototype, "MapCollisionBox", void 0), a([t(cc.Node)], w.prototype, "RoleBox", void 0), a([e], w));
+
+function w() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e.MapCollisionBox = null, e.arcIDList = [], e.arcTypeList = [], e.RoleBox = null, e.roleList = [], e.monsterList = [], e.buildingList = [], e.bedList = [], e.doorList = [], e.myegg = [], e.MatchRoleData = [], e.AiBossData = null, e.shopItemIdList = {}, e.pathfindingMap = [], e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

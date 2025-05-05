@@ -1,0 +1,14 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "test.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "coin": {
+      "__uuid__": "695ca81d-9835-4351-bbae-5c0697ef77ae"
+    },
+    "energy": {
+      "__uuid__": "5dfca148-60a1-4a58-961f-2b1ba3243ba2"
+    }
+  }
+}

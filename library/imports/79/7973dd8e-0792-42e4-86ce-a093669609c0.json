@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "role_shadow",
+    "texture": "cb99821d-3080-4bb0-a579-fb3e0d5c34a6",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      44,
+      19
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      44,
+      19
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "summon3",
+    "texture": "64f8667a-682a-40b7-bb2b-2f0c95d07713",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      120,
+      237
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      120,
+      237
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

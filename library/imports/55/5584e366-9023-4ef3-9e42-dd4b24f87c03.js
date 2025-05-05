@@ -1,0 +1,85 @@
+"use strict";
+cc._RF.push(module, '5584eNmkCNO855C3Usk+HwD', 'WC_Monster');
+// scripts/WC_Monster.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    c = e("ListenID"),
+    l = e("ElementBase"),
+    p = e("WarChessBase"),
+    d = cc._decorator,
+    t = d.ccclass,
+    e = d.menu,
+    e = (d.property, r = p.WarChessBase, i(u, r), u.prototype.onInit = function () {
+  var e = this;
+  s["default"].MapClr.myMap.node.on(c.ListenID.WC_Monster_Move, function () {
+    e._isActive && (e.setAnimation("p_" + e.attribute.data.id + "_run"), e.moveTo({
+      x: 0,
+      y: -1
+    }));
+  }, this);
+}, u.prototype.initAttribute = function (e) {
+  this.lifeLabel = this.node.children[0].children[0].getComponent(cc.Label), this.myAnimation = this.node.children[0].getComponent(cc.Animation), this.myMals = this.node.children[0].getComponent(cc.Sprite).getMaterial(0), this.setAttribute(e), this.getZIndex(), this.onInit();
+}, u.prototype.setAttribute = function (e) {
+  this.attribute = {
+    name: e.name,
+    lv: e.level,
+    data: e
+  }, this._life = e.hp || 1, this.setLife(0), this.setConstructImg(this.imgList[1], s["default"].GetRandomNum(50, 64)), this.setState(!0);
+}, u.prototype.getHurt = function (e) {
+  r.prototype.getHurt.call(this, e), this.materialTwinkle(), this._life <= 0 && this.setDestroyed();
+}, u.prototype.setDestroyed = function () {
+  var e = this;
+  this._isActive && (this.setState(!1), this.setCollision(!1), this.lifeLabel.node.active = !1, s["default"].MapClr.modelManage.myModel.WCManage.eliminateItem(this), this.setAnimation("p_" + this.attribute.data.id + "_die"), this.scheduleOnce(function () {
+    r.prototype.setDestroyed.call(e);
+  }, .5), s["default"].MapClr.myMap.node.emit(c.ListenID.Role_State, 1, !1));
+}, u.prototype.setLife = function (e) {
+  r.prototype.setLife.call(this, e), this.lifeLabel.string = this._life + "";
+}, a([t, e("gameElement/WC_Monster")], u));
+
+function u() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e.type = l.Element_Type.WC_Monster, e.lifeLabel = null, e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

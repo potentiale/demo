@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bangonshi",
+    "texture": "8a9ec4aa-362c-455e-8f18-834928cfb79d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      57,
+      40
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      57,
+      40
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

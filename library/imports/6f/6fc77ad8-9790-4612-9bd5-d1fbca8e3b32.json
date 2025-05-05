@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fuhuo_d",
+    "texture": "71d3d180-be10-462a-ac04-28ec758c3535",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      602,
+      468
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      602,
+      468
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

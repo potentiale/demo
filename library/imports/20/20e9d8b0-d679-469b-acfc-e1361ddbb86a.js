@@ -1,0 +1,223 @@
+"use strict";
+cc._RF.push(module, '20e9diw1nlGm6z84TYd27hq', 'SkillManage');
+// scripts/SkillManage.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var n = void 0 && (void 0).__awaiter || function (e, r, s, c) {
+  return new (s = s || Promise)(function (o, t) {
+    function n(e) {
+      try {
+        a(c.next(e));
+      } catch (e) {
+        t(e);
+      }
+    }
+
+    function i(e) {
+      try {
+        a(c["throw"](e));
+      } catch (e) {
+        t(e);
+      }
+    }
+
+    function a(e) {
+      var t;
+      e.done ? o(e.value) : ((t = e.value) instanceof s ? t : new s(function (e) {
+        e(t);
+      })).then(n, i);
+    }
+
+    a((c = c.apply(e, r || [])).next());
+  });
+},
+    c = void 0 && (void 0).__generator || function (o, n) {
+  var i,
+      a,
+      r,
+      s = {
+    label: 0,
+    sent: function sent() {
+      if (1 & r[0]) throw r[1];
+      return r[1];
+    },
+    trys: [],
+    ops: []
+  },
+      e = {
+    next: t(0),
+    "throw": t(1),
+    "return": t(2)
+  };
+  return "function" == typeof Symbol && (e[Symbol.iterator] = function () {
+    return this;
+  }), e;
+
+  function t(t) {
+    return function (e) {
+      return function (t) {
+        if (i) throw new TypeError("Generator is already executing.");
+
+        for (; s;) {
+          try {
+            if (i = 1, a && (r = 2 & t[0] ? a["return"] : t[0] ? a["throw"] || ((r = a["return"]) && r.call(a), 0) : a.next) && !(r = r.call(a, t[1])).done) return r;
+
+            switch (a = 0, (t = r ? [2 & t[0], r.value] : t)[0]) {
+              case 0:
+              case 1:
+                r = t;
+                break;
+
+              case 4:
+                return s.label++, {
+                  value: t[1],
+                  done: !1
+                };
+
+              case 5:
+                s.label++, a = t[1], t = [0];
+                continue;
+
+              case 7:
+                t = s.ops.pop(), s.trys.pop();
+                continue;
+
+              default:
+                if (!(r = 0 < (r = s.trys).length && r[r.length - 1]) && (6 === t[0] || 2 === t[0])) {
+                  s = 0;
+                  continue;
+                }
+
+                if (3 === t[0] && (!r || t[1] > r[0] && t[1] < r[3])) {
+                  s.label = t[1];
+                  break;
+                }
+
+                if (6 === t[0] && s.label < r[1]) {
+                  s.label = r[1], r = t;
+                  break;
+                }
+
+                if (r && s.label < r[2]) {
+                  s.label = r[2], s.ops.push(t);
+                  break;
+                }
+
+                r[2] && s.ops.pop(), s.trys.pop();
+                continue;
+            }
+
+            t = n.call(o, s);
+          } catch (e) {
+            t = [6, e], a = 0;
+          } finally {
+            i = r = 0;
+          }
+        }
+
+        if (5 & t[0]) throw t[1];
+        return {
+          value: t[0] ? t[1] : void 0,
+          done: !0
+        };
+      }([t, e]);
+    };
+  }
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.SkillManage = void 0;
+var l = e("AppCommon"),
+    p = e("CCTool"),
+    d = e("PlatformFun"),
+    i = e("ProgressBar"),
+    u = e("Cfg"),
+    f = e("ModelManage"),
+    e = (a.prototype.initSkill = function (e) {
+  for (var t in this.list = e, this.itemList = [], e) {
+    var o = u.Cfg[this.cfgTag].get(e[t]);
+    this.itemList.push(o), this.ower.CDManage.InitItem(o.id, o.cd), this.energyList[e[t]] = {
+      cur: 0,
+      all: o.energy || 0,
+      freeTime: o.free
+    };
+  }
+}, a.prototype.getType = function (e) {
+  for (var t in this.itemList) {
+    if (this.itemList[t].type == e) return this.itemList[t].id;
+  }
+
+  return null;
+}, a.prototype.useSkill = function (r, s) {
+  return void 0 === s && (s = !0), n(this, void 0, void 0, function () {
+    var t,
+        o,
+        n,
+        i,
+        a = this;
+    return c(this, function (e) {
+      switch (e.label) {
+        case 0:
+          return r ? (t = u.Cfg[this.cfgTag].get(r), this.skill[t.type] ? l["default"].GScene.isPause && 1 == t.useType ? [2] : (i = this.energyList[r], !this.ower.CDManage.Check(r) || i && i.cur < i.all ? (this.ower.isPlayer && p.CCTool.UI.ShowToast("冷却中"), [2]) : (o = !s && 0 == i.freeTime, (n = s) ? [3, 2] : [4, this.checkUseVideo(i.freeTime)])) : [2, cc.log("技能未定义")]) : [2];
+
+        case 1:
+          n = e.sent(), e.label = 2;
+
+        case 2:
+          return n && this.skill[t.type](t) && this.ower.isPlayer && (this.markNodeBar[r] && (cc.Tween.stopAllByTarget(this.markNodeBar[r].node), this.markNodeBar[r].node.scale = 1, l["default"].GScene._GameModel !== f.GAME_MODEL.BOSS_MODEL ? this.markNodeBar[r].setSector(t.cd, function () {
+            cc.tween(a.markNodeBar[r].node).to(.1, {
+              scale: 1.2
+            }).to(.2, {
+              scale: 1
+            }).start();
+          }) : this.markNodeBar[r].resetSector(1), this.energyList[r] && (i = this.energyList[r].freeTime, this.energyList[r].freeTime = 0 < i ? i - 1 : i, this.markNodeBar[r].node.children[3].active = 0 == this.energyList[r].freeTime)), o ? d.PlatformFun.SendEvent(l["default"].GScene.getModeStr() + "skill_video_" + t.type) : d.PlatformFun.SendEvent(l["default"].GScene.getModeStr() + "skill_use_" + t.type)), [2];
+      }
+    });
+  });
+}, a.prototype.checkUseVideo = function (t) {
+  return new Promise(function (e) {
+    t < 0 || 0 < t ? e(!0) : 0 == t && d.PlatformFun.loadRewardedVideoAd({
+      onVideoSuccess: function onVideoSuccess() {
+        e(!0);
+      },
+      onShowClose: function onShowClose() {
+        e(!1);
+      },
+      loadErro: function loadErro() {
+        e(!1);
+      }
+    });
+  });
+}, a.prototype.setUINode = function (o, e) {
+  var t = this;
+  this.markNodeBar[e.id] = o.getComponent(i["default"]), o.children[2].getComponent(cc.Label).string = e.name, o.children[3].active = 0 == this.energyList[e.id].freeTime, cc.resources.load(e.iconPath, cc.SpriteFrame, function (e, t) {
+    o && o.active && (o.children[0].children[0].getComponent(cc.Sprite).spriteFrame = t);
+  });
+  var n = !1;
+  l["default"].GScene._GameModel === f.GAME_MODEL.BOSS_MODEL && this.markNodeBar[e.id].resetSector(1), o.on(cc.Node.EventType.TOUCH_START, function () {
+    n = !0;
+  }, this), o.on(cc.Node.EventType.TOUCH_END, function () {
+    n && (cc.tween(o).to(.1, {
+      scale: 1.2
+    }).to(.2, {
+      scale: 1
+    }).start(), t.useSkill(e.id, !1), n = !1);
+  });
+}, a.getDescr = function (e) {
+  return e.introduction;
+}, a);
+
+function a(e) {
+  this.list = [], this.itemList = [], this.energyList = {}, this.skill = {}, this.markNodeBar = {}, this.ower = e;
+}
+
+o.SkillManage = e;
+
+cc._RF.pop();

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "kdg_d",
+    "texture": "8bd4ff63-5360-499d-acb1-4bfac0190ab6",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      725,
+      1073
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      725,
+      1073
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bosstable",
+    "texture": "19ca6433-2bea-4b59-8dfc-2399c2c4f805",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      318,
+      168
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      318,
+      168
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

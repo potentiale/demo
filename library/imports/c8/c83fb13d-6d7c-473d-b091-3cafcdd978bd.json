@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "levelbg_boss",
+    "texture": "eb8dacd6-790f-4e44-a547-0d9f8d2f0812",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      39,
+      34
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      39,
+      34
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

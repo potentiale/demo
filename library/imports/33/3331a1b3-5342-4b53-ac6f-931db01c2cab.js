@@ -1,0 +1,40 @@
+"use strict";
+cc._RF.push(module, '3331aGzU0JLU6xvkx2wHCyr', 'AutoScaleComponent');
+// scripts/AutoScaleComponent.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.AutoScaleComponent = void 0;
+var i = e("GridView"),
+    e = (n.prototype.getScale = function () {
+  var e = 1,
+      t = 0,
+      o = 0,
+      n = 0;
+
+  switch (this.type) {
+    case i.GRID_TYPE.GRID_VERTICAL:
+      t = this.itemSize.x, o = this.space.x, n = this.parentSize.x;
+      break;
+
+    case i.GRID_TYPE.GRID_HORIZONTAL:
+      t = this.itemSize.y, o = this.space.y, n = this.parentSize.y;
+  }
+
+  return e = t * this.keyCount + o * (this.keyCount - 1) > n ? (n - o * (this.keyCount - 1)) / this.keyCount / t : e;
+}, n);
+
+function n() {
+  this.parentSize = cc.Vec2.ZERO, this.itemSize = cc.Vec2.ZERO, this.space = cc.Vec2.ZERO, this.keyCount = 0;
+}
+
+o.AutoScaleComponent = e;
+
+cc._RF.pop();

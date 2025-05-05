@@ -1,0 +1,388 @@
+"use strict";
+cc._RF.push(module, 'cfedahlW+hPZIxpA5Z1VGO2', 'pop_GameGiftBag');
+// scripts/pop_GameGiftBag.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+
+var r,
+    s = e("AppCommon"),
+    c = e("CCTool"),
+    l = e("BaseSdk"),
+    p = e("PlatformFun"),
+    d = e("UserVo"),
+    u = e("ListenID"),
+    f = e("Notifier"),
+    h = e("Cfg"),
+    m = e("AIState"),
+    y = e("ModelManage"),
+    g = e("WarChessManage"),
+    _ = e("pop"),
+    v = cc._decorator,
+    t = v.ccclass,
+    e = v.property,
+    v = v.menu,
+    v = (r = _["default"], i(C, r), C.prototype.onButton = function (e, t) {
+  var a = this;
+
+  switch (e && c.CCTool.Audio.Player("Click"), t) {
+    case "Close":
+      s["default"].GScene.setPause(-1), this.pdata.call && this.pdata.call(), this.close();
+      break;
+
+    case "VideoGet":
+      this.openVideo(function () {
+        a.videoGetFun();
+      });
+      break;
+
+    case "BackOutRevive":
+      s["default"].MapClr.modelManage.myModel.GameEnd(), this.close();
+      break;
+
+    case "VideoRevive":
+      s["default"].GScene._GameModel == y.GAME_MODEL.FISH_MODEL ? p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "survive_click") : p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "cilck_rebuilddoor"), this.openVideo(function () {
+        s["default"].GScene._GameModel == y.GAME_MODEL.FISH_MODEL ? s["default"].MapClr.modelManage.myModel.GameRevive() : (s["default"].GScene.player.myDoor.setLife(1e6), s["default"].GScene.player.myDoor.upAttribute()), a.close();
+      }, function () {});
+      break;
+
+    case "VideoKuaiDi":
+      this.openVideo(function () {
+        s["default"].GScene.player.setCoin(1e3), c.CCTool.UI.showCurrencyTips("Fish coin", 1e3), s["default"].GScene.player.setPower(500), s["default"].MapClr.scheduleOnce(function () {
+          c.CCTool.UI.showCurrencyTips("energy", 500);
+        }, .5), a.pdata.call && a.pdata.call(!0), a.close();
+      }), p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "express_get");
+      break;
+
+    case "SyncQRCode":
+      if (s["default"].MapClr.modelManage.myModel.data.isSyncQRCode) return this.nodeArr[2].parent.active = !1, c.CCTool.UI.ShowToast("做人不能太贪心！");
+      this.nodeArr[1].active = !1, this.nodeArr[0].active = !0, cc.tween(this.nodeArr[0].children[0]).to(.5, {
+        x: 58
+      }).to(.5, {
+        x: -58
+      }).call(function () {
+        a.nodeArr[2].parent.active = !1;
+        var e = s["default"].GetRandomNum(15, 25);
+        s["default"].GScene.player.setCoin(e), c.CCTool.UI.ShowToast(cc.js.formatStr("你知道得太多了，给你%d金币吧", e)), s["default"].MapClr.modelManage.myModel.data.isSyncQRCode = !0;
+      }).start();
+      break;
+
+    case "VideoHelpdevelopment":
+      this.openVideo(function () {
+        d.UserVo.SetFish(300), c.CCTool.UI.showCurrencyTips("fish", 300), d.UserVo.data.dailyData.HelpdevelopmentNum++, d.UserVo.SaveData();
+        var e = d.UserVo.data.dailyData.HelpdevelopmentNum,
+            t = a.nodeArr[0].getComponent(sp.Skeleton);
+        t.setAnimation(0, "0" + 2 * e, !1), a.unscheduleAllCallbacks(), a.scheduleOnce(function () {
+          t.setAnimation(0, "0" + (2 * e + 1), !0);
+        }, 0 <= [2, 4].indexOf(2 * e) ? 4.5 : 6.6), a.nodeArr[1].active = d.UserVo.data.dailyData.HelpdevelopmentNum < 3, a.labelArr[0].string = "（" + e + "/3）", p.PlatformFun.SendEvent("assist_" + e);
+      });
+      break;
+
+    case "VideoGiveBossHongBao":
+      var n = s["default"].MapClr.monsterList[0];
+      p.PlatformFun.loadRewardedVideoAd({
+        onVideoSuccess: function onVideoSuccess() {
+          if (n._isActive) {
+            var e, t;
+
+            for (t in s["default"].MapClr.roleList) {
+              var o = s["default"].MapClr.roleList[t];
+              o.isAi && 0 < o._life && (e = o.roleID);
+              break;
+            }
+
+            n.myFSM.setAIState(m.StateType.Idle), n._isActive = !1, n.scheduleOnce(function () {
+              n._isActive = !0, n.myFSM.attackRoleById(e);
+            }, 1.2), s["default"].MapClr.newDialogue(n.node, cc.v2(20, 150), "悟性不错！有钱途！", 3), s["default"].data.isInvisible = !0, s["default"].MapClr.myMap.scheduleOnce(function () {
+              s["default"].data.isInvisible = !1;
+            }, 30);
+          }
+
+          s["default"].GScene.setPause(-1), a.close();
+        },
+        onShowClose: function onShowClose() {
+          s["default"].MapClr.newDialogue(n.node, cc.v2(20, 150), "呆头呆脑还敢摸鱼！", 3), n.skillManage.useSkill(n.skillManage.getType(1)), a.close();
+        }
+      }), p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "redpacket_click");
+      break;
+
+    case "GetUIKuaiDiGui":
+      !function () {
+        var e = +a.labelArr[0].string,
+            t = s["default"].CONFIG_INFO.expresskey.indexOf(e);
+        if (t < 0) return p.PlatformFun.SendEvent("egg_express_fail_click"), c.CCTool.UI.ShowToast("取件码错误");
+        if (0 <= d.UserVo.data.KuaiDiGui_Get.indexOf(e)) return c.CCTool.UI.ShowToast("做人不能太贪心！");
+        d.UserVo.data.KuaiDiGui_Get.push(e), d.UserVo.SaveData();
+        var o,
+            n = s["default"].CONFIG_INFO.expresspackage[t].split("-");
+
+        for (o in n) {
+          var i = n[o].split(",");
+          !function (e, t, o) {
+            switch (cc.log(e, t, o), e) {
+              case "Building1":
+                var n = h.Cfg[e].get(t);
+                d.UserVo.addBuildingNumById(n.id, o), c.CCTool.UI.ShowToast("取件成功！获得" + n.name + "x" + o);
+                break;
+
+              case "RoleMan":
+                n = h.Cfg[e].get(t);
+                d.UserVo.setSkin(n.id), d.UserVo.useSkin = n.id, c.CCTool.UI.ShowToast("取件成功！获得" + n.name);
+            }
+          }(i[0], +i[1], +i[2]);
+        }
+
+        p.PlatformFun.SendEvent("egg_express_succeed_click");
+      }();
+      break;
+
+    case "VideoUIKuaiDiGuiTips":
+      !function () {
+        var o;
+        p.PlatformFun.SendEvent("egg_express_forgetkey_click");
+        var e,
+            n = [];
+
+        for (e in s["default"].CONFIG_INFO.expresskey) {
+          var t = s["default"].CONFIG_INFO.expresskey[e];
+
+          if (n.push(t), d.UserVo.data.KuaiDiGui_Tips.indexOf(t) < 0) {
+            o = t;
+            break;
+          }
+        }
+
+        o && a.openVideo(function () {
+          a.nodeArr[2].active = !0, d.UserVo.data.KuaiDiGui_Tips.push(o), d.UserVo.SaveData();
+          var e,
+              t = "";
+
+          for (e in n) {
+            t += n[e] + "       ";
+          }
+
+          a.labelArr[1].string = t;
+        });
+      }();
+      break;
+
+    case "VideoGetYunNanBGM":
+      p.PlatformFun.SendEvent("egg_changebgm"), this.openVideo(function () {
+        s["default"].data.YunNanBGM = !0, a.close();
+      });
+      break;
+
+    case "VideoGiveBossHand":
+      this.openVideo(function () {
+        f.Notifier.send(u.ListenID.Fight_GetHandSuccess, a.pdata), a.close();
+      });
+      break;
+
+    case "VideoGetHighFish":
+      p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "superfish_click"), this.openVideo(function () {
+        c.CCTool.Audio.Player("m4_finish"), a.nodeArr[1].active = !1;
+        var o = s["default"].MapClr.modelManage.myModel.WCManage;
+        s["default"].MapClr.modelManage.myModel.getHighFish(function (t) {
+          cc.resources.load("img/model_4/" + t.parameter[1], cc.SpriteFrame, function (e, t) {
+            a.nodeArr[0].getComponent(cc.Sprite).spriteFrame = t;
+          }), cc.tween(a.node).call(function () {
+            a.am.play("HighFish_open");
+          }).delay(.6).call(function () {
+            a.am.play("HighFish_openIdle");
+          }).delay(1).call(function () {
+            var e = o.getEmptyTag(g.POINT_TYPE.BATTLEFIELD);
+            s["default"].MapClr.modelManage.myModel.WCManage.getBattery(t, e.arr[0], cc.v2(0, 100));
+          }).to(.1, {
+            opacity: 0
+          }).call(function () {
+            a.close();
+          }).start();
+        });
+      });
+  }
+}, C.prototype.openVideo = function (e, t) {
+  p.PlatformFun.loadRewardedVideoAd({
+    onVideoSuccess: function onVideoSuccess() {
+      e(), s["default"].GScene.setPause(-1);
+    },
+    loadSuccess: function loadSuccess() {
+      t && t();
+    }
+  });
+}, C.prototype.longTapEvent = function () {
+  p.PlatformFun.showInterstitialAd(), this.nodeArr[2].children[0].active = !0, this.nodeArr[1].active = !0;
+}, C.prototype.registerLongTouch = function (e) {
+  var t = this;
+  e.on(cc.Node.EventType.TOUCH_START, function () {
+    t._isPress = !0, t._pressTime = 0;
+  }, this), e.on(cc.Node.EventType.TOUCH_END, function () {
+    t._isPress = !1, t._pressTime = 0;
+  }, this), e.on(cc.Node.EventType.TOUCH_CANCEL, function () {
+    t._isPress = !1, t._pressTime = 0;
+  }, this);
+}, C.prototype.update = function (e) {
+  this._isPress && (this._pressTime += e, 3 <= this._pressTime && (this._isPress = !1, this.longTapEvent(), this._pressTime = 0));
+}, a([e(cc.Animation)], C.prototype, "am", void 0), a([t, v("pop/pop_GameGiftBag")], C));
+
+function C() {
+  var a = null !== r && r.apply(this, arguments) || this;
+  return a.am = null, a._isPackage = !1, a.initFun = {
+    pop_GameRevive_M2: function pop_GameRevive_M2() {
+      a._isPackage = !1, s["default"].GScene.setPause(), p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "show_rebuilddoor"), p.PlatformFun.vibrate(1);
+    },
+    pop_GameKuaidi: function pop_GameKuaidi() {
+      p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "express_show"), s["default"].GScene.setPause(), a._isPackage = !0, a.nodeArr[0].active = !1, a.nodeArr[1].active = !1, a.nodeArr[2].children[0].active = !1, a.registerLongTouch(a.nodeArr[2].parent.children[0]), s["default"].PF == l.GAMEPF.ADR_XM && p.PlatformFun.showBannerAd();
+    },
+    pop_UIHelpdevelopment: function pop_UIHelpdevelopment() {
+      p.PlatformFun.SendEvent("assist_show");
+      var e = d.UserVo.data.dailyData.HelpdevelopmentNum;
+      a.nodeArr[0].getComponent(sp.Skeleton).setAnimation(0, "0" + (2 * e + 1), !0), a.nodeArr[1].active = d.UserVo.data.dailyData.HelpdevelopmentNum < 3, a.labelArr[0].string = "（" + e + "/3）";
+    },
+    pop_GiveBossHongBao: function pop_GiveBossHongBao() {
+      p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "redpacket_show"), s["default"].GScene.setPause();
+    },
+    pop_UIModelVote: function pop_UIModelVote() {
+      d.UserVo.data.dailyData.ModelVote || (d.UserVo.data.dailyData.ModelVote = [], d.UserVo.SaveData());
+      var n = 0;
+      p.PlatformFun.SendEvent("vote_show");
+
+      var i = function i() {
+        for (var e in a.nodeArr[0].children) {
+          !function (e) {
+            var t = +e,
+                o = a.nodeArr[0].children[e].children[1],
+                e = 0 <= d.UserVo.data.dailyData.ModelVote.indexOf(t);
+            cc.log(e), o.children[0].active = e, o.children[1].active = !e, e || 0 != n || o.children[1].on(cc.Node.EventType.TOUCH_END, function () {
+              a.openVideo(function () {
+                d.UserVo.SetFish(100), c.CCTool.UI.showCurrencyTips("fish", 100), d.UserVo.data.dailyData.ModelVote.push(t), d.UserVo.SaveData(), i(), p.PlatformFun.SendEvent("vote_click_" + (1 + t));
+              });
+            }, a);
+          }(e);
+        }
+
+        n++;
+      };
+
+      i();
+    },
+    pop_UIKuaiDiGui: function pop_UIKuaiDiGui() {
+      p.PlatformFun.SendEvent("egg_express_show"), a.pdata.codeArr = [], a.labelArr[0].string = "", a.nodeArr[0].on(cc.Node.EventType.TOUCH_END, function () {
+        c.CCTool.Audio.Player("Click"), cc.tween(a.nodeArr[0]).to(.1, {
+          scale: 1.1
+        }).to(.1, {
+          scale: 1
+        }).start(), a.labelArr[0].string = "";
+      }, a);
+
+      for (var e = 0; e < 9; e++) {
+        a.nodeArr[1].children[e] || cc.instantiate(a.nodeArr[1].children[0]).setParent(a.nodeArr[1]);
+      }
+
+      for (e = 0; e < 9; e++) {
+        !function (e) {
+          var t = a.nodeArr[1].children[e],
+              o = e + 1;
+          t.children[0].getComponent(cc.Label).string = o + "", t.on(cc.Node.EventType.TOUCH_END, function () {
+            c.CCTool.Audio.Player("Click"), cc.tween(t).to(.1, {
+              scale: 1.1
+            }).to(.1, {
+              scale: 1
+            }).start(), 6 <= a.labelArr[0].string.length || (a.labelArr[0].string += "" + o);
+          }, a);
+        }(e);
+      }
+
+      var t = [];
+
+      for (e in s["default"].CONFIG_INFO.expresskey) {
+        var o = s["default"].CONFIG_INFO.expresskey[e];
+        0 <= d.UserVo.data.KuaiDiGui_Tips.indexOf(o) && t.push(o);
+      }
+
+      if (a.nodeArr[2].active = 0 < t.length, 0 < t.length) {
+        var n = "";
+
+        for (e in t) {
+          n += t[e] + "       ";
+        }
+
+        a.labelArr[1].string = n;
+      }
+    },
+    pop_M4_HighFish: function pop_M4_HighFish() {
+      p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "superfish_show");
+    },
+    pop_GameRevive_M4: function pop_GameRevive_M4() {
+      p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "survive_show");
+    },
+    pop_M4_ConcealFish: function pop_M4_ConcealFish() {
+      p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "hidenfish_show");
+      var e,
+          t = a.pdata;
+
+      for (e in a.nodeArr) {
+        !function (o) {
+          cc.resources.load("img/model_4/" + t.parameter[1], cc.SpriteFrame, function (e, t) {
+            a.nodeArr[o].children[1].getComponent(cc.Sprite).spriteFrame = t;
+          });
+        }(e);
+      }
+    },
+    pop_M4_UnlockChoppingBlock: function pop_M4_UnlockChoppingBlock() {
+      p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "moreboard_show"), a.videoGetFun = function () {
+        var e = s["default"].MapClr.modelManage.myModel;
+        p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "moreboard_click_" + (e.myChoppingBlockNum + 2)), e.setChoppingBlock(e.myChoppingBlockNum + 2), a.close();
+      };
+    },
+    pop_M4_GlodChoppingBlock: function pop_M4_GlodChoppingBlock() {
+      p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "goldboard_show"), a.videoGetFun = function () {
+        p.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "goldboard_click"), s["default"].MapClr.modelManage.myModel.setGlodChoppingBlock(), a.close();
+      };
+    }
+  }, a.videoGetFun = function () {}, a.closeFun = {
+    pop_GiveBossHongBao: function pop_GiveBossHongBao() {
+      var e = s["default"].MapClr.monsterList[0];
+      s["default"].MapClr.newDialogue(e.node, cc.v2(20, 150), "呆头呆脑还敢摸鱼！", 3), e.skillManage.useSkill(e.skillManage.getType(1));
+    }
+  }, a._isPress = !1, a._pressTime = 0, a;
+}
+
+o["default"] = v;
+
+cc._RF.pop();

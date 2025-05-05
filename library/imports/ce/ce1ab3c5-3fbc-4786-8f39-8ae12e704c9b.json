@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "kaifazhuli",
+    "texture": "0c7e101c-6a03-490d-863f-02f11ebca0b3",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      91,
+      107
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      91,
+      107
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

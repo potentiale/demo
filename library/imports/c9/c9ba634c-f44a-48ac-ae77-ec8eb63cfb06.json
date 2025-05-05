@@ -1,0 +1,17 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "kuaidiyuan",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_skeletonJson": null,
+  "_atlasText": "\nkuaidiyuan.png\nsize: 142,78\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\narm1_r\n  rotate: false\n  xy: 118, 4\n  size: 8, 24\n  orig: 8, 24\n  offset: 0, 0\n  index: -1\narm1l\n  rotate: true\n  xy: 68, 15\n  size: 8, 21\n  orig: 8, 24\n  offset: 0, 0\n  index: -1\narm2_l\n  rotate: false\n  xy: 83, 3\n  size: 6, 10\n  orig: 6, 10\n  offset: 0, 0\n  index: -1\narm2_r\n  rotate: false\n  xy: 68, 2\n  size: 6, 11\n  orig: 6, 11\n  offset: 0, 0\n  index: -1\nbody\n  rotate: true\n  xy: 27, 8\n  size: 15, 39\n  orig: 15, 39\n  offset: 0, 0\n  index: -1\nbook\n  rotate: true\n  xy: 91, 2\n  size: 26, 25\n  orig: 26, 25\n  offset: 0, 0\n  index: -1\nfoot_l\n  rotate: false\n  xy: 27, 2\n  size: 9, 4\n  orig: 9, 4\n  offset: 0, 0\n  index: -1\nfoot_r\n  rotate: false\n  xy: 38, 2\n  size: 9, 4\n  orig: 9, 4\n  offset: 0, 0\n  index: -1\nhand_l\n  rotate: true\n  xy: 128, 13\n  size: 6, 12\n  orig: 6, 12\n  offset: 0, 0\n  index: -1\nhand_r\n  rotate: true\n  xy: 128, 21\n  size: 7, 12\n  orig: 7, 12\n  offset: 0, 0\n  index: -1\nleg1_l\n  rotate: false\n  xy: 128, 2\n  size: 5, 9\n  orig: 5, 9\n  offset: 0, 0\n  index: -1\nleg1_r\n  rotate: false\n  xy: 76, 2\n  size: 5, 11\n  orig: 5, 11\n  offset: 0, 0\n  index: -1\nleg2_l\n  rotate: true\n  xy: 49, 2\n  size: 4, 8\n  orig: 4, 8\n  offset: 0, 0\n  index: -1\nleg2_r\n  rotate: false\n  xy: 135, 2\n  size: 5, 9\n  orig: 5, 9\n  offset: 0, 0\n  index: -1\nluant1\n  rotate: false\n  xy: 2, 2\n  size: 23, 21\n  orig: 23, 21\n  offset: 0, 0\n  index: -1\nluant2\n  rotate: false\n  xy: 2, 2\n  size: 23, 21\n  orig: 23, 21\n  offset: 0, 0\n  index: -1\ns\n  rotate: false\n  xy: 2, 25\n  size: 87, 51\n  orig: 87, 51\n  offset: 0, 0\n  index: -1\ntou\n  rotate: false\n  xy: 91, 30\n  size: 49, 46\n  orig: 49, 46\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "fa2cb435-624a-491d-8b2f-3c97f561d4ab"
+    }
+  ],
+  "textureNames": [
+    "kuaidiyuan.png"
+  ],
+  "scale": 1
+}

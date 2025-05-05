@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Character photos",
+    "texture": "8de2523f-841c-45d2-a38b-b9de695d6941",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      246,
+      49
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      246,
+      49
+    ],
+    "capInsets": [
+      120,
+      16,
+      120,
+      28
+    ]
+  }
+}

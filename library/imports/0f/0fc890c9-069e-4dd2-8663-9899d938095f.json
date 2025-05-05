@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bt_Small report ",
+    "texture": "a4b66c34-c38e-428f-a74a-798eda798f9f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      178,
+      56
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      178,
+      56
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

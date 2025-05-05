@@ -1,0 +1,17 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "boss1",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_skeletonJson": null,
+  "_atlasText": "\nboss1.png\nsize: 189,248\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nbody\n  rotate: false\n  xy: 2, 123\n  size: 109, 123\n  orig: 109, 123\n  offset: 0, 0\n  index: -1\nbody00\n  rotate: true\n  xy: 37, 3\n  size: 38, 31\n  orig: 38, 31\n  offset: 0, 0\n  index: -1\nhand1a\n  rotate: false\n  xy: 67, 45\n  size: 35, 76\n  orig: 35, 76\n  offset: 0, 0\n  index: -1\nhand1b\n  rotate: false\n  xy: 2, 2\n  size: 33, 39\n  orig: 33, 39\n  offset: 0, 0\n  index: -1\nhand1c\n  rotate: false\n  xy: 142, 28\n  size: 24, 23\n  orig: 24, 23\n  offset: 0, 0\n  index: -1\nhand1cc\n  rotate: false\n  xy: 70, 5\n  size: 31, 38\n  orig: 31, 38\n  offset: 0, 0\n  index: -1\nhand2a\n  rotate: true\n  xy: 104, 82\n  size: 31, 73\n  orig: 31, 73\n  offset: 0, 0\n  index: -1\nhand2b\n  rotate: true\n  xy: 104, 45\n  size: 21, 36\n  orig: 21, 36\n  offset: 0, 0\n  index: -1\nhand2c\n  rotate: false\n  xy: 139, 3\n  size: 24, 23\n  orig: 24, 23\n  offset: 0, 0\n  index: -1\nhand2cc\n  rotate: false\n  xy: 113, 180\n  size: 71, 66\n  orig: 72, 66\n  offset: 0, 0\n  index: -1\nhead\n  rotate: false\n  xy: 2, 43\n  size: 63, 78\n  orig: 63, 78\n  offset: 0, 0\n  index: -1\nleg1a\n  rotate: false\n  xy: 121, 8\n  size: 16, 35\n  orig: 16, 35\n  offset: 0, 0\n  index: -1\nleg1b\n  rotate: false\n  xy: 103, 5\n  size: 16, 38\n  orig: 16, 38\n  offset: 0, 0\n  index: -1\nleg1c\n  rotate: false\n  xy: 142, 53\n  size: 26, 13\n  orig: 26, 13\n  offset: 0, 0\n  index: -1\nleg2\n  rotate: false\n  xy: 170, 37\n  size: 17, 43\n  orig: 17, 43\n  offset: 0, 0\n  index: -1\nnecktie\n  rotate: true\n  xy: 104, 68\n  size: 12, 64\n  orig: 12, 64\n  offset: 0, 0\n  index: -1\npaper1\n  rotate: false\n  xy: 113, 115\n  size: 69, 63\n  orig: 69, 63\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "d93ab497-6fd3-477d-8ff2-80c131de2e65"
+    }
+  ],
+  "textureNames": [
+    "boss1.png"
+  ],
+  "scale": 1
+}

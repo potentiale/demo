@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bd_blue",
+    "texture": "a75a4219-92a6-48ba-9355-1a83256c63ae",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      78,
+      246
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      78,
+      246
+    ],
+    "capInsets": [
+      0,
+      0,
+      70,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "blood_green",
+    "texture": "a9eebc43-e9df-47ae-b4a8-20ff38637606",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      100,
+      14
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      100,
+      14
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

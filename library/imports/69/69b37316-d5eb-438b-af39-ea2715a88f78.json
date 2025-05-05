@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fenxiang_icon",
+    "texture": "226ea9a5-dfb5-4964-aaed-f74503ba2a72",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      42,
+      35
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      42,
+      35
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

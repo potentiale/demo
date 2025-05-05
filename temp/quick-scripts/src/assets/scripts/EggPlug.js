@@ -1,0 +1,101 @@
+"use strict";
+cc._RF.push(module, '308579aI5tLp40VkvqwnRny', 'EggPlug');
+// scripts/EggPlug.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    c = e("AppCommon"),
+    l = e("CCTool"),
+    p = e("PlatformFun"),
+    d = e("Cfg"),
+    t = cc._decorator,
+    e = t.ccclass,
+    e = (t.property, r = cc.Component, i(s, r), s.prototype.deleteEgg = function () {
+  this.destroy();
+}, a([e], s));
+
+function s() {
+  var s = null !== r && r.apply(this, arguments) || this;
+  return s.newEgg = {
+    M4_Touch: function M4_Touch() {
+      var t = [[0, 8], [1, 7], [2, 8], [3, 7], [4, 8]],
+          o = 0,
+          n = function n() {
+        o = 0;
+      },
+          a = c["default"].MapClr.modelManage.myModel.WCManage,
+          r = function r(e) {
+        e = c["default"].MapClr.getMapPos(l.CCTool.System.GetV2(e));
+
+        if (s.unschedule(n), e.x == t[o][0] && e.y == t[o][1]) {
+          if (o++, s.scheduleOnce(n, 1), 5 == o) {
+            if (a.getEmptyTag().num < 3) return l.CCTool.UI.ShowToast("请保证合成区域有三个空位");
+            var e = c["default"].MapClr.modelManage.myModel.getMaxLv(),
+                i = d.Cfg.Building999.get(e);
+            l.CCTool.UI.OpenPop("prefab/pop/pop_M4_ConcealFish", i, c["default"].MainView.PopBox, function (t) {
+              t.videoGetFun = function () {
+                var o = c["default"].MapClr.modelManage.myModel.WCManage,
+                    n = o.getEmptyTag();
+                p.PlatformFun.SendEvent(c["default"].GScene.getModeStr() + "hidenfish_click");
+
+                for (var e = 0; e < 3; e++) {
+                  !function (e) {
+                    var t = n.arr[e];
+                    cc.tween(s).delay(.1 * e).call(function () {
+                      o.getBattery(i, t, cc.v2(0, 200));
+                    }).start();
+                  }(e);
+                }
+
+                t.close(), s.node.off(cc.Node.EventType.TOUCH_START, r, s);
+              };
+            });
+          }
+        } else n();
+      };
+
+      s.node.on(cc.Node.EventType.TOUCH_START, r, s);
+    }
+  }, s;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

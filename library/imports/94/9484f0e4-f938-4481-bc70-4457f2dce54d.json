@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "rolemoveteips",
+    "texture": "3240b4f2-ecc1-4674-a039-ca0315c16228",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      66,
+      51
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      66,
+      51
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,167 @@
+"use strict";
+cc._RF.push(module, '8c5cbprqwpGNZ5MoaEsHW1s', 'AIBuild_M2');
+// scripts/AIBuild_M2.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    c = e("ListenID"),
+    l = e("Cfg"),
+    p = e("AIBuild"),
+    t = cc._decorator,
+    e = t.ccclass,
+    e = (t.property, r = p["default"], i(d, r), d.prototype.initState = function (e, t) {
+  var o = this;
+  this._AiParameter = t, this.ower = e, this.initPolicy(), t && (cc.log("初始化所有状态:", t.name, t.id), this.schedule(this.newThink, 1), this.setAIState(p.BuildAI_Type.Check), this._isActive = !0, s["default"].CONFIG_INFO.AITag && cc.resources.load("prefab/AITest/AITag", cc.Prefab, function (e, t) {
+    t = cc.instantiate(t);
+    t.setParent(o.node), t._components[0].initFun.AITag(o.ower);
+  }), this.buildMax = JSON.parse(t.buildingMax), this.ower.myDoor.node.on(c.ListenID.Send_Hurt, this.getHurt, this));
+}, d.prototype.initPolicy = function () {
+  var e,
+      t = this.ower.myBed.myTerritoryMap;
+
+  for (e in t) {
+    for (var o in t[e]) {
+      var n = t[e][o];
+      this.pointSeting[n.name ? "attack" : "other"].push({
+        x: e,
+        y: o,
+        sort: +n.name || 0
+      });
+    }
+  }
+
+  this.pointSeting.attack = s["default"].arrCompare(this.pointSeting.attack, "sort", 0), this.getPolicy.resource[0] = this.ower.myBed.attribute.buildingID;
+}, d.prototype.newThink = function () {
+  if (this._isActive && !s["default"].GScene.isPause && this.currentState == p.BuildAI_Type.Check) {
+    this._thinkNum++;
+    var e = void 0,
+        t = void 0;
+
+    if (this.searchRole(), this.checkSConstruct(), 1 != this._thinkNum) {
+      if (2 == this._thinkNum) return e = l.Cfg.Building1.get(s["default"].GetArrTarge([261, 271])), a = this.checkSpace("other", e), void this.newOperation({
+        type: p.BuildAIOperation_Type.Build,
+        pos: a,
+        arcCfg: e
+      });
+      var o,
+          n = this.checkAdvantage(),
+          i = this.getWeight(this.getPolicy.first, this._AiParameter["type" + n]);
+      i && this.checkPolicy(i.id) && (o = this.getPolicy[i.id], (n = this.getWeight(o, this._AiParameter[i.id + n])) && ("number" == typeof n.id ? t = s["default"].MapClr.arcIDList[n.id].id : 0 < n.id.length && (t = s["default"].MapClr.arcIDList[s["default"].GetArrTarge(n.id)].id), t && (e = l.Cfg.Building1.get(t), this.checkLimt(e) || !this.checkRoomIsSpace() ? (n = this.getNotMaxArc(e)) ? (t = l.Cfg.Building1.get(+n.attribute.data.id + 1)) && this.checkOperation({
+        type: p.BuildAIOperation_Type.Up,
+        arcTag: n,
+        arcCfg: t
+      }) : this.renounceTarget(i.id, e) : (a = this.checkSpace(i.id, e)) && this.checkOperation({
+        type: p.BuildAIOperation_Type.Build,
+        pos: a,
+        arcCfg: e
+      }))));
+    } else {
+      var e = l.Cfg.Building1.get(50),
+          a = this.checkSpace("attack", e);
+      this.newOperation({
+        type: p.BuildAIOperation_Type.Build,
+        pos: a,
+        arcCfg: e
+      });
+    }
+  }
+}, d.prototype.checkSConstruct = function () {
+  var e,
+      n = this,
+      i = s["default"].gettimestamp() - this.ower._initTime,
+      a = this;
+
+  for (e in this.getPolicy.specialtower) {
+    var t = function (e) {
+      var t = a.getPolicy.specialtower[e];
+      if (!t) return "continue";
+
+      if (i > a._AiParameter.specialtower[e]) {
+        var o = l.Cfg.Building1.get(s["default"].MapClr.arcIDList[t].id);
+        return a.unlockSConstruct(o, function () {
+          n.renounceTarget("specialtower", o);
+        }), {
+          value: void 0
+        };
+      }
+    }(e);
+
+    if ("object" == typeof t) return t.value;
+  }
+}, d.prototype.checkAdvantage = function () {
+  var e,
+      t = this._enemy.myBed.myTerritoryMap,
+      o = 0,
+      n = 0;
+
+  for (e in t) {
+    for (var i in t[e]) {
+      i = t[e][i];
+      i.arc && 0 <= [17, 18, 19].indexOf(i.arc.attribute.buildingType) && (o += (i = l.Cfg.Ghost1.get(i.arc.attribute.data.parameter[0])).hp, n += i.atk);
+    }
+  }
+
+  return this.ower.myCapabilities.hp / n > o / (this.ower.myCapabilities.atk || .1) ? 1 : 2;
+}, d.prototype.searchRole = function () {
+  if (!this._enemy) for (var e in s["default"].MapClr.roleList) {
+    e = s["default"].MapClr.roleList[e];
+    if (e.roleID != this.ower.roleID) return void (this._enemy = e);
+  }
+}, a([e], d));
+
+function d() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e._isActive = !1, e.statesList = [], e.toleranceTime = 30, e.pointSeting = {
+    attack: [],
+    other: []
+  }, e.getPolicy = {
+    first: ["resource", "defend", "attack", "monster"],
+    resource: [1, 5, 6, 13],
+    defend: [4, 10, 12],
+    attack: [3, [18, 19, 20]],
+    monster: [21, 22, 23],
+    specialtower: [24, 25]
+  }, e._thinkNum = 0, e._time = 0, e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

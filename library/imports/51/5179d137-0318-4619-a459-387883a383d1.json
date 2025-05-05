@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "db_Small report",
+    "texture": "31d989cb-83b3-461c-a4f5-719904ed4462",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      451,
+      292
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      451,
+      292
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

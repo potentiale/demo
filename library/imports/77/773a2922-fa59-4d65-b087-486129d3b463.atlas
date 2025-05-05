@@ -1,0 +1,34 @@
+
+role4.png
+size: 121,76
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 2
+  size: 77, 72
+  orig: 77, 72
+  offset: 0, 0
+  index: -1
+bow
+  rotate: false
+  xy: 81, 38
+  size: 34, 36
+  orig: 34, 36
+  offset: 0, 0
+  index: -1
+hand1
+  rotate: true
+  xy: 101, 16
+  size: 20, 18
+  orig: 20, 18
+  offset: 0, 0
+  index: -1
+hand2
+  rotate: true
+  xy: 81, 15
+  size: 21, 18
+  orig: 21, 18
+  offset: 0, 0
+  index: -1

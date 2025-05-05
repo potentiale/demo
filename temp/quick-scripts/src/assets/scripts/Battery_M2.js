@@ -1,0 +1,108 @@
+"use strict";
+cc._RF.push(module, 'e55fePzJuNFPJXAqbchFD+v', 'Battery_M2');
+// scripts/Battery_M2.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    c = e("CCTool"),
+    l = e("ListenID"),
+    p = e("ConstructBase"),
+    d = e("ElementBase"),
+    u = cc._decorator,
+    t = u.ccclass,
+    e = u.menu,
+    u = u.property,
+    e = (r = p["default"], i(f, r), f.prototype.onInit = function () {
+  this.upAttackSpeed(), this.nodeArr[0].angle = 2 == this._roomID ? 180 : 0;
+}, f.prototype.update = function (e) {
+  !s["default"].GScene.isPause && this._isHaveUpDate && (this._time += e, this._time > this._attackSpeed) && (e = s["default"].GetArrTarge(this.searchEnemy())) && (this.upAttackSpeed(), this.setHurt(e), this._time = 0);
+}, f.prototype.upAttackSpeed = function () {
+  21 == this.attribute.buildingType && (this._attackSpeed = this.attribute.data.frequency);
+}, f.prototype.searchEnemy = function () {
+  for (var e in s["default"].MapClr.roleList) {
+    if ((o = s["default"].MapClr.roleList[e]).roleID != this.ower.roleID) {
+      this._enemy = o;
+      break;
+    }
+  }
+
+  var t,
+      o,
+      n = [],
+      i = this._enemy.myBed.myTerritoryMap;
+
+  for (t in i) {
+    for (var a in i[t]) {
+      (o = i[t][a]).arc && [1, 3].indexOf(o.arc.attribute.buildingType) < 0 && n.push(o.arc);
+    }
+  }
+
+  return n;
+}, f.prototype.setHurt = function (t) {
+  var o = this,
+      e = s["default"].getAngle(t.node.position, this.node.position) - 90,
+      n = this.attribute.data.atk;
+  cc.tween(this.nodeArr[0]).to(.2, {
+    angle: e
+  }).call(function () {
+    c.CCTool.Audio.CameraPlayer(o.node.position, "m4_boom"), o.imgList[2].node.active = !1;
+    var e = new d.HurtData(-n, o.ower.roleID, o.ower.type);
+    s["default"].MapClr.newBullet(o.node.position, {
+      tag: t,
+      img: "bullet0" + o.attribute.data.parameter[1],
+      speed: 400,
+      owerID: o._owerID,
+      hurtData: e,
+      call: function call() {
+        t.node.emit(l.ListenID.Send_Hurt, e), o.imgList[2].node.active = !0, s["default"].MainView.gameMsg(s["default"].strReplace(" %1d的摸鱼飞弹摧毁了%2d的%3d", o.ower.matchData.name, o._enemy.matchData.name, t.attribute.name));
+      }
+    });
+  }).start();
+}, a([u([cc.Node])], f.prototype, "nodeArr", void 0), a([t, e("gameElement/Battery_M2")], f));
+
+function f() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e.nodeArr = [], e._time = 0, e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

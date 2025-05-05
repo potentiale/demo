@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "FingerGuide1",
+    "texture": "46a7e28d-f9ec-4ac1-ab13-c28781e57ac8",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      127,
+      89
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      127,
+      89
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

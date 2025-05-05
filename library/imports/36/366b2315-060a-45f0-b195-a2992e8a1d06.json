@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "role4_01f31e60-6b2d-4cba-a3d4-18fd494ec371",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\nrole4_01f31e60-6b2d-4cba-a3d4-18fd494ec371.png\r\nsize: 121,76\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\nbody\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 77, 72\r\n  orig: 77, 72\r\n  offset: 0, 0\r\n  index: -1\r\nbow\r\n  rotate: false\r\n  xy: 81, 38\r\n  size: 34, 36\r\n  orig: 34, 36\r\n  offset: 0, 0\r\n  index: -1\r\nhand1\r\n  rotate: true\r\n  xy: 101, 16\r\n  size: 20, 18\r\n  orig: 20, 18\r\n  offset: 0, 0\r\n  index: -1\r\nhand2\r\n  rotate: true\r\n  xy: 81, 15\r\n  size: 21, 18\r\n  orig: 21, 18\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

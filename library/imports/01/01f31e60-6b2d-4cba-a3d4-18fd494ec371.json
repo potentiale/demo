@@ -1,0 +1,17 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "role4",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_skeletonJson": null,
+  "_atlasText": "\nrole4.png\nsize: 121,76\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nbody\n  rotate: false\n  xy: 2, 2\n  size: 77, 72\n  orig: 77, 72\n  offset: 0, 0\n  index: -1\nbow\n  rotate: false\n  xy: 81, 38\n  size: 34, 36\n  orig: 34, 36\n  offset: 0, 0\n  index: -1\nhand1\n  rotate: true\n  xy: 101, 16\n  size: 20, 18\n  orig: 20, 18\n  offset: 0, 0\n  index: -1\nhand2\n  rotate: true\n  xy: 81, 15\n  size: 21, 18\n  orig: 21, 18\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "1e9dab11-9ae9-43d9-b7fb-a557413d5707"
+    }
+  ],
+  "textureNames": [
+    "role4.png"
+  ],
+  "scale": 1
+}

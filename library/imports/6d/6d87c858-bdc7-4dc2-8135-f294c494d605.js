@@ -1,0 +1,65 @@
+"use strict";
+cc._RF.push(module, '6d87chYvcdNwoE18pTElNYF', 'GhostCfg');
+// scripts/GhostCfg.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    t = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+});
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.GhostCfgReader = void 0;
+var i,
+    t = (i = e("TConfig").TConfig, t(a, i), a);
+
+function a() {
+  var e = i.call(this) || this;
+  return e._name = "Ghost", e.initByMap({
+    1: {
+      id: 1,
+      name: "鬼1",
+      born: 1,
+      attributes: 1,
+      target: [1, 1, 1],
+      danger: [120, 1, 150, 1, 200, 1],
+      loop: [30, 1, 45, 1, 60, 1],
+      model: [1]
+    },
+    2: {
+      id: 2,
+      name: "鬼2",
+      born: 1,
+      attributes: 20,
+      target: [1, 0, 0],
+      danger: [120, 1, 150, 1, 200, 1],
+      loop: [30, 1, 45, 1, 60, 1],
+      model: [1]
+    }
+  }), e;
+}
+
+o.GhostCfgReader = t;
+
+cc._RF.pop();

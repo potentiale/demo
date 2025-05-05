@@ -1,0 +1,72 @@
+"use strict";
+cc._RF.push(module, 'ebf310RnzdNAb1dJ/+3yEUM', 'JoyStick');
+// scripts/JoyStick.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = cc._decorator,
+    t = s.ccclass,
+    s = s.property,
+    t = (r = cc.Component, i(c, r), c.prototype.onLoad = function () {
+  this.changeListener(!0), this.resetJoy();
+}, c.prototype.changeListener = function (e) {
+  e ? (this.node.on(cc.Node.EventType.TOUCH_START, this._handleTouchStart, this), this.node.on(cc.Node.EventType.TOUCH_MOVE, this._handleTouchMove, this), this.node.on(cc.Node.EventType.TOUCH_END, this._handleTouchEnd, this), this.node.on(cc.Node.EventType.TOUCH_CANCEL, this._handleTouchEnd, this)) : (this.node.off(cc.Node.EventType.TOUCH_START, this._handleTouchStart, this), this.node.off(cc.Node.EventType.TOUCH_MOVE, this._handleTouchMove, this), this.node.off(cc.Node.EventType.TOUCH_END, this._handleTouchEnd, this), this.node.off(cc.Node.EventType.TOUCH_CANCEL, this._handleTouchEnd, this));
+}, c.prototype.start = function () {}, c.prototype._handleTouchStart = function (e) {
+  this._touchCount <= 0 && (e = this.joyStickBg.parent.convertToNodeSpaceAR(e.getLocation()), this.joyStickBg.setPosition(e), this.joyStickBg.active = !0, this._iscatchJoy = !0), this._touchCount++;
+}, c.prototype._handleTouchMove = function (e) {
+  this._iscatchJoy && (e = this.joyStickBg.parent.convertToNodeSpaceAR(e.getLocation()), cc.Vec2.set(this.tempVec2, this.joyStickBg.x, this.joyStickBg.y), cc.Vec2.subtract(e, e, this.tempVec2), this.setJoyStickPos(e));
+}, c.prototype._handleTouchEnd = function () {
+  this._touchCount--, this._touchCount <= 0 && this.resetJoy();
+}, c.prototype.resetJoy = function () {
+  this.joyStickBg.children[0].setPosition(0, 0), this.joyStickBg.active = !1, this.linearVelocity = cc.Vec2.ZERO;
+}, c.prototype.setJoyStickPos = function (e) {
+  this.joyStickBg.children[0].setPosition(e), this.linearVelocity = e;
+}, c.prototype.onDisable = function () {
+  this._touchCount = 0, this._handleTouchEnd();
+}, a([s(cc.Node)], c.prototype, "joyStickBg", void 0), a([t], c));
+
+function c() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e.joyStickBg = null, e.tempVec2 = cc.v2(), e._touchCount = 0, e._iscatchJoy = !1, e.linearVelocity = cc.Vec2.ZERO, e;
+}
+
+o["default"] = t;
+
+cc._RF.pop();

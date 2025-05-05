@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "chattip_d",
+    "texture": "24099dc0-f44f-4bb9-9e46-6f267e86b746",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      34,
+      40
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      34,
+      40
+    ],
+    "capInsets": [
+      18,
+      13,
+      8,
+      15
+    ]
+  }
+}

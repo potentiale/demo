@@ -1,0 +1,103 @@
+"use strict";
+cc._RF.push(module, '77ca7pN7zpC0Zb4IFW+Xi1S', 'BigMonster');
+// scripts/BigMonster.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    c = e("CCTool"),
+    l = e("UserVo"),
+    p = e("ListenID"),
+    d = e("Cfg"),
+    u = e("ElementBase"),
+    f = e("SkillMonster"),
+    h = e("AIState"),
+    m = e("LivingThingBase"),
+    t = cc._decorator,
+    e = t.ccclass,
+    t = t.property,
+    e = (r = m["default"], i(y, r), y.prototype.init = function () {
+  this.mySkeleton = this.node.children[1].getComponent(sp.Skeleton), this._isActive = !0, this.isInvicible = !1;
+  var e = (null === (e = s["default"].MapClr.AiBossData) || void 0 === e ? void 0 : e.attributes) || 1,
+      e = d.Cfg.Ghost1.get(e);
+  this.setAttribute(e), (s["default"].MapClr.monsterList[0] = this)._isControl = !1, this.CDManage = new c.CCTool.CDManage({
+    dialogue: 10
+  }), this._moveSpeed = this.attribute.data.MoveSpeedGhost, this.skillManage = new f.SkillMonster(this), this.skillManage.initSkill(e.skillID), this.setSkin(e.RoleBones), this.lvBar.progress = 0, this.lvBar.node.active = !0, this.lvBar.node.parent.getComponent(cc.Sprite).spriteFrame = null, this._initTime = s["default"].gettimestamp();
+}, y.prototype.setPlayerCamp = function (e) {
+  this.matchData = e, this.isPlayer = !0, s["default"].GScene.PhysicsManager.enabled = !0, this.node.getComponent(cc.PhysicsCircleCollider).enabled = !0;
+  var t = d.Cfg.RoleGhost.get(e.skinID),
+      e = d.Cfg.Ghost1.get(t.attributes);
+  this.node.getChildByName("role_shadow").children[0].active = !0, this.setAttribute(e), this.setSkin(t.RoleBones), this.skillManage || (this.skillManage = new f.SkillMonster(this)), this.skillManage.initSkill(l.UserVo.data.skinSkill[t.id]);
+}, y.prototype.toCountDown = function () {
+  this.myFSM.setAIState(h.StateType.Ready);
+}, y.prototype.setHurt = function (e) {
+  var t = this;
+  c.CCTool.Audio.CameraPlayer(this.node.position, "Ghost_Attack"), this.scheduleOnce(function () {
+    e && e.isValid && (s["default"].MapClr.shakeMax(e, 1), s["default"].MapClr.newEffects(e.position, "attack")), e.emit(p.ListenID.Send_Hurt, new u.HurtData(-t.attribute.data.atk, 0, t.type, !0)), t.setExp(t.attribute.data.atk), t.setEnergy(1, 1);
+  }, .4);
+}, y.prototype.setExp = function (e) {
+  if (this._exp += e, this.lvBar.progress = this._exp / this.attribute.data.exp, this._exp >= this.attribute.data.exp) {
+    e = d.Cfg.Ghost1.get(this.attribute.lv + 1);
+    if (!e) return this.attribute.data.exp = 1e24;
+    this.setAttribute(e), this.lvBar.progress = this._exp / this.attribute.data.exp, this.myFSM && (this.myFSM._AiParameter.moveSpeed = this.attribute.data.MoveSpeedGhost), this.myFSM && (this.myFSM._AiParameter.AttackRange = this.attribute.data.AttackRangeGhost), this._moveSpeed = this.attribute.data.MoveSpeedGhost, this.skillManage.initSkill(e.skillID), s["default"].MainView.gameMsg(s["default"].strReplace("管理者已升级至%d级", this.attribute.lv)), this.myLvLabel.string = this.attribute.lv, c.CCTool.Audio.Player("Ghost_LevelUp");
+  }
+}, y.prototype.setEnergy = function (e, t) {
+  void 0 === t && (t = 1), this._energy = Math.min(this._energy + e, 1e3), this.skillManage.updateSkillEnergy(t, e);
+}, y.prototype.getHurt = function (e) {
+  this._isActive && !this.isInvicible && (this.setLife(e), this.setEnergy(1, 2));
+}, y.prototype.setDestroyed = function (e) {
+  this._isActive && (this.node.active = !1, this._isActive = !1, this._isControl = !1, this.isInvicible = !1, this.myFSM.setAIState(h.StateType.Idle), s["default"].MapClr.roleList[e.id] && s["default"].MainView.gameMsg(s["default"].strReplace("管理者已被%d气炸了", s["default"].MapClr.roleList[e.id].matchData.name)), s["default"].MapClr.myMap.node.emit(p.ListenID.Monster_State, this._owerID), s["default"].MapClr.deleteNode(this.myTrack), c.CCTool.Audio.Player("Ghost1_Dead"));
+}, y.prototype.setControlBody = function (e, t) {
+  var o = this;
+  this._isControl = !0, this.scheduleOnce(function () {
+    o._isControl = !1, t();
+  }, e);
+}, y.prototype.update = function (e) {
+  this.CDManage.OnUpdate(e);
+}, a([t(cc.Label)], y.prototype, "myLvLabel", void 0), a([t(cc.ProgressBar)], y.prototype, "lvBar", void 0), a([e], y));
+
+function y() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e.myLvLabel = null, e.isInvicible = !1, e.isRageAtkSpeed = 0, e._initTime = 0, e.lvBar = null, e.isPlayer = !1, e._isControl = !1, e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

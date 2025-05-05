@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "heal05",
+    "texture": "7888c9e5-d868-453c-977e-6e39fdd928a3",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      95,
+      103
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      95,
+      103
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

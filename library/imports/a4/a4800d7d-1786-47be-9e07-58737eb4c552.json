@@ -1,0 +1,17 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "jinengtishi",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_skeletonJson": null,
+  "_atlasText": "\njinengtishi.png\nsize: 629,900\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n1\n  rotate: false\n  xy: 267, 328\n  size: 138, 129\n  orig: 138, 129\n  offset: 0, 0\n  index: -1\n10\n  rotate: true\n  xy: 2, 148\n  size: 750, 263\n  orig: 750, 265\n  offset: 0, 1\n  index: -1\n2\n  rotate: false\n  xy: 407, 212\n  size: 141, 124\n  orig: 141, 125\n  offset: 0, 1\n  index: -1\n3\n  rotate: true\n  xy: 273, 201\n  size: 125, 121\n  orig: 125, 121\n  offset: 0, 0\n  index: -1\n4\n  rotate: false\n  xy: 513, 95\n  size: 114, 115\n  orig: 114, 115\n  offset: 0, 0\n  index: -1\n5\n  rotate: true\n  xy: 267, 459\n  size: 439, 353\n  orig: 439, 353\n  offset: 0, 0\n  index: -1\n6\n  rotate: false\n  xy: 407, 338\n  size: 192, 119\n  orig: 192, 119\n  offset: 0, 0\n  index: -1\n7\n  rotate: true\n  xy: 396, 185\n  size: 25, 26\n  orig: 25, 26\n  offset: 0, 0\n  index: -1\n8\n  rotate: false\n  xy: 2, 2\n  size: 509, 144\n  orig: 509, 144\n  offset: 0, 0\n  index: -1\n9\n  rotate: true\n  xy: 267, 158\n  size: 168, 4\n  orig: 168, 4\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "f0953a20-d7c9-4719-ba36-e15b36129692"
+    }
+  ],
+  "textureNames": [
+    "jinengtishi.png"
+  ],
+  "scale": 1
+}

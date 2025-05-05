@@ -1,0 +1,56 @@
+{
+  "group-list": [
+    "default",
+    "Game",
+    "UI",
+    "Solid",
+    "Player",
+    "Monster"
+  ],
+  "collision-matrix": [
+    [
+      true,
+      null,
+      null,
+      null,
+      true
+    ],
+    [
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      true,
+      true
+    ],
+    [
+      true,
+      false,
+      false,
+      true,
+      false,
+      true
+    ],
+    [
+      false,
+      false,
+      false,
+      true,
+      true,
+      false
+    ]
+  ],
+  "migrate-history": [
+    "cloud-function"
+  ],
+  "start-scene": "20b2f32b-eb72-4231-9362-29374e2f9f84"
+}

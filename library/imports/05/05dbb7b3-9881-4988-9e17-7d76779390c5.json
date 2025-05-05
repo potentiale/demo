@@ -1,0 +1,80 @@
+{
+  "__type__": "cc.TiledMapAsset",
+  "_name": "Map_zhibo",
+  "_objFlags": 0,
+  "_native": "",
+  "tmxXmlStr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<map version=\"1.5\" tiledversion=\"1.7.2\" orientation=\"orthogonal\" renderorder=\"left-down\" width=\"11\" height=\"17\" tilewidth=\"100\" tileheight=\"100\" infinite=\"0\" nextlayerid=\"11\" nextobjectid=\"112\">\r\n <tileset firstgid=\"1\" name=\"computer\" tilewidth=\"298\" tileheight=\"121\" tilecount=\"5\" columns=\"0\">\r\n  <grid orientation=\"orthogonal\" width=\"1\" height=\"1\"/>\r\n  <tile id=\"0\">\r\n   <image width=\"104\" height=\"121\" source=\"../Map_img/computer/pc1.png\"/>\r\n  </tile>\r\n  <tile id=\"1\">\r\n   <image width=\"57\" height=\"40\" source=\"../Map_img/decorate/bangonshi.png\"/>\r\n  </tile>\r\n  <tile id=\"2\">\r\n   <image width=\"298\" height=\"62\" source=\"../Map_img/decorate/hengfu01.png\"/>\r\n  </tile>\r\n  <tile id=\"3\">\r\n   <image width=\"298\" height=\"62\" source=\"../Map_img/decorate/hengfu02.png\"/>\r\n  </tile>\r\n  <tile id=\"4\">\r\n   <image width=\"57\" height=\"40\" source=\"../Map_img/decorate/wc.png\"/>\r\n  </tile>\r\n </tileset>\r\n <tileset firstgid=\"7\" name=\"door\" tilewidth=\"100\" tileheight=\"100\" tilecount=\"1\" columns=\"0\">\r\n  <grid orientation=\"orthogonal\" width=\"1\" height=\"1\"/>\r\n  <tile id=\"0\">\r\n   <image width=\"100\" height=\"100\" source=\"../Map_img/door/door01.png\"/>\r\n  </tile>\r\n </tileset>\r\n <tileset firstgid=\"8\" name=\"map01\" tilewidth=\"100\" tileheight=\"100\" tilecount=\"400\" columns=\"20\">\r\n  <image source=\"../Map_img/map01.png\" width=\"2000\" height=\"2000\"/>\r\n </tileset>\r\n <layer id=\"10\" name=\"ground_road\" width=\"11\" height=\"17\">\r\n  <data encoding=\"csv\">\r\n0,0,0,0,0,0,0,0,0,0,0,\r\n0,0,0,0,0,8,0,0,0,0,0,\r\n378,378,378,378,378,8,378,378,378,378,378,\r\n378,0,0,0,378,8,378,0,0,0,378,\r\n378,0,0,0,378,8,378,0,0,0,378,\r\n378,0,0,0,378,8,378,0,0,0,378,\r\n378,0,0,0,378,8,378,0,0,0,378,\r\n378,0,0,0,378,8,378,0,0,0,378,\r\n378,0,0,0,378,8,378,0,0,0,378,\r\n378,0,0,0,378,8,378,0,0,0,378,\r\n378,0,0,0,378,8,378,0,0,0,378,\r\n378,0,0,0,0,8,0,0,0,0,378,\r\n378,0,0,0,0,8,0,0,0,0,378,\r\n378,0,0,0,0,8,0,0,0,0,378,\r\n378,0,0,0,0,8,0,0,0,0,378,\r\n378,0,0,0,0,8,0,0,0,0,378,\r\n378,378,378,378,378,378,378,378,378,378,378\r\n</data>\r\n </layer>\r\n <layer id=\"1\" name=\"Ground\" width=\"11\" height=\"17\">\r\n  <data encoding=\"csv\">\r\n49,49,49,49,49,49,49,49,49,49,49,\r\n49,49,49,49,49,49,49,49,49,49,49,\r\n50,51,51,51,55,49,50,54,54,54,55,\r\n62,48,48,48,64,49,62,48,48,48,64,\r\n62,48,48,48,64,49,62,48,48,48,64,\r\n62,48,48,48,64,49,62,48,48,48,64,\r\n62,48,48,48,64,49,62,48,48,48,64,\r\n62,48,48,48,64,49,62,48,48,48,64,\r\n62,48,48,48,64,49,62,48,48,48,64,\r\n62,48,48,48,64,49,62,48,48,48,64,\r\n62,48,48,48,72,49,65,48,48,48,64,\r\n62,48,48,48,48,48,48,48,48,48,64,\r\n62,48,48,48,48,48,48,48,48,48,64,\r\n62,48,48,48,48,48,48,48,48,48,64,\r\n62,48,48,48,48,48,48,48,48,48,64,\r\n62,48,48,48,48,48,48,48,48,48,64,\r\n59,60,60,60,60,60,60,60,60,60,58\r\n</data>\r\n </layer>\r\n <objectgroup id=\"6\" name=\"Collision\">\r\n  <object id=\"108\" name=\"wall_1\" x=\"500\" y=\"1100\">\r\n   <polygon points=\"0,0 0,-900 -500,-900 -500,600 600,600 600,-900 100,-900 100,0 200,0 200,-800 500,-800 500,500 -400,500 -400,-800 -100,-800 -100,0\"/>\r\n  </object>\r\n </objectgroup>\r\n <objectgroup id=\"8\" name=\"decorate\">\r\n  <object id=\"110\" gid=\"5\" x=\"622.901\" y=\"1079.98\" width=\"57\" height=\"40\"/>\r\n </objectgroup>\r\n <objectgroup id=\"7\" name=\"Born\">\r\n  <object id=\"109\" name=\"boss\" x=\"500\" y=\"100\">\r\n   <polygon points=\"0,0 0,100 100,100 100,0\"/>\r\n  </object>\r\n </objectgroup>\r\n <objectgroup id=\"5\" name=\"door_1\">\r\n  <properties>\r\n   <property name=\"doorlv\" type=\"int\" value=\"1\"/>\r\n  </properties>\r\n  <object id=\"107\" name=\"lv_4\" gid=\"7\" x=\"500\" y=\"1100\" width=\"100\" height=\"100\"/>\r\n  <object id=\"104\" name=\"lv_3\" gid=\"7\" x=\"500\" y=\"900\" width=\"100\" height=\"100\"/>\r\n  <object id=\"105\" name=\"lv_2\" gid=\"7\" x=\"500\" y=\"700\" width=\"100\" height=\"100\"/>\r\n  <object id=\"106\" name=\"lv_1\" gid=\"7\" x=\"500\" y=\"500\" width=\"100\" height=\"100\"/>\r\n </objectgroup>\r\n <objectgroup id=\"2\" name=\"point\"/>\r\n <objectgroup id=\"3\" name=\"computer\">\r\n  <object id=\"111\" name=\"PC_1\" gid=\"1\" x=\"500\" y=\"1600\" width=\"104\" height=\"121\"/>\r\n </objectgroup>\r\n <objectgroup id=\"4\" name=\"PC_1\">\r\n  <properties>\r\n   <property name=\"bedtype\" type=\"int\" value=\"1\"/>\r\n  </properties>\r\n </objectgroup>\r\n</map>\r\n",
+  "textures": [
+    {
+      "__uuid__": "2f670253-4636-4929-9921-dfdf490e4c1d"
+    },
+    {
+      "__uuid__": "8a9ec4aa-362c-455e-8f18-834928cfb79d"
+    },
+    {
+      "__uuid__": "453f0c4f-2982-4bb9-99cc-5520f0ddea58"
+    },
+    {
+      "__uuid__": "4baf66f4-227d-4f1a-bff4-f003dba7f787"
+    },
+    {
+      "__uuid__": "4d63938e-a825-42df-8dda-33b03ca07d16"
+    },
+    {
+      "__uuid__": "c4edaf3b-4b41-4f42-9b10-990777403797"
+    },
+    {
+      "__uuid__": "fb63de9f-8424-48b8-907e-56998bdcd84a"
+    }
+  ],
+  "textureNames": [
+    "../Map_img/computer/pc1.png",
+    "../Map_img/decorate/bangonshi.png",
+    "../Map_img/decorate/hengfu01.png",
+    "../Map_img/decorate/hengfu02.png",
+    "../Map_img/decorate/wc.png",
+    "../Map_img/door/door01.png",
+    "../Map_img/map01.png"
+  ],
+  "textureSizes": [
+    {
+      "__type__": "cc.Size",
+      "width": 104,
+      "height": 121
+    },
+    {
+      "__type__": "cc.Size",
+      "width": 57,
+      "height": 40
+    },
+    {
+      "__type__": "cc.Size",
+      "width": 298,
+      "height": 62
+    },
+    {
+      "__type__": "cc.Size",
+      "width": 298,
+      "height": 62
+    },
+    {
+      "__type__": "cc.Size",
+      "width": 57,
+      "height": 40
+    },
+    {
+      "__type__": "cc.Size",
+      "width": 100,
+      "height": 100
+    },
+    {
+      "__type__": "cc.Size",
+      "width": 2000,
+      "height": 2000
+    }
+  ],
+  "imageLayerTextures": [],
+  "imageLayerTextureNames": [],
+  "tsxFiles": [],
+  "tsxFileNames": []
+}

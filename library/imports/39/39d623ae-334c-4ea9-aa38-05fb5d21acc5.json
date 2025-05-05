@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tiaoxingma",
+    "texture": "f6e5aee2-974b-40b6-aa2b-19f6ba6d0f34",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      162,
+      39
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      162,
+      39
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

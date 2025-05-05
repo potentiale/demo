@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "shli_d",
+    "texture": "0abd7927-7012-4161-9d61-c2e050b3077c",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      564,
+      480
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      564,
+      480
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

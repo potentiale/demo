@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "jiaoshoujia_5266d4f8-33aa-4c50-82e2-fefb22705a8e",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\njiaoshoujia_5266d4f8-33aa-4c50-82e2-fefb22705a8e.png\r\nsize: 401,142\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\n1\r\n  rotate: false\r\n  xy: 138, 22\r\n  size: 135, 118\r\n  orig: 135, 118\r\n  offset: 0, 0\r\n  index: -1\r\n2\r\n  rotate: false\r\n  xy: 2, 16\r\n  size: 134, 124\r\n  orig: 134, 124\r\n  offset: 0, 0\r\n  index: -1\r\n3\r\n  rotate: false\r\n  xy: 275, 28\r\n  size: 124, 112\r\n  orig: 124, 112\r\n  offset: 0, 0\r\n  index: -1\r\n4\r\n  rotate: false\r\n  xy: 369, 2\r\n  size: 27, 24\r\n  orig: 27, 24\r\n  offset: 0, 0\r\n  index: -1\r\n5\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 123, 12\r\n  orig: 123, 12\r\n  offset: 0, 0\r\n  index: -1\r\n6\r\n  rotate: true\r\n  xy: 127, 2\r\n  size: 12, 123\r\n  orig: 12, 123\r\n  offset: 0, 0\r\n  index: -1\r\n7\r\n  rotate: false\r\n  xy: 275, 4\r\n  size: 92, 22\r\n  orig: 92, 22\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}

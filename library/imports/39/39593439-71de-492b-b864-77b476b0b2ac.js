@@ -1,0 +1,334 @@
+"use strict";
+cc._RF.push(module, '39593Q5cd5JK7hkd7R2sLKs', 'SkillManCfg');
+// scripts/SkillManCfg.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    t = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+});
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.SkillManCfgReader = void 0;
+var i,
+    t = (i = e("TConfig").TConfig, t(a, i), a);
+
+function a() {
+  var e = i.call(this) || this;
+  return e._name = "SkillMan", e.initByMap({
+    1: {
+      id: 1,
+      type: 1,
+      useType: 1,
+      name: "修门",
+      lvInfo: [1],
+      introduction: "每秒恢复门2%生命值",
+      free: -1,
+      clearCD: 0,
+      cd: 30,
+      last: 10,
+      parameter: [1, .02],
+      iconPath: "img/viewUi/skill_man_1"
+    },
+    2: {
+      id: 2,
+      type: 2,
+      useType: 1,
+      name: "收益x3",
+      lvInfo: [1],
+      introduction: "20秒内所有收益x3倍",
+      free: 0,
+      clearCD: 0,
+      cd: 60,
+      last: 20,
+      parameter: [3],
+      iconPath: "img/viewUi/skill_man_2"
+    },
+    1e4: {
+      id: 1e4,
+      type: 3,
+      useType: 1,
+      name: "搭架子",
+      lvInfo: [1, 10001],
+      introduction: "给门搭上架子，无敌5秒",
+      free: 1,
+      clearCD: 0,
+      cd: 60,
+      last: 5,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [0],
+      iconPath: "img/viewUi/skill_man_10000"
+    },
+    10001: {
+      id: 10001,
+      type: 3,
+      useType: 1,
+      name: "搭架子",
+      lvInfo: [2, 10002],
+      introduction: "给门搭上架子，无敌10秒",
+      free: 1,
+      clearCD: 0,
+      cd: 60,
+      last: 10,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [0],
+      iconPath: "img/viewUi/skill_man_10000"
+    },
+    10002: {
+      id: 10002,
+      type: 3,
+      useType: 1,
+      name: "搭架子",
+      lvInfo: [3],
+      introduction: "给门搭上架子，无敌15秒",
+      free: 1,
+      clearCD: 0,
+      cd: 60,
+      last: 15,
+      parameter: [0],
+      iconPath: "img/viewUi/skill_man_10000"
+    },
+    10100: {
+      id: 10100,
+      type: 7,
+      useType: 1,
+      name: "小金库",
+      lvInfo: [1, 10101],
+      introduction: "立即获得少量金币",
+      free: 1,
+      clearCD: 0,
+      cd: 60,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [20, 15, 1, 1.5],
+      iconPath: "img/viewUi/skill_man_10100"
+    },
+    10101: {
+      id: 10101,
+      type: 7,
+      useType: 1,
+      name: "小金库",
+      lvInfo: [2, 10102],
+      introduction: "立即获得大量金币",
+      free: 1,
+      clearCD: 0,
+      cd: 60,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [20, 20, 1.5, 2],
+      iconPath: "img/viewUi/skill_man_10100"
+    },
+    10102: {
+      id: 10102,
+      type: 7,
+      useType: 1,
+      name: "小金库",
+      lvInfo: [3],
+      introduction: "立即获得巨量金币",
+      free: 1,
+      clearCD: 0,
+      cd: 60,
+      parameter: [20, 30, 2, 2.5],
+      iconPath: "img/viewUi/skill_man_10100"
+    },
+    10200: {
+      id: 10200,
+      type: 4,
+      useType: 1,
+      name: "小发明",
+      lvInfo: [1, 10201],
+      introduction: "随机获得一个辅助建筑，180秒冷却",
+      free: 1,
+      clearCD: 0,
+      cd: 180,
+      last: 0,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [6, 32, 7, 32, 8, 32, 9, 16, 10, 8, 11, 4, 12, 4, 13, 1, 14, 8, 15, 1, 16, 1],
+      iconPath: "img/viewUi/skill_man_10200"
+    },
+    10201: {
+      id: 10201,
+      type: 4,
+      useType: 1,
+      name: "小发明",
+      lvInfo: [2, 10202],
+      introduction: "随机获得一个辅助建筑，150秒冷却",
+      free: 1,
+      clearCD: 0,
+      cd: 150,
+      last: 0,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [6, 32, 7, 32, 8, 32, 9, 16, 10, 8, 11, 4, 12, 4, 13, 1, 14, 8, 15, 1, 16, 1],
+      iconPath: "img/viewUi/skill_man_10200"
+    },
+    10202: {
+      id: 10202,
+      type: 4,
+      useType: 1,
+      name: "小发明",
+      lvInfo: [3],
+      introduction: "随机获得一个辅助建筑，120秒冷却",
+      free: 1,
+      clearCD: 0,
+      cd: 120,
+      last: 0,
+      parameter: [6, 32, 7, 32, 8, 32, 9, 16, 10, 8, 11, 4, 12, 4, 13, 1, 14, 8, 15, 1, 16, 1],
+      iconPath: "img/viewUi/skill_man_10200"
+    },
+    10250: {
+      id: 10250,
+      type: 5,
+      useType: 2,
+      name: "科技专精",
+      lvInfo: [1, 10251],
+      introduction: "科技类建筑费用减少5%",
+      free: -1,
+      clearCD: 0,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [6, 11, 12, 13, .05],
+      iconPath: "img/viewUi/skill_man_10250"
+    },
+    10251: {
+      id: 10251,
+      type: 5,
+      useType: 2,
+      name: "科技专精",
+      lvInfo: [2, 10252],
+      introduction: "科技类建筑费用减少10%",
+      free: -1,
+      clearCD: 0,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [6, 11, 12, 13, .1],
+      iconPath: "img/viewUi/skill_man_10250"
+    },
+    10252: {
+      id: 10252,
+      type: 5,
+      useType: 2,
+      name: "科技专精",
+      lvInfo: [3],
+      introduction: "科技类建筑费用减少15%",
+      free: -1,
+      clearCD: 0,
+      parameter: [6, 11, 12, 13, .15],
+      iconPath: "img/viewUi/skill_man_10250"
+    },
+    10300: {
+      id: 10300,
+      type: 6,
+      useType: 1,
+      name: "分身",
+      lvInfo: [1, 10301],
+      introduction: "召唤分身对管理者进行攻击",
+      free: 1,
+      clearCD: 0,
+      cd: 90,
+      last: 15,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [.02, 500, 100, 1],
+      iconPath: "img/viewUi/skill_man_10300"
+    },
+    10301: {
+      id: 10301,
+      type: 6,
+      useType: 1,
+      name: "分身",
+      lvInfo: [2, 10302],
+      introduction: "召唤分身对管理者进行攻击",
+      free: 1,
+      clearCD: 0,
+      cd: 90,
+      last: 15,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [.03, 500, 100, 1],
+      iconPath: "img/viewUi/skill_man_10300"
+    },
+    10302: {
+      id: 10302,
+      type: 6,
+      useType: 1,
+      name: "分身",
+      lvInfo: [3],
+      introduction: "召唤分身对管理者进行攻击",
+      free: 1,
+      clearCD: 0,
+      cd: 90,
+      last: 15,
+      parameter: [.05, 500, 100, 1],
+      iconPath: "img/viewUi/skill_man_10300"
+    },
+    10350: {
+      id: 10350,
+      type: 5,
+      useType: 2,
+      name: "魔法专精",
+      lvInfo: [1, 10351],
+      introduction: "魔法类建筑费用减少5%",
+      free: -1,
+      clearCD: 0,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [7, 8, 9, 10, .05],
+      iconPath: "img/viewUi/skill_man_10350"
+    },
+    10351: {
+      id: 10351,
+      type: 5,
+      useType: 2,
+      name: "魔法专精",
+      lvInfo: [2, 10352],
+      introduction: "魔法类建筑费用减少10%",
+      free: -1,
+      clearCD: 0,
+      levelUpType: 2,
+      levelUpCost: 1,
+      parameter: [7, 8, 9, 10, .1],
+      iconPath: "img/viewUi/skill_man_10350"
+    },
+    10352: {
+      id: 10352,
+      type: 5,
+      useType: 2,
+      name: "魔法专精",
+      lvInfo: [3],
+      introduction: "魔法类建筑费用减少15%",
+      free: -1,
+      clearCD: 0,
+      parameter: [7, 8, 9, 10, .15],
+      iconPath: "img/viewUi/skill_man_10350"
+    }
+  }), e;
+}
+
+o.SkillManCfgReader = t;
+
+cc._RF.pop();

@@ -1,0 +1,237 @@
+"use strict";
+cc._RF.push(module, '72eb9hMTQ5AVq4EIt+U0nmk', 'Building999Cfg');
+// scripts/Building999Cfg.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    t = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+});
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.Building999CfgReader = void 0;
+var i,
+    t = (i = e("TConfig").TConfig, t(a, i), a);
+
+function a() {
+  var e = i.call(this) || this;
+  return e._name = "Building999", e.initByMap({
+    1: {
+      id: 1,
+      buildID: 999,
+      name: "咸鱼仔",
+      buildingType: 999,
+      level: 1,
+      towerType: 2,
+      atk: 1,
+      model: [99],
+      parameter: '["901","f011"]',
+      hp: 1,
+      frequency: 10,
+      bulletNum: 1,
+      seed: "img/model_4/seed_1",
+      fbx: "audio/m4_shot"
+    },
+    2: {
+      id: 2,
+      buildID: 999,
+      name: "小咸鱼",
+      buildingType: 999,
+      level: 2,
+      towerType: 2,
+      atk: 2,
+      model: [99],
+      parameter: '["902","f021"]',
+      hp: 1,
+      frequency: 10,
+      bulletNum: 2,
+      seed: "img/model_4/seed_2",
+      fbx: "audio/m4_shot"
+    },
+    3: {
+      id: 3,
+      buildID: 999,
+      name: "小丑鱼",
+      buildingType: 999,
+      level: 3,
+      towerType: 2,
+      atk: 4,
+      model: [99],
+      parameter: '["903","f031"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 4,
+      seed: "img/model_4/seed_3",
+      fbx: "audio/m4_shot"
+    },
+    4: {
+      id: 4,
+      buildID: 999,
+      name: "河豚",
+      buildingType: 999,
+      level: 4,
+      towerType: 2,
+      atk: 8,
+      model: [99],
+      parameter: '["904","f041"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 5,
+      seed: "img/model_4/seed_4",
+      fbx: "audio/m4_shot"
+    },
+    5: {
+      id: 5,
+      buildID: 999,
+      name: "神仙鱼",
+      buildingType: 999,
+      level: 5,
+      towerType: 2,
+      atk: 16,
+      model: [99],
+      parameter: '["905","f051"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 6,
+      seed: "img/model_4/seed_5",
+      fbx: "audio/m4_shot"
+    },
+    6: {
+      id: 6,
+      buildID: 999,
+      name: "比目鱼",
+      buildingType: 999,
+      level: 6,
+      towerType: 2,
+      atk: 32,
+      model: [99],
+      parameter: '["906","f061"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 6,
+      seed: "img/model_4/seed_6",
+      fbx: "audio/m4_shot"
+    },
+    7: {
+      id: 7,
+      buildID: 999,
+      name: "水虎鱼",
+      buildingType: 999,
+      level: 7,
+      towerType: 2,
+      atk: 64,
+      model: [99],
+      parameter: '["907","f071"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 6,
+      seed: "img/model_4/seed_7",
+      fbx: "audio/m4_shot"
+    },
+    8: {
+      id: 8,
+      buildID: 999,
+      name: "鲨鱼",
+      buildingType: 999,
+      level: 8,
+      towerType: 2,
+      atk: 128,
+      model: [99],
+      parameter: '["908","f081"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 6,
+      seed: "img/model_4/seed_8",
+      fbx: "audio/m4_shot"
+    },
+    9: {
+      id: 9,
+      buildID: 999,
+      name: "虎纹鲨",
+      buildingType: 999,
+      level: 9,
+      towerType: 2,
+      atk: 256,
+      model: [99],
+      parameter: '["909","f091"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 6,
+      seed: "img/model_4/seed_9",
+      fbx: "audio/m4_shot"
+    },
+    10: {
+      id: 10,
+      buildID: 999,
+      name: "海盗鲨",
+      buildingType: 999,
+      level: 10,
+      towerType: 2,
+      atk: 512,
+      model: [99],
+      parameter: '["910","f101"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 6,
+      seed: "img/model_4/seed_10",
+      fbx: "audio/m4_shot"
+    },
+    11: {
+      id: 11,
+      buildID: 999,
+      name: "鲲鲲",
+      buildingType: 999,
+      level: 11,
+      towerType: 2,
+      atk: 1024,
+      model: [99],
+      parameter: '["911","f111"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 6,
+      seed: "img/model_4/seed_11",
+      fbx: "audio/m4_shot"
+    },
+    12: {
+      id: 12,
+      buildID: 999,
+      name: "菜虚鲲",
+      buildingType: 999,
+      level: 12,
+      towerType: 2,
+      atk: 2048,
+      model: [99],
+      parameter: '["912","f121"]',
+      hp: 1,
+      frequency: 20,
+      bulletNum: 6,
+      seed: "img/model_4/seed_12",
+      fbx: "audio/m4_shot_12"
+    }
+  }), e;
+}
+
+o.Building999CfgReader = t;
+
+cc._RF.pop();

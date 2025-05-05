@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "cobweb01",
+    "texture": "33d37ca1-3abb-4303-9894-2d9a581f17cd",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      28,
+      99
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      28,
+      99
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

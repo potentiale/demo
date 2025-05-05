@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gonggao_db",
+    "texture": "d7514df6-99f5-4894-80df-86146312a64d",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      93,
+      181
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      93,
+      181
+    ],
+    "capInsets": [
+      36,
+      28,
+      38,
+      144
+    ]
+  }
+}

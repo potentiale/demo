@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "erweima_h",
+    "texture": "ae6f251d-e6b5-4b78-a41d-f3c60e11b6f4",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      90,
+      8
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      90,
+      8
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

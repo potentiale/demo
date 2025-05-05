@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fish_shadow",
+    "texture": "190dce94-e1b9-477e-83a7-9651f10ebd99",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      108,
+      113
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      108,
+      113
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

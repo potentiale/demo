@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "lajitong",
+    "texture": "9598b706-7818-49c0-bb48-1c2c8f000197",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      60,
+      67
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      60,
+      67
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

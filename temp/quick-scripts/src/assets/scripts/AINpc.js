@@ -1,0 +1,65 @@
+"use strict";
+cc._RF.push(module, 'b655dX2b4hA94bUh9DNf2QB', 'AINpc');
+// scripts/AINpc.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    c = e("Cfg"),
+    l = e("AIState"),
+    p = e("FSMBase"),
+    t = cc._decorator,
+    e = t.ccclass,
+    e = (t.property, r = p["default"], i(d, r), d.prototype.initState = function (e) {
+  this._AiParameter = new l.AiParameter(), this._AiParameter.moveSpeed = c.Cfg.Costant.get(1).MoveSpeedMan, this.ower = e, this.statesList[l.StateType.Idle] = new l.IdleState(this), this.statesList[l.StateType.Move] = new l.MoveState(this), this._isActive = !0, this.setAIState(l.StateType.Idle);
+}, d.prototype.exitAI = function () {
+  this._isActive = !1, this.enabled = !1, this.destroy();
+}, d.prototype.update = function (e) {
+  s["default"].GScene.isPause || this._isActive && this.ower._isActive && this.currentStateClr.OnUpdate(e);
+}, a([e], d));
+
+function d() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e._time = 0, e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

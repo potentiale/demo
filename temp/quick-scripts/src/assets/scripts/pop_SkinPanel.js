@@ -1,0 +1,173 @@
+"use strict";
+cc._RF.push(module, 'b8b28eVhQ9ALIzQsvc6z96A', 'pop_SkinPanel');
+// scripts/pop_SkinPanel.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+
+var r,
+    s = e("AppCommon"),
+    c = e("CCTool"),
+    l = e("BaseSdk"),
+    p = e("PlatformFun"),
+    d = e("UserVo"),
+    u = e("GridView"),
+    f = e("ListenID"),
+    h = e("Notifier"),
+    m = e("Cfg"),
+    y = e("SkinCfg"),
+    g = e("pop"),
+    _ = e("SkinCtrl"),
+    t = cc._decorator,
+    e = t.ccclass,
+    t = t.property,
+    e = (r = g["default"], i(v, r), v.prototype.onEnable = function () {
+  h.Notifier.changeListener(!0, f.ListenID.Skin_SelectSkinTypeId, this.onSelectSkinType, this), h.Notifier.changeListener(!0, f.ListenID.Skin_SelectSkinId, this.onSelectSkin, this);
+}, v.prototype.onDisable = function () {
+  h.Notifier.changeListener(!1, f.ListenID.Skin_SelectSkinTypeId, this.onSelectSkinType, this), h.Notifier.changeListener(!1, f.ListenID.Skin_SelectSkinId, this.onSelectSkin, this);
+}, v.prototype.getList = function () {
+  var e,
+      t = m.Cfg.RoleMan.getAll();
+
+  for (e in t) {
+    d.UserVo.getSkin(t[e].id) && this.roleList.push(t[e]);
+  }
+
+  this.roleList.sort(function (e, t) {
+    return e.sequence - t.sequence;
+  }), this.ghostList.length = 0;
+
+  for (var o = m.Cfg.RoleGhost.filter({}), n = (e = 0, o.length); e < n; e++) {
+    d.UserVo.getSkin(o[e].id) && this.ghostList.push(o[e]);
+  }
+
+  this.ghostList.sort(function (e, t) {
+    return e.sequence - t.sequence;
+  }), this.selectPageIndex = 1, this.selectIndex = 0, s["default"].SkinCtrl.selectTypeId = _.SkinType.HAT, s["default"].SkinCtrl.selectSkinId = d.UserVo.data.useSkinData[0].useHat || y.SkinDefine.RoleDefaultHat, this.loadRoleInfo(this.selectIndex), this.loadTypeList(), this.loadSkinList();
+}, v.prototype.getSelectSkinIndex = function (e) {
+  for (var t = 1 == e ? this.roleList : this.ghostList, o = 1 == e ? d.UserVo.useSkin : d.UserVo.useBossSkin, n = 0, i = 0, a = t.length; i < a; i++) {
+    if (t[i].id == o) {
+      n = i;
+      break;
+    }
+  }
+
+  return n;
+}, v.prototype.loadRoleInfo = function () {
+  var e = 1 === this.selectPageIndex ? m.Cfg.RoleMan.get(d.UserVo.useSkin) : m.Cfg.RoleGhost.get(d.UserVo.useBossSkin);
+  this.selectItem = e, this.roleSkeleton.setAnimation(0, "idle", !0), this.roleSkeleton.node.scale = 1 === this.selectPageIndex ? 2 : 1, this.updateRoleSkin();
+}, v.prototype.updateRoleSkin = function () {
+  var e = 1 === this.selectPageIndex ? _.RoleSkinType.ROLE : _.RoleSkinType.BOSS,
+      t = 1 == this.selectPageIndex ? 0 : 1,
+      t = d.UserVo.data.useSkinData[t];
+  s["default"].SkinCtrl.setRoleClothes(e, this.roleSkeleton, this.selectItem.id, t.useClothes), s["default"].SkinCtrl.setRoleHead(e, this.roleSkeleton, this.selectItem.id), s["default"].SkinCtrl.setRoleHat(e, this.roleSkeleton, t.useHat), s["default"].SkinCtrl.setRoleWing(e, this.roleSkeleton, t.useWing);
+}, v.prototype.loadTypeList = function () {
+  this.gridBigView.loadData(s["default"].SkinCtrl.BigList);
+}, v.prototype.loadSkinList = function () {
+  var e = (1 == this.selectPageIndex ? s["default"].SkinCtrl.roleSkinDataCfg : s["default"].SkinCtrl.bossSkinDataCfg)[s["default"].SkinCtrl.selectTypeId];
+  this.gridView.loadData(e);
+}, v.prototype.onSelectSkinType = function (e) {
+  s["default"].SkinCtrl.selectTypeId = e;
+  var t = 1 == this.selectPageIndex ? 0 : 1,
+      t = d.UserVo.data.useSkinData[t],
+      e = _.TypeToName[e];
+  s["default"].SkinCtrl.selectSkinId = t[e], this.gridBigView.doFresh(), this.loadSkinList();
+}, v.prototype.setPoint = function () {
+  var e,
+      t = this.nodeArr[3].children;
+
+  for (e in t) {
+    t[e].active = !1;
+  }
+
+  for (e in 1 === this.selectPageIndex ? this.roleList : this.ghostList) {
+    var o = t[e];
+    o || (o = cc.instantiate(t[0])).setParent(this.nodeArr[3]), o.opacity = this.selectIndex == +e ? 200 : 100, o.active = !0;
+  }
+}, v.prototype.onSelectSkin = function (e) {
+  s["default"].SkinCtrl.selectSkinId = e, s["default"].SkinCtrl.wearSkin(e), this.loadSkinList(), this.updateRoleSkin();
+}, v.prototype.onButton = function (e, t) {
+  var o = this;
+
+  switch (e && c.CCTool.Audio.Player("Click"), t) {
+    case "Close":
+      this.close();
+      break;
+
+    case "Prev":
+      this.loadRoleInfo(this.selectIndex - 1);
+      break;
+
+    case "Next":
+      this.loadRoleInfo(this.selectIndex + 1);
+      break;
+
+    case "Unlock":
+      p.PlatformFun.loadRewardedVideoAd({
+        onVideoSuccess: function onVideoSuccess() {
+          o.loadRoleInfo(o.selectIndex);
+        },
+        loadSuccess: function loadSuccess() {}
+      });
+      break;
+
+    case "Toggle":
+      var n = Number(e.node.name.substring(6));
+      this.selectPageIndex = n, this.loadRoleInfo(0);
+  }
+}, a([t(sp.Skeleton)], v.prototype, "roleSkeleton", void 0), a([t(u["default"])], v.prototype, "gridView", void 0), a([t(u["default"])], v.prototype, "gridBigView", void 0), a([t(cc.Node)], v.prototype, "colormask", void 0), a([e], v));
+
+function v() {
+  var t = null !== r && r.apply(this, arguments) || this;
+  return t.roleSkeleton = null, t.gridView = null, t.gridBigView = null, t.colormask = null, t.selectIndex = 0, t.selectPageIndex = 0, t.roleList = [], t.ghostList = [], t.initFun = {
+    pop_SkinPanel: function pop_SkinPanel() {
+      t.getList(), s["default"].PF == l.GAMEPF.ADR_XM && p.PlatformFun.showBannerAd(), t.colormask.opacity = 0;
+      var e = cc.tween().to(.05, {
+        opacity: 50
+      }).to(.1, {
+        opacity: 0
+      });
+      cc.tween(t.colormask).delay(3).repeat(3, e).union().repeatForever().start(), p.PlatformFun.SendEvent("skin_icon_click");
+    }
+  }, t;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

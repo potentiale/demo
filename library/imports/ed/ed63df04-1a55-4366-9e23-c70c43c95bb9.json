@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "moyuzhiwang_yh",
+    "texture": "71338a5e-3e33-4da8-93d6-9d03a53a91e7",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      492,
+      333
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      492,
+      333
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

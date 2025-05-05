@@ -1,0 +1,72 @@
+"use strict";
+cc._RF.push(module, '42b0040RlpGqbyBy+JkuGFx', 'PlatformCheckShow');
+// scripts/PlatformCheckShow.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    t = cc._decorator,
+    e = t.ccclass,
+    t = t.property,
+    e = (r = cc.Component, i(c, r), c.prototype.onLoad = function () {
+  var e = this;
+  return this.hidePf && 0 <= this.hidePf.indexOf(s["default"].PF) ? (cc.log("[PlatformCheckShow][hidePf]控制隐藏" + this.node.name), void this.node.destroy()) : this.showPf && this.showPf.indexOf(s["default"].PF) < 0 ? (cc.log("[PlatformCheckShow][showPf]控制显示" + this.node.name), void this.node.destroy()) : this.hideLanguage && 0 <= this.hideLanguage.indexOf(s["default"].LANGUAGE) ? (cc.log("[PlatformCheckShow][hideLanguage]控制显示" + this.node.name), void this.node.destroy()) : (this.setBMSState(), void s["default"].MainView.node.on("CONFIG_INFO", function () {
+    e.setBMSState();
+  }, this));
+}, c.prototype.start = function () {}, c.prototype.setBMSState = function () {
+  this.showBMS && (this.node.active = 0 < s["default"].CONFIG_INFO[this.showBMS]);
+}, a([t({
+  displayName: "控制隐藏平台"
+})], c.prototype, "hidePf", void 0), a([t({
+  displayName: "控制显示平台"
+})], c.prototype, "showPf", void 0), a([t({
+  displayName: "BMS控制显示"
+})], c.prototype, "showBMS", void 0), a([t({
+  displayName: "控制隐藏语言"
+})], c.prototype, "hideLanguage", void 0), a([e], c));
+
+function c() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e.hidePf = "", e.showPf = "", e.showBMS = "", e.hideLanguage = "", e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

@@ -1,0 +1,365 @@
+"use strict";
+cc._RF.push(module, '89f42CObxdIN7jyW3uIqrdG', 'AppCommon');
+// scripts/AppCommon.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var n = e("GConfig"),
+    e = (s.appRequest = function (t) {
+  t.data || (t.data = {});
+  var e = s.searchSubStr(t.urls, "/"),
+      o = t.urls.substring(e[e.length - 2] + 1, t.urls.length),
+      n = new XMLHttpRequest();
+
+  function i(e) {
+    try {
+      e = JSON.parse(e);
+    } catch (e) {
+      console.log("错误是什么", e);
+    }
+
+    "function" == typeof t.success && (t.success(e), console.log("res===============", e)), 10003 != e.c && 10002 != e.c || console.log("授权过期 重新登录", t);
+  }
+
+  function a(e) {
+    console.log(o, "接口错误", e, t), "function" == typeof t.fail && t.fail(e);
+  }
+
+  "POST" === t.method ? (n.onreadystatechange = function () {
+    4 == n.readyState && (200 <= n.status && n.status < 400 ? i : a)(n.responseText);
+  }, n.open("POST", t.urls, !0), n.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), n.send(s.ObjectToUrlStr(t.data))) : (n.onreadystatechange = function () {
+    4 == n.readyState && (200 <= n.status && n.status < 400 ? i : a)(n.responseText);
+  }, t.setUrls = t.urls + "?" + s.ObjectToUrlStr(t.data), n.open("GET", t.setUrls, !0), n.send()), t.isOvertime;
+}, s.strReplace = function (e) {
+  for (var t, o = [], n = 1; n < arguments.length; n++) {
+    o[n - 1] = arguments[n];
+  }
+
+  if (1 == o.length) return e.replace("%d", o[0]);
+
+  for (t in o) {
+    e = e.replace("%" + (+t + 1) + "d", o[t]);
+  }
+
+  return e;
+}, s.searchSubStr = function (e, t) {
+  if ("string" == typeof e && 0 < e.length) {
+    for (var o = e.indexOf(t), n = []; -1 < o;) {
+      n.push(o), o = e.indexOf(t, o + 1);
+    }
+
+    return n;
+  }
+
+  return console.log("str错误：", e), !1;
+}, s.ObjectToUrlStr = function (e) {
+  var t,
+      o = "",
+      n = 0;
+
+  for (t in e) {
+    o += (0 == n ? "" : "&") + t + "=" + (e[t] && 0 != e[t] ? e[t] : ""), n++;
+  }
+
+  return o;
+}, s.formatSeconds = function (e) {
+  if (e < 0 || !e) return {
+    type: "-",
+    s: "00",
+    m: "00",
+    h: "00"
+  };
+  var t = parseInt(e),
+      o = 0,
+      n = 0;
+  60 < t && (o = t / 60, t %= 60, 60 < o && (n = o / 60, o %= 60));
+  n = Math.floor(n), o = Math.floor(o), e = (t = Math.floor(t)) + "秒";
+  return 0 < o && (e = o + "分" + e), 0 < n && (e = n + "小时" + e), {
+    s: t < 10 ? "0" + t : t,
+    m: o < 10 ? "0" + o : o,
+    h: n < 10 ? "0" + n : n
+  };
+}, s.getNowFormatDate = function () {
+  var e = new Date(),
+      t = e.getFullYear(),
+      o = e.getMonth() + 1,
+      e = e.getDate();
+  return t + "-" + (o < 10 ? "0" + o : o) + "-" + (e < 10 ? "0" + e : e);
+}, s.gettimestamp = function (e, t) {
+  e = e ? new Date(e).getTime() + "" : new Date().valueOf() + "";
+  return "ms" == t || (e = e.substring(0, 10)), Number(e);
+}, s.GetProbability = function (e) {
+  return s.GetRandomNum(0, 10) / 10 < e;
+}, s.weightGetValue = function (e, t) {
+  void 0 === t && (t = "w");
+  var o = 0;
+  if (new Array(), !e) return !1;
+
+  for (var n = [], i = 0; i < e.length; i++) {
+    0 != e[i][t] && (o += e[i][t], n.push(e[i]));
+  }
+
+  var a = s.GetRandomNum(0, o);
+
+  for (i = 0; i < n.length; i++) {
+    var r = n[i][t];
+    if (a <= r) return n[i];
+    a -= r;
+  }
+
+  return n[0];
+}, s.findArray = function (e, t, o) {
+  for (var n in void 0 === o && (o = !0), e) {
+    var i = e[n];
+
+    if (t instanceof Object) {
+      var a,
+          r = !0;
+
+      for (a in t) {
+        var s = t[a];
+        if (i[a] == s && !o) return n;
+
+        if (o && i[a] != s) {
+          r = !1;
+          break;
+        }
+      }
+
+      if (r) return n;
+    } else if (i == t) return n;
+  }
+
+  return -1;
+}, s.GetArrTarge = function (e) {
+  return e[Math.floor(Math.random() * e.length)];
+}, s.classificationArray = function (e, t) {
+  var o,
+      n,
+      i = {};
+
+  for (o in e) {
+    e[o] && (i[e[o][t]] ? i[e[o][t]].push(e[o]) : ((n = []).push(e[o]), i[e[o][t]] = n));
+  }
+
+  return i;
+}, s.arrCompare = function (e, t, o) {
+  var n;
+  return void 0 === o && (o = 1), e = e.sort((n = t, function (e, t) {
+    return e[n] - t[n];
+  })), e = o ? e.reverse() : e;
+}, s.getRandomArrayElements = function (e, t) {
+  for (var o, n, i = e.slice(0), a = e.length, r = a - t; a-- > r;) {
+    o = i[n = Math.floor((a + 1) * Math.random())], i[n] = i[a], i[a] = o;
+  }
+
+  return i.slice(r);
+}, s.getDistance = function (e, t) {
+  return Math.sqrt(Math.pow(e.x - t.x, 2) + Math.pow(e.y - t.y, 2));
+}, s.getDistanceSqrt = function (e, t) {
+  return Math.pow(e.x - t.x, 2) + Math.pow(e.y - t.y, 2);
+}, s.add = function (e, t) {
+  var o = {
+    x: 0,
+    y: 0
+  };
+  return o.x = e.x + t.x, o.y = e.y + t.y, o;
+}, s.sub = function (e, t) {
+  var o = {
+    x: 0,
+    y: 0
+  };
+  return o.x = e.x - t.x, o.y = e.y - t.y, o;
+}, s.mul = function (e, t) {
+  var o = {
+    x: 0,
+    y: 0
+  };
+  return o.x = e.x * t, o.y = e.y * t, o;
+}, s.getMovePoint = function (e, t, o, n) {
+  t = t.sub(e).normalize(), n = e.add(t.mul(o * n));
+  return n.x = Math.floor(n.x), n.y = Math.floor(n.y), n;
+}, s.GetRandomNum = function (e, t, o) {
+  void 0 === o && (o = !0);
+  t -= e, t = e + Math.random() * t;
+  return t = o ? Math.round(t) : t;
+}, s.getRandomSDiff = function (e, t, o) {
+  if (t - e + 1 <= o) {
+    for (var n = [], i = e; i <= t; i++) {
+      n.push(i);
+    }
+
+    return n;
+  }
+
+  for (var a = [], r = t - e + 1, i = 0; i < r; i++) {
+    a[i] = e + i;
+  }
+
+  var s = [];
+
+  for (i = 0; i < o; i++) {
+    var c = this.GetRandomNum(0, r - 1 - i);
+    s[i] = a[c];
+    var l = a[r - 1 - i];
+    a[r - 1 - i] = a[c], a[c] = l;
+  }
+
+  return s;
+}, s.colorRGBtoHex = function (e) {
+  var t,
+      o,
+      n,
+      e = "string" == typeof e ? (t = e.split(","), o = parseInt(t[0].split("(")[1]), n = parseInt(t[1]), parseInt(t[2].split(")")[0])) : (o = e[0], n = e[1], e[2]);
+  return "#" + ((1 << 24) + (o << 16) + (n << 8) + e).toString(16).slice(1);
+}, s.hexToRgb = function (e) {
+  e = e.slice(0, "#" == e[0] ? 7 : 6);
+  e = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(e);
+  return e ? [parseInt(e[1], 16), parseInt(e[2], 16), parseInt(e[3], 16)] : null;
+}, s.getColorTotal = function (e) {
+  var t,
+      o = 0;
+
+  for (t in e) {
+    o += e[t];
+  }
+
+  return o;
+}, s.contrastColors = function (e, t, o) {
+  var n,
+      i = !0;
+
+  for (n in e) {
+    (e[n] > t[n] ? e[n] - t[n] > o : t[n] - e[n] > o) && (i = !1);
+  }
+
+  return i;
+}, s.getFileName = function (e) {
+  e = e.substr(e.lastIndexOf("/") + 1);
+  return {
+    name: e = e.substring(0, e.indexOf("."))
+  };
+}, s.setlocal = function (e, t) {
+  return e = n.cf.PFSET.name + "_" + e, cc.sys.localStorage.setItem(e, JSON.stringify("string" == typeof t ? {
+    str: t,
+    type: "str"
+  } : t)), t;
+}, s.getlocal = function (e, t) {
+  var o = n.cf.PFSET.name + "_" + e,
+      o = cc.sys.localStorage.getItem(o);
+  return null === o || "" === o ? !!t && (s.setlocal(e, t), t) : !!o && ("str" == (t = JSON.parse(o)).type ? t.str : t);
+}, s.audioPlay = function (o, n, i, a) {
+  var r = this;
+  void 0 === n && (n = "playEffect"), void 0 === i && (i = !1), void 0 === a && (a = 1);
+  var e = this.AudioClipArr[o];
+
+  if (!(1 != s.data.is_AudioOpen && 0 <= ["play", "playEffect"].indexOf(n))) {
+    if (this.AudioClipArr[o]) {
+      var t = this.audioArr[o + ""];
+
+      switch (n) {
+        case "stop":
+          t && cc.audioEngine.pause(t);
+          break;
+
+        case "resume":
+          t && cc.audioEngine.resume(t);
+          break;
+
+        case "play":
+          t = cc.audioEngine.play(e, i, a), this.audioArr[o] = t;
+          break;
+
+        case "playMusic":
+          t = cc.audioEngine.playMusic(e, i), this.audioArr[o] = t;
+          break;
+
+        case "playEffect":
+          t = cc.audioEngine["vivomin" == this.PF ? "play" : "playEffect"](e, !1, a);
+          break;
+
+        default:
+          if ("resume" == n && !t) return this.audioPlay(o, "play", i, a);
+          cc.audioEngine[n](t);
+      }
+
+      return a && cc.audioEngine.setVolume(t, a), t;
+    }
+
+    cc.resources.load("audio/" + o, cc.AudioClip, function (e, t) {
+      return e ? cc.log("加载音频失败：" + o) : (cc.log("加载音频成功"), r.AudioClipArr[o] = t, void r.audioPlay(o, n, i, a));
+    });
+  }
+}, s.downloadJson = function (e, t) {
+  var o = JSON.stringify(t),
+      t = document.createElement("a");
+  t.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(o)), t.setAttribute("download", e), document.createEvent ? ((e = document.createEvent("MouseEvents")).initEvent("click", !0, !0), t.dispatchEvent(e)) : t.click();
+}, s.cocosToWx = function (e, t) {
+  var o,
+      n = cc.v2(),
+      i = cc.v2();
+  e instanceof cc.Node ? (i = i.add(cc.v2(e.position.x, e.position.y)), t && (i = i.add(t)), o = e.parent.convertToWorldSpaceAR(i), n.x = o.x, n.y = o.y) : (t && (i = e.add(t)), n.x = i.x, n.y = i.y);
+  e = this.getRealDesignSize();
+  n.y = e.height - n.y;
+  t = wx.getSystemInfoSync(), i = t.screenWidth, t = t.screenHeight;
+  return cc.v2(i / e.width * n.x, t / e.height * n.y);
+}, s.getRealDesignSize = function () {
+  var e = Math.min(cc.view.getCanvasSize().width / 750, cc.view.getCanvasSize().height / 1334),
+      t = 750 * e,
+      e = 1334 * e,
+      t = cc.view.getCanvasSize().width / t,
+      e = cc.view.getCanvasSize().height / e;
+  return {
+    height: 1334 * e,
+    width: 750 * t,
+    radioHeight: e,
+    radioWidth: t
+  };
+}, s.cf = n.cf, s.PF = n.cf.PF, s.APPED = n.cf.APPED, s.PFSET = n.cf.PFSET, s.LANGUAGE = n.cf.LANGUAGE, s.data = {}, s.CONFIG_INFO = {
+  isNetwork: !1,
+  GM: 0,
+  "管理员开关": "  1：开;  0:关",
+  AITag: 0,
+  "AI tag开关": "  1：开;  0:关",
+  IscheckModel: [],
+  "国内ios审核时隐藏的模式": "[模式1，模式2]",
+  Announcement: "1、公司员工实行每周7日24小时工作制。\n2、每天早上9:00准时到老板办公室进行早会。\n3、为了消防安全着想，办公室严禁摆放私人物品。\n4、工作时间内，员工不得擅离工作岗位，不得从事与工作无关的行为。\n5、禁止于公司区域进行拍摄活动。\n6、以上守则，违者必究，开除处理！",
+  "公告文本": "文本内容",
+  courierTime: 30,
+  "模式2快递员CD": "单位秒",
+  MultiIncome: 0,
+  "彩蛋--三倍收益": "1:开；0:关",
+  m1_BonusCoin: [50, 50, 100, 30, 250, 20],
+  "彩蛋--模式1办公桌": "[金币数1,权重1，金币数2,权重2.......]",
+  m1_CatCoin: [1, 1],
+  expresskey: [521521, 666888, 996996, 888888, 123321, 233333],
+  "取货码": "[取货码1,取货码2,取货码3]",
+  expresspackage: ["Building1,251,1-Building1,253,1", "Building1,258,1-Building1,260,1", "RoleMan,10200,1", "Building1,252,1-Building1,254,1", "Building1,256,1-Building1,257,1", "Building1,259,1-Building1,258,1"],
+  hideSkin: [],
+  "快递内容": ["表1名,物品ID,物品数量-表2名,物品ID,物品数量"]
+}, s.getNewV2Pos = function (e) {
+  return cc.v2(e.x, e.y);
+}, s.mag = function (e) {
+  return Math.sqrt(e.x * e.x + e.y * e.y + e.z * e.z);
+}, s.angle = function (e) {
+  e = Math.atan2(e.y, e.x) / Math.PI * 180;
+  return Math.round(360 + e) % 360;
+}, s.getAngle = function (e, t) {
+  return Math.round(Math.atan2(e.y - t.y, e.x - t.x) * (180 / Math.PI) + 360) % 360;
+}, s.Get3DAngle = function () {}, s.Clamp = function (e, t, o) {
+  return e = o < (e = e < t ? t : e) ? o : e;
+}, s.audioArr = {}, s.AudioClipArr = {}, s);
+
+function s() {}
+
+o["default"] = e;
+
+cc._RF.pop();

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "howl03",
+    "texture": "6ce25819-60cf-4df9-b151-95e0de1af389",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      343,
+      346
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      343,
+      346
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

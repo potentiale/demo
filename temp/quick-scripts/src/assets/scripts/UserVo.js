@@ -1,0 +1,149 @@
+"use strict";
+cc._RF.push(module, 'e4e9d4n3UtBMrPpy0Fb/0G8', 'UserVo');
+// scripts/UserVo.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.UserVo = void 0;
+
+function n() {
+  this.shareRewardTimes = 0, this.HelpdevelopmentNum = 0, this.ModelVote = [];
+}
+
+function i() {
+  this.fish = 0, this.buildingInfo = null, this.guideId = 0, this.taskFinish = {}, this.day = 0, this.unlockSkin = [], this.m4_killNumMax = 0, this.m4_gameGuide = 0, this.skinSkill = {}, this.KuaiDiGui_Get = [], this.KuaiDiGui_Tips = [], this.dailyData = new n(), this.modelLockInfo = [{
+    lockNum: 0
+  }, {
+    lockNum: 3
+  }, {
+    lockNum: 0
+  }, {
+    lockNum: 3
+  }], this.useSkinData = [{
+    useClothes: 20100,
+    useHat: 2e4,
+    useWing: 20200
+  }, {
+    useClothes: 20100,
+    useHat: 2e4,
+    useWing: 20200
+  }], this.skinStateInfo = {};
+}
+
+var a = e("ListenID"),
+    r = e("Cfg"),
+    s = e("AppCommon"),
+    e = (Object.defineProperty(c, "fish", {
+  get: function get() {
+    return this.data.fish;
+  },
+  enumerable: !1,
+  configurable: !0
+}), Object.defineProperty(c, "guideId", {
+  get: function get() {
+    return this.data.guideId || 0;
+  },
+  set: function set(e) {
+    this.data.guideId = e;
+  },
+  enumerable: !1,
+  configurable: !0
+}), c.InitData = function () {
+  this.data = s["default"].getlocal("UserVo", new i()), s["default"].CONFIG_INFO.GM && console.log(JSON.stringify(this.data)), this.data = this.CheckNullData(this.data), this.data.modelLockInfo[2].lockNum = 0;
+  var e = new Date(Date.now()).getDate();
+  e != this.data.day && (this.data.day = e, this.data.dailyData = new n()), s["default"].MainView.node.emit(a.ListenID.Money_UpDate), this.SaveData();
+}, c.getModelStateInfo = function (e) {
+  return this.data.modelLockInfo[e];
+}, c.setModelStateInfo = function (e, t) {
+  this.data.modelLockInfo[e].lockNum += t, this.SaveData();
+}, c.SaveData = function () {
+  s["default"].setlocal("UserVo", this.data);
+}, c.CheckNullData = function (e) {
+  var t,
+      o = new i();
+
+  for (t in o) {
+    null != e[t] && null != e[t] || (e[t] = o[t]);
+  }
+
+  for (t in o.dailyData) {
+    null != e.dailyData[t] && null != e.dailyData[t] || (e.dailyData[t] = o.dailyData[t]);
+  }
+
+  for (t in o.modelLockInfo) {
+    null == e.modelLockInfo[t] && (e.modelLockInfo[t] = o.modelLockInfo[t]);
+  }
+
+  for (t in o.useSkinData) {
+    null == e.useSkinData[t] && (e.useSkinData[t] = o.useSkinData[t]);
+  }
+
+  for (t in o.skinStateInfo) {
+    null == e.skinStateInfo[t] && (e.skinStateInfo[t] = o.skinStateInfo[t]);
+  }
+
+  return this.data.buildingInfo || (this.data.buildingInfo = {}), this.data.useSkin || (this.useSkin = this.setSkin(10100)), this.data.useBossSkin || (this.useBossSkin = this.setBossSkin(2e4)), this.data.skinSkill[this.data.useSkin] || (this.data.skinSkill[this.data.useSkin] = r.Cfg.RoleMan.get(this.data.useSkin).skillID), this.data.skinSkill[this.data.useBossSkin] || (this.data.skinSkill[this.data.useBossSkin] = r.Cfg.RoleGhost.get(this.data.useBossSkin).skillID), e;
+}, Object.defineProperty(c, "shareRewardTimes", {
+  get: function get() {
+    return this.data.dailyData.shareRewardTimes || 0;
+  },
+  set: function set(e) {
+    this.data.dailyData.shareRewardTimes = e, this.SaveData();
+  },
+  enumerable: !1,
+  configurable: !0
+}), c.setSkin = function (e) {
+  return this.getSkin(e) || (this.data.unlockSkin.push(e), this.data.skinSkill[e] = r.Cfg.RoleMan.get(e).skillID, this.SaveData()), e;
+}, c.setBossSkin = function (e) {
+  return this.getSkin(e) || (this.data.unlockSkin.push(e), this.data.skinSkill[e] = r.Cfg.RoleGhost.get(e).skillID, this.SaveData()), e;
+}, c.getSkin = function (e) {
+  return 0 <= this.data.unlockSkin.indexOf(e);
+}, Object.defineProperty(c, "useSkin", {
+  get: function get() {
+    return this.data.useSkin;
+  },
+  set: function set(e) {
+    this.data.useSkin = e, this.SaveData();
+  },
+  enumerable: !1,
+  configurable: !0
+}), Object.defineProperty(c, "useBossSkin", {
+  get: function get() {
+    return this.data.useBossSkin;
+  },
+  set: function set(e) {
+    this.data.useBossSkin = e, this.SaveData();
+  },
+  enumerable: !1,
+  configurable: !0
+}), c.upSkillLv = function (e, t) {
+  var o = this.data.skinSkill[e].indexOf(t.id);
+  this.data.skinSkill[e][o] = t.lvInfo[1], this.SaveData();
+}, c.SetFish = function (e) {
+  return this.data.fish = Math.max(0, this.data.fish + e), s["default"].MainView.node.emit(a.ListenID.Money_UpDate), this.SaveData(), this.data.fish;
+}, c.getTaskInfo = function () {
+  return this.data.taskFinish || {};
+}, c.setTaskModeFinish = function (e) {
+  this.data.taskFinish || (this.data.taskFinish = {}), this.data.taskFinish[e] = 1, this.SaveData();
+}, c.getBuildingNumById = function (e) {
+  return this.data.buildingInfo[e] || 0;
+}, c.addBuildingNumById = function (e, t) {
+  return this.data.buildingInfo[e] || (this.data.buildingInfo[e] = 0), this.data.buildingInfo[e] += t, this.SaveData(), this.data.buildingInfo[e];
+}, c.setUnlockBySkinId = function (e) {
+  this.data.skinStateInfo[e] || (this.data.skinStateInfo[e] = {
+    isunlock: 0
+  }), this.data.skinStateInfo[e].isunlock = 1, this.SaveData();
+}, c.modelUnlockTime = 3, c.autoNotice = !0, c.autoFriendsTips = !0, c.guideInfoState = {}, c);
+
+function c() {}
+
+o.UserVo = e;
+
+cc._RF.pop();

@@ -1,0 +1,20 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "map01.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "1": {
+      "__uuid__": "38582da4-162f-4b09-902a-ad4f61fb3aac"
+    },
+    "blood_green": {
+      "__uuid__": "63a56db2-b86c-46d3-865d-7539a80de765"
+    },
+    "blood_red": {
+      "__uuid__": "3f66608c-c152-4b35-a91a-4c244bc1aca4"
+    },
+    "blood_bg": {
+      "__uuid__": "ae930089-3ef9-4fe8-a683-0972fb22dfa2"
+    }
+  }
+}

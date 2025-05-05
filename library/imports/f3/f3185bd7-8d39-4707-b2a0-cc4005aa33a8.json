@@ -1,0 +1,17 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "effect2",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_skeletonJson": null,
+  "_atlasText": "\neffect2.png\nsize: 126,73\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n1\n  rotate: false\n  xy: 77, 17\n  size: 47, 54\n  orig: 47, 54\n  offset: 0, 0\n  index: -1\n2\n  rotate: true\n  xy: 2, 2\n  size: 69, 73\n  orig: 73, 76\n  offset: 2, 2\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "26175797-35b7-459c-8021-0e698ef79ed8"
+    }
+  ],
+  "textureNames": [
+    "effect2.png"
+  ],
+  "scale": 1
+}

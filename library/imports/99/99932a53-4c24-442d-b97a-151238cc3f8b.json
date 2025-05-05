@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "loadingblood_k",
+    "texture": "b32a2ace-d2dd-4634-8f18-a99c25f858f8",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      516,
+      44
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      516,
+      44
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

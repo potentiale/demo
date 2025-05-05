@@ -1,0 +1,91 @@
+"use strict";
+cc._RF.push(module, '6ab1aHXEuRGubwVvu2klnRk', 'AStar');
+// scripts/AStar.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.aStar = void 0;
+
+var n,
+    t = (i.prototype.find_path = function (e, t, o, n) {
+  var d,
+      u = [],
+      f = [],
+      e = e,
+      h = t,
+      m = o,
+      y = n,
+      g = 0,
+      _ = 0;
+  return u.push([e[0], e[1], 0, Math.abs(h[0] - e[0]) + Math.abs(h[1] - e[1]), null]), function e(t) {
+    for (var o, n, i = 0, a = [{
+      x: o = (n = {
+        x: t[0],
+        y: t[1]
+      }).x,
+      y: (n = n.y) - 1
+    }, {
+      x: o + 1,
+      y: n
+    }, {
+      x: o,
+      y: n + 1
+    }, {
+      x: o - 1,
+      y: n
+    }], r = 0; r < a.length; r++) {
+      var s = a[r].x,
+          c = a[r].y;
+
+      if (s == t[0] || c == t[1] || !m[s] || !m[t[0]] || m[s][t[1]] == y || m[t[0]][c] == y) {
+        if (s == h[0] && c == h[1]) {
+          u.push([s, c, g, _, t]);
+
+          for (var l = [], p = t; l.unshift(p), (p = p[4]) && null != p[4];) {
+            ;
+          }
+
+          return l;
+        }
+
+        m[s] && m[s][c] && m[s][c] == y && -1 == S(u, [s, c]) && -1 == S(f, [s, c]) && (g = s == t[0] || c == t[1] ? t[2] + 1 : t[2] + 1.4, d = Math.sqrt((h[0] - s) * (h[0] - s) + (h[1] - c) * (h[1] - c)), _ = g + d, u.push([s, c, g, _, t]), i++);
+      }
+    }
+
+    return f.push(u.shift()), (n = u[0] && u[0][4] == t[4] && 0 == i ? v(u, t) : (C(u), u[0])) ? e(n) : [];
+  }(u[0]);
+}, i),
+    v = function v(e, t) {
+  void 0 === e && (e = null), void 0 === t && (t = null);
+
+  for (var o = 0; o < e.length; o++) {
+    if (t && e[o][4] == t[4]) return e[o];
+  }
+
+  return t[4] ? v(t[4]) : null;
+},
+    C = (n = function n(e, t) {
+  return e[3] - t[3];
+}, function (e) {
+  e.sort(n);
+}),
+    S = function S(e, t) {
+  for (var o = 0; o < e.length; o++) {
+    if (e[o][0] == t[0] && e[o][1] == t[1]) return o;
+  }
+
+  return -1;
+};
+
+function i() {}
+
+o.aStar = new t();
+
+cc._RF.pop();

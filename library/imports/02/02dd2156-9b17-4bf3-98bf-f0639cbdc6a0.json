@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "sheild01",
+    "texture": "4c72ec19-df07-44f7-b646-d5c2eadfafbd",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      134,
+      150
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      134,
+      150
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

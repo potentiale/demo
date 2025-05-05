@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "energy db",
+    "texture": "ad62040b-e1e2-4294-b97c-d3202b946d60",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      150,
+      36
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      150,
+      36
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "repair04",
+    "texture": "ddc47ec0-b359-468f-b0b0-c4671fa71630",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      82,
+      81
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      82,
+      81
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

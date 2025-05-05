@@ -1,0 +1,17 @@
+{
+  "__type__": "sp.SkeletonData",
+  "_name": "boss3",
+  "_objFlags": 0,
+  "_native": ".bin",
+  "_skeletonJson": null,
+  "_atlasText": "\nboss3.png\nsize: 218,142\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\nbody\n  rotate: true\n  xy: 2, 3\n  size: 56, 84\n  orig: 56, 84\n  offset: 0, 0\n  index: -1\nhand1a\n  rotate: true\n  xy: 146, 34\n  size: 23, 55\n  orig: 23, 55\n  offset: 0, 0\n  index: -1\nhand1b\n  rotate: true\n  xy: 88, 2\n  size: 24, 51\n  orig: 24, 51\n  offset: 0, 0\n  index: -1\nhand2a\n  rotate: true\n  xy: 88, 28\n  size: 29, 56\n  orig: 29, 56\n  offset: 0, 0\n  index: -1\nhand2b\n  rotate: true\n  xy: 146, 5\n  size: 27, 48\n  orig: 27, 48\n  offset: 0, 0\n  index: -1\nhead\n  rotate: true\n  xy: 97, 59\n  size: 81, 77\n  orig: 81, 77\n  offset: 0, 0\n  index: -1\nleg1a\n  rotate: true\n  xy: 176, 81\n  size: 19, 32\n  orig: 19, 32\n  offset: 0, 0\n  index: -1\nleg1b\n  rotate: false\n  xy: 198, 111\n  size: 18, 29\n  orig: 18, 29\n  offset: 0, 0\n  index: -1\nleg1c\n  rotate: false\n  xy: 176, 67\n  size: 30, 12\n  orig: 30, 12\n  offset: 0, 0\n  index: -1\nleg2a\n  rotate: false\n  xy: 176, 102\n  size: 20, 38\n  orig: 20, 38\n  offset: 0, 0\n  index: -1\nleg2b\n  rotate: false\n  xy: 196, 2\n  size: 14, 30\n  orig: 14, 30\n  offset: 0, 0\n  index: -1\npillow\n  rotate: true\n  xy: 2, 61\n  size: 79, 93\n  orig: 79, 93\n  offset: 0, 0\n  index: -1\n",
+  "textures": [
+    {
+      "__uuid__": "7a50028c-6ba3-4c9c-ad9f-7a8c88d8e8d9"
+    }
+  ],
+  "textureNames": [
+    "boss3.png"
+  ],
+  "scale": 1
+}

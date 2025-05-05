@@ -1,0 +1,16 @@
+"use strict";
+cc._RF.push(module, 'de2dciCJW1DWr28pqfDsxMX', 'CallID');
+// scripts/CallID.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.CallID = void 0, (o = o.CallID || (o.CallID = {}))[o._Start = 999] = "_Start", o[o.Setting_IsMuteMusic = 1e3] = "Setting_IsMuteMusic", o[o.Setting_IsMuteAudio = 1001] = "Setting_IsMuteAudio", o[o.Setting_IsMuteShake = 1002] = "Setting_IsMuteShake", o[o.Setting_GetRealDesignSize = 1003] = "Setting_GetRealDesignSize", o[o.Common_GetMainViewCurrencyPosition = 1004] = "Common_GetMainViewCurrencyPosition", o[o.Common_GetMainViewPowerPosition = 1005] = "Common_GetMainViewPowerPosition", o[o.ScreenCap_CanShareVideo = 1006] = "ScreenCap_CanShareVideo", o[o.Power_GetPowerCountTime = 1007] = "Power_GetPowerCountTime", o[o.ScreenCap_GetHandler = 1008] = "ScreenCap_GetHandler", o[o.Guide_isGuiding = 1009] = "Guide_isGuiding", o[o.Guide_GetGuideId = 1010] = "Guide_GetGuideId", o[o.Fight_GetMaxStageNum = 1011] = "Fight_GetMaxStageNum", o[o.Fight_GetMainRole = 1012] = "Fight_GetMainRole", o[o.Fight_GetGameResultInfo = 1013] = "Fight_GetGameResultInfo";
+
+cc._RF.pop();

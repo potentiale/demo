@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Paper base plate",
+    "texture": "6e5d68fd-4358-4ea1-970c-d534fba11c0e",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      654,
+      88
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      654,
+      88
+    ],
+    "capInsets": [
+      38,
+      45,
+      199,
+      21
+    ]
+  }
+}

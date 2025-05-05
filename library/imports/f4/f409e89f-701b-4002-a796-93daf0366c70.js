@@ -1,0 +1,113 @@
+"use strict";
+cc._RF.push(module, 'f409eifcBtAAqeWk9rwNmxw', 'pop_BuildingCreate');
+// scripts/pop_BuildingCreate.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    i = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+}),
+    a = void 0 && (void 0).__decorate || function (e, t, o, n) {
+  var i,
+      a = arguments.length,
+      r = a < 3 ? t : null === n ? n = Object.getOwnPropertyDescriptor(t, o) : n;
+  if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) r = Reflect.decorate(e, t, o, n);else for (var s = e.length - 1; 0 <= s; s--) {
+    (i = e[s]) && (r = (a < 3 ? i(r) : 3 < a ? i(t, o, r) : i(t, o)) || r);
+  }
+  return 3 < a && r && Object.defineProperty(t, o, r), r;
+};
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+});
+var r,
+    s = e("AppCommon"),
+    c = e("PlatformFun"),
+    l = e("Cfg"),
+    p = e("BuildingContentItem"),
+    d = e("pop"),
+    t = cc._decorator,
+    e = t.ccclass,
+    t = t.property,
+    e = (r = d["default"], i(u, r), u.prototype.start = function () {
+  this.initTapList();
+}, u.prototype.initTapList = function () {
+  var e,
+      i = this,
+      t = l.Cfg.List.getAll(),
+      o = [];
+
+  for (e in t) {
+    var n = t[e];
+    0 <= n.showModel.indexOf(s["default"].GScene._GameModel) && o.push(n);
+  }
+
+  var a = s["default"].classificationArray(o, "titile");
+  cc.resources.load("prefab/pop/BuildingTapItem", cc.Prefab, function (e, n) {
+    for (var t in a) {
+      !function (e) {
+        var t = a[e],
+            o = cc.instantiate(n);
+        o.setParent(i.tapList), o.children[0].getComponent(cc.Label).string = t[0].titleName, (i._tapList[e] = o).on(cc.Node.EventType.TOUCH_START, function () {
+          i.setTapState(t);
+        }, i);
+      }(t);
+    }
+
+    i.setTapState(a[1]);
+  }), this._shopList = s["default"].classificationArray(l.Cfg.Shop.getAll(), "itemID");
+}, u.prototype.setTapState = function (e) {
+  var t,
+      o = e[0].titile;
+
+  for (t in this._tapList) {
+    var n = this._tapList[t];
+    cc.tween(n).to(.1, {
+      color: cc.color(o == t ? cc.Color.WHITE : "#5B5B5B")
+    }).start(), n.children[0].opacity = o == t ? 255 : 140;
+  }
+
+  this.loadList(e);
+}, u.prototype.loadList = function (i) {
+  var a = this;
+  this.contentList.destroyAllChildren(), cc.resources.load("prefab/pop/BuildingContentItem", cc.Prefab, function (e, t) {
+    for (var o in i) {
+      var n = i[o],
+          o = cc.instantiate(t);
+      o.setParent(a.contentList);
+      o = o.getComponent(p["default"]);
+      o.type = "Create", o.init(l.Cfg.Building1.get(n.buildingID), !!a._shopList[n.buildingID]), o.onBuilding = function (e) {
+        s["default"].MapClr.newBuild(e, a.pdata, s["default"].GScene.player), c.PlatformFun.SendEvent(s["default"].GScene.getModeStr() + "build_" + e.buildingType), a.close();
+      };
+    }
+  });
+}, a([t(cc.Node)], u.prototype, "tapList", void 0), a([t(cc.Node)], u.prototype, "contentList", void 0), a([e], u));
+
+function u() {
+  var e = null !== r && r.apply(this, arguments) || this;
+  return e.tapList = null, e.contentList = null, e._tapList = {}, e._shopList = {}, e;
+}
+
+o["default"] = e;
+
+cc._RF.pop();

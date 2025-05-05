@@ -1,0 +1,76 @@
+
+jinengtishi.png
+size: 629,900
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 267, 328
+  size: 138, 129
+  orig: 138, 129
+  offset: 0, 0
+  index: -1
+10
+  rotate: true
+  xy: 2, 148
+  size: 750, 263
+  orig: 750, 265
+  offset: 0, 1
+  index: -1
+2
+  rotate: false
+  xy: 407, 212
+  size: 141, 124
+  orig: 141, 125
+  offset: 0, 1
+  index: -1
+3
+  rotate: true
+  xy: 273, 201
+  size: 125, 121
+  orig: 125, 121
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 513, 95
+  size: 114, 115
+  orig: 114, 115
+  offset: 0, 0
+  index: -1
+5
+  rotate: true
+  xy: 267, 459
+  size: 439, 353
+  orig: 439, 353
+  offset: 0, 0
+  index: -1
+6
+  rotate: false
+  xy: 407, 338
+  size: 192, 119
+  orig: 192, 119
+  offset: 0, 0
+  index: -1
+7
+  rotate: true
+  xy: 396, 185
+  size: 25, 26
+  orig: 25, 26
+  offset: 0, 0
+  index: -1
+8
+  rotate: false
+  xy: 2, 2
+  size: 509, 144
+  orig: 509, 144
+  offset: 0, 0
+  index: -1
+9
+  rotate: true
+  xy: 267, 158
+  size: 168, 4
+  orig: 168, 4
+  offset: 0, 0
+  index: -1

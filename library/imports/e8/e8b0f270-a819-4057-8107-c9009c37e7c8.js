@@ -1,0 +1,133 @@
+"use strict";
+cc._RF.push(module, 'e8b0fJwqBlAV4EHyQCcN+fI', 'ShopCfg');
+// scripts/ShopCfg.js
+
+"use strict";
+
+var e = require;
+var t = module;
+var o = exports;
+"use strict";
+
+var _n,
+    t = void 0 && (void 0).__extends || (_n = function n(e, t) {
+  return (_n = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (e, t) {
+    e.__proto__ = t;
+  } || function (e, t) {
+    for (var o in t) {
+      Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+    }
+  })(e, t);
+}, function (e, t) {
+  function o() {
+    this.constructor = e;
+  }
+
+  _n(e, t), e.prototype = null === t ? Object.create(t) : (o.prototype = t.prototype, new o());
+});
+
+Object.defineProperty(o, "__esModule", {
+  value: !0
+}), o.ShopCfgReader = void 0;
+var i,
+    t = (i = e("TConfig").TConfig, t(a, i), a);
+
+function a() {
+  var e = i.call(this) || this;
+  return e._name = "Shop", e.initByMap({
+    1: {
+      id: 1,
+      titile: 1,
+      titileName: "魔法",
+      itemID: 251,
+      type: 1,
+      price: 20
+    },
+    2: {
+      id: 2,
+      titile: 1,
+      titileName: "魔法",
+      itemID: 252,
+      type: 1,
+      price: 50
+    },
+    3: {
+      id: 3,
+      titile: 1,
+      titileName: "魔法",
+      itemID: 253,
+      type: 1,
+      price: 20
+    },
+    4: {
+      id: 4,
+      titile: 1,
+      titileName: "魔法",
+      itemID: 254,
+      type: 1,
+      price: 30
+    },
+    5: {
+      id: 5,
+      titile: 2,
+      titileName: "科技",
+      itemID: 255,
+      type: 1,
+      price: 30
+    },
+    6: {
+      id: 6,
+      titile: 2,
+      titileName: "科技",
+      itemID: 256,
+      type: 1,
+      price: 50
+    },
+    7: {
+      id: 7,
+      titile: 2,
+      titileName: "科技",
+      itemID: 257,
+      type: 2,
+      price: 1
+    },
+    8: {
+      id: 8,
+      titile: 2,
+      titileName: "科技",
+      itemID: 250,
+      type: 1,
+      price: 10
+    },
+    9: {
+      id: 9,
+      titile: 3,
+      titileName: "宝石",
+      itemID: 258,
+      type: 1,
+      price: 30
+    },
+    10: {
+      id: 10,
+      titile: 3,
+      titileName: "宝石",
+      itemID: 259,
+      type: 1,
+      price: 100
+    },
+    11: {
+      id: 11,
+      titile: 3,
+      titileName: "宝石",
+      itemID: 260,
+      type: 2,
+      price: 1
+    }
+  }), e;
+}
+
+o.ShopCfgReader = t;
+
+cc._RF.pop();

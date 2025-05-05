@@ -1,0 +1,7 @@
+{
+  "__type__": "cc.TextAsset",
+  "_name": "jinengtishi_a4800d7d-1786-47be-9e07-58737eb4c552",
+  "_objFlags": 0,
+  "_native": "",
+  "text": "\r\njinengtishi_a4800d7d-1786-47be-9e07-58737eb4c552.png\r\nsize: 629,900\r\nformat: RGBA8888\r\nfilter: Linear,Linear\r\nrepeat: none\r\n1\r\n  rotate: false\r\n  xy: 267, 328\r\n  size: 138, 129\r\n  orig: 138, 129\r\n  offset: 0, 0\r\n  index: -1\r\n10\r\n  rotate: true\r\n  xy: 2, 148\r\n  size: 750, 263\r\n  orig: 750, 265\r\n  offset: 0, 1\r\n  index: -1\r\n2\r\n  rotate: false\r\n  xy: 407, 212\r\n  size: 141, 124\r\n  orig: 141, 125\r\n  offset: 0, 1\r\n  index: -1\r\n3\r\n  rotate: true\r\n  xy: 273, 201\r\n  size: 125, 121\r\n  orig: 125, 121\r\n  offset: 0, 0\r\n  index: -1\r\n4\r\n  rotate: false\r\n  xy: 513, 95\r\n  size: 114, 115\r\n  orig: 114, 115\r\n  offset: 0, 0\r\n  index: -1\r\n5\r\n  rotate: true\r\n  xy: 267, 459\r\n  size: 439, 353\r\n  orig: 439, 353\r\n  offset: 0, 0\r\n  index: -1\r\n6\r\n  rotate: false\r\n  xy: 407, 338\r\n  size: 192, 119\r\n  orig: 192, 119\r\n  offset: 0, 0\r\n  index: -1\r\n7\r\n  rotate: true\r\n  xy: 396, 185\r\n  size: 25, 26\r\n  orig: 25, 26\r\n  offset: 0, 0\r\n  index: -1\r\n8\r\n  rotate: false\r\n  xy: 2, 2\r\n  size: 509, 144\r\n  orig: 509, 144\r\n  offset: 0, 0\r\n  index: -1\r\n9\r\n  rotate: true\r\n  xy: 267, 158\r\n  size: 168, 4\r\n  orig: 168, 4\r\n  offset: 0, 0\r\n  index: -1\r\n"
+}
